@@ -25,7 +25,7 @@ export default function ProjectsClient() {
     });
 
     return (
-        <div className="flex-1 w-full bg-neo-bg">
+        <div className="flex-1 w-full bg-neo-bg bg-grid">
             <section className="max-w-7xl mx-auto px-4 md:px-6 py-12 lg:py-20">
                 <div className="mb-16 flex flex-col lg:flex-row gap-8 lg:items-end justify-between relative">
                     <div>

@@ -26,7 +26,7 @@ export default function ResumePage() {
   const otherSkills = [...skills.data, ...skills.misc, ...skills.soft];
 
   return (
-    <div className="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 py-8 md:py-12">
+    <div className="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 py-8 md:py-12 bg-grid">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
 
         {/* Sidebar */}

@@ -9,7 +9,7 @@ export default function HomePage() {
   const featuredProjects = projects.slice(0, 4); // Show top 4 projects
 
   return (
-    <div className="flex-1 w-full">
+    <div className="flex-1 w-full bg-grid">
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-12 lg:py-20">
         <div className="grid lg:grid-cols-12 gap-6 items-stretch">

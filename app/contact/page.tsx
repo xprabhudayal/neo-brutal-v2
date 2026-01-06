@@ -8,7 +8,7 @@ export default function ContactPage() {
     const getSocialLink = (name: string) => contact.links.find(l => l.name === name)?.url || '#';
 
     return (
-        <div className="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 py-8 md:py-16">
+        <div className="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 py-8 md:py-16 bg-grid">
             <div className="mb-12">
                 <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none">
                     Get In <span className="text-primary underline decoration-4 decoration-black underline-offset-8">Touch</span>
