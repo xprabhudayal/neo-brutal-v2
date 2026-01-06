@@ -1,0 +1,11 @@
+$ next dev --turbopack
+   ▲ Next.js 15.3.6 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://10.46.13.243:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Compiled instrumentation Node.js in 11ms
+ ✓ Compiled instrumentation Edge in 16ms
+ ✓ Ready in 878ms
+error: script "dev" was terminated by signal SIGHUP (Terminal hung up)

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Alex Sterling - About</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "neo-bg": "#F4F4F4",
+                        "neo-card": "#FFFFFF",
+                        "neo-text": "#121212",
+                        "neo-border": "#000000",
+                        "primary": "#39FF14",  // New Accent Neon Green
+                        "primary-dark": "#4CFF00",
+                        "support": "#E0EFE0",  // New Support Color
+                        "support-dark": "#D4E5D4",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "mono": ["Space Mono", "monospace"],
+                    },
+                    boxShadow: {
+                        "neo": "6px 6px 0px 0px #000000",
+                        "neo-sm": "3px 3px 0px 0px #000000",
+                        "neo-hover": "2px 2px 0px 0px #000000",
+                    },
+                    borderWidth: {
+                        "3": "3px",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        html {
+            scroll-behavior: smooth;
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffffff;
+            border-left: 3px solid #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #39FF14;
+            border: 3px solid #000;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #000;
+        }
+        .neo-brutal-box {
+            @apply border-3 border-neo-border bg-neo-card shadow-neo transition-all duration-200;
+        }
+        .neo-brutal-box:hover {
+            @apply translate-x-[2px] translate-y-[2px] shadow-neo-hover;
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+        }
+        .pattern-dots {
+            background-image: radial-gradient(#000 1px, transparent 1px);
+            background-size: 10px 10px;
+        }
+    </style>
+</head>
+<body class="bg-neo-bg bg-grid font-display text-neo-text min-h-screen flex flex-col selection:bg-primary selection:text-black">
+<nav class="sticky top-0 z-50 w-full bg-white border-b-3 border-neo-border">
+<div class="max-w-7xl mx-auto px-4 md:px-6 w-full">
+<div class="flex items-center justify-between h-20">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="size-10 border-3 border-neo-border bg-primary flex items-center justify-center shadow-neo-sm group-hover:translate-x-[2px] group-hover:translate-y-[2px] group-hover:shadow-none transition-all">
+<span class="font-mono font-bold text-xl">AS</span>
+</div>
+<h2 class="text-2xl font-bold tracking-tighter uppercase hidden sm:block">Alex Sterling<span class="text-primary">_</span></h2>
+</div>
+<div class="hidden md:flex items-center gap-1">
+<a class="px-4 py-2 font-mono text-sm font-bold border-2 border-transparent hover:border-neo-border hover:bg-support transition-all uppercase tracking-tight" href="#">Work</a>
+<a class="px-4 py-2 font-mono text-sm font-bold bg-black text-white border-2 border-black hover:bg-primary hover:text-black transition-colors uppercase tracking-tight shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)]" href="#">About</a>
+<a class="px-4 py-2 font-mono text-sm font-bold border-2 border-transparent hover:border-neo-border hover:bg-support transition-all uppercase tracking-tight" href="#">Resume_v4.2</a>
+<a class="px-4 py-2 font-mono text-sm font-bold border-2 border-transparent hover:border-neo-border hover:bg-support transition-all uppercase tracking-tight" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden lg:flex items-center justify-center h-10 px-6 border-3 border-neo-border bg-white font-bold text-sm uppercase tracking-wide hover:bg-primary hover:shadow-neo transition-all active:translate-y-1 active:shadow-none">
+                        Let's Talk
+                    </button>
+<button class="md:hidden border-3 border-neo-border p-2 bg-white hover:bg-primary transition-colors">
+<span class="material-symbols-outlined font-bold">menu</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<div class="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 py-8 md:py-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+<aside class="hidden lg:block lg:col-span-3 sticky top-28">
+<div class="flex flex-col gap-6">
+<div class="border-3 border-neo-border bg-white p-6 shadow-neo">
+<div class="w-full aspect-square border-3 border-neo-border mb-4 overflow-hidden relative bg-support">
+<div class="absolute inset-0 flex items-center justify-center bg-support pattern-dots">
+<span class="material-symbols-outlined text-6xl opacity-20">person</span>
+</div>
+</div>
+<h1 class="font-bold text-xl uppercase leading-none mb-1">Alex Sterling</h1>
+<p class="font-mono text-xs text-gray-600 mb-4">Senior Software Engineer</p>
+<div class="flex gap-2 justify-center">
+<a class="flex-1 h-10 flex items-center justify-center border-2 border-neo-border bg-white hover:bg-black hover:text-white transition-colors group" href="#">
+<svg class="w-5 h-5 group-hover:fill-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+<a class="flex-1 h-10 flex items-center justify-center border-2 border-neo-border bg-white hover:bg-black hover:text-white transition-colors group" href="#">
+<svg class="w-5 h-5 group-hover:fill-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+</a>
+<a class="flex-1 h-10 flex items-center justify-center border-2 border-neo-border bg-white hover:bg-black hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</a>
+</div>
+</div>
+<nav class="border-3 border-neo-border bg-white p-0 shadow-neo flex flex-col">
+<div class="bg-black text-white p-3 border-b-3 border-neo-border">
+<h3 class="font-mono text-xs uppercase tracking-widest">About.exe</h3>
+</div>
+<a class="px-4 py-3 border-b-2 border-gray-100 hover:bg-primary hover:border-black hover:border-b-2 font-mono text-sm font-bold flex items-center gap-2 group transition-colors" href="#bio">
+<span class="material-symbols-outlined text-lg">face</span>
+<span>_BIO</span>
+</a>
+<a class="px-4 py-3 border-b-2 border-gray-100 hover:bg-primary hover:border-black hover:border-b-2 font-mono text-sm font-bold flex items-center gap-2 group transition-colors" href="#stack">
+<span class="material-symbols-outlined text-lg">layers</span>
+<span>_EXPERTISE</span>
+</a>
+<a class="px-4 py-3 hover:bg-primary hover:border-black font-mono text-sm font-bold flex items-center gap-2 group transition-colors" href="#offline">
+<span class="material-symbols-outlined text-lg">videogame_asset</span>
+<span>_OFFLINE</span>
+</a>
+</nav>
+</div>
+</aside>
+<main class="lg:col-span-9 flex flex-col gap-12">
+<section class="border-3 border-neo-border bg-white p-8 md:p-12 shadow-neo relative overflow-hidden" id="bio">
+<div class="absolute -right-10 -top-10 text-[180px] text-gray-100 font-black select-none pointer-events-none z-0">?</div>
+<div class="relative z-10">
+<div class="inline-block px-3 py-1 bg-primary border-2 border-black font-mono text-xs mb-6 uppercase tracking-widest font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            Status: Online
+                        </div>
+<h1 class="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-6">
+                            Constructing<br/>
+<span class="text-stroke-3 text-transparent bg-clip-text bg-black" style="-webkit-text-stroke: 2px black;">Digital Concrete</span>
+</h1>
+<div class="prose prose-lg max-w-3xl">
+<p class="font-mono text-lg md:text-xl leading-relaxed mb-6 border-l-4 border-black pl-6 bg-support p-4">
+                                I am Alex Sterling, a multidisciplinary engineer obsessed with structure, performance, and utilitarian aesthetics.
+                            </p>
+<p class="font-display font-medium text-lg text-gray-800 mb-4">
+                                My journey began not with a line of code, but with a question: <span class="bg-primary/40 px-1 font-bold">How can we make complexity feel simple?</span>
+</p>
+<p class="font-display text-gray-600 mb-0">
+                                Over the last 5 years, I’ve evolved from tweaking CSS in browser inspectors to architecting scalable systems for Fortune 500 companies. I don't just write software; I build digital environments that respect the user's time and intelligence.
+                            </p>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-6" id="stack">
+<div class="flex items-center gap-4">
+<div class="h-8 w-8 bg-black flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-lg">layers</span>
+</div>
+<h2 class="text-3xl font-black uppercase tracking-tight">Focus Areas</h2>
+<div class="h-1 flex-1 bg-black"></div>
+</div>
+<div class="border-3 border-neo-border bg-white shadow-neo">
+<div class="grid grid-cols-1 md:grid-cols-3 divide-y-3 md:divide-y-0 md:divide-x-3 divide-black">
+<div class="p-6 md:p-8 hover:bg-support transition-colors">
+<h4 class="font-mono font-bold text-black bg-primary inline-block px-2 border-2 border-black mb-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">01.</h4>
+<h3 class="text-xl font-bold uppercase mb-4 mt-2">Frontend Architecture</h3>
+<p class="text-sm font-medium text-gray-600 mb-4">Building resilient UI foundations that scale with the team.</p>
+<ul class="text-sm font-mono list-disc list-inside space-y-1 marker:text-primary">
+<li>Micro-frontends</li>
+<li>State Management</li>
+<li>Design Systems</li>
+</ul>
+</div>
+<div class="p-6 md:p-8 hover:bg-support transition-colors">
+<h4 class="font-mono font-bold text-black bg-primary inline-block px-2 border-2 border-black mb-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">02.</h4>
+<h3 class="text-xl font-bold uppercase mb-4 mt-2">DX Engineering</h3>
+<p class="text-sm font-medium text-gray-600 mb-4">Improving the tools and processes developers use daily.</p>
+<ul class="text-sm font-mono list-disc list-inside space-y-1 marker:text-primary">
+<li>CI/CD Pipelines</li>
+<li>Linting &amp; Formatting</li>
+<li>Documentation</li>
+</ul>
+</div>
+<div class="p-6 md:p-8 hover:bg-support transition-colors">
+<h4 class="font-mono font-bold text-black bg-primary inline-block px-2 border-2 border-black mb-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">03.</h4>
+<h3 class="text-xl font-bold uppercase mb-4 mt-2">Performance</h3>
+<p class="text-sm font-medium text-gray-600 mb-4">Optimizing the critical rendering path and interaction.</p>
+<ul class="text-sm font-mono list-disc list-inside space-y-1 marker:text-primary">
+<li>Core Web Vitals</li>
+<li>Bundle Analysis</li>
+<li>Server-Side Rendering</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-6" id="offline">
+<div class="flex items-center gap-4">
+<div class="h-8 w-8 bg-black flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-lg">videogame_asset</span>
+</div>
+<h2 class="text-3xl font-black uppercase tracking-tight">Offline Mode</h2>
+<div class="h-1 flex-1 bg-black"></div>
+</div>
+<div class="bg-white border-3 border-neo-border p-8 shadow-neo">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="flex flex-col gap-2 p-4 border-2 border-dashed border-gray-300 bg-support/30 hover:bg-support hover:border-black transition-all">
+<span class="font-mono text-xs font-bold uppercase text-gray-500">Current Read</span>
+<div class="font-bold text-lg leading-tight">The Pragmatic Programmer</div>
+<span class="text-xs bg-black text-white px-2 py-1 w-max">Andrew Hunt</span>
+</div>
+<div class="flex flex-col gap-2 p-4 border-2 border-dashed border-gray-300 bg-support/30 hover:bg-support hover:border-black transition-all">
+<span class="font-mono text-xs font-bold uppercase text-gray-500">Fuel Source</span>
+<div class="font-bold text-lg leading-tight">V60 Pour Over</div>
+<span class="text-xs bg-primary text-black border border-black px-2 py-1 w-max font-bold">Ethiopian Yirgacheffe</span>
+</div>
+<div class="flex flex-col gap-2 p-4 border-2 border-dashed border-gray-300 bg-support/30 hover:bg-support hover:border-black transition-all">
+<span class="font-mono text-xs font-bold uppercase text-gray-500">Mechanical Keyboard</span>
+<div class="font-bold text-lg leading-tight">Keychron Q1</div>
+<span class="text-xs bg-white border border-black text-black px-2 py-1 w-max">Gateron Black Ink</span>
+</div>
+<div class="flex flex-col gap-2 p-4 border-2 border-dashed border-gray-300 bg-support/30 hover:bg-support hover:border-black transition-all">
+<span class="font-mono text-xs font-bold uppercase text-gray-500">Location</span>
+<div class="font-bold text-lg leading-tight">San Francisco</div>
+<span class="text-xs bg-gray-200 border border-gray-400 text-black px-2 py-1 w-max">PST (UTC-8)</span>
+</div>
+</div>
+</div>
+</section>
+<section class="mt-8 bg-support border-3 border-neo-border p-10 text-center shadow-neo">
+<h2 class="text-3xl md:text-4xl font-black uppercase mb-4 tracking-tighter">Ready to build something robust?</h2>
+<p class="font-mono font-bold mb-8 max-w-xl mx-auto">I am currently open to new opportunities for Q3 2024. Let's discuss architecture, design systems, or the merits of tabs vs spaces.</p>
+<button class="bg-primary text-black px-8 py-4 font-bold text-lg uppercase tracking-widest border-2 border-black hover:bg-black hover:text-white hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+                        Initiate Contact
+                    </button>
+</section>
+</main>
+</div>
+</div>
+<footer class="mt-auto border-t-3 border-neo-border bg-white py-12">
+<div class="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-end gap-6">
+<div class="flex flex-col gap-4">
+<h2 class="text-4xl font-black uppercase tracking-tighter">Alex Sterling</h2>
+<p class="font-mono text-sm max-w-sm">
+                    Designed with raw data and pure functionality. No gradients were harmed in the making of this resume.
+                </p>
+<p class="font-mono text-xs text-gray-500">© 2024. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="flex gap-4">
+<a class="w-12 h-12 flex items-center justify-center border-3 border-black bg-white hover:bg-black hover:text-white transition-colors shadow-neo-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]" href="#">
+<span class="sr-only">LinkedIn</span>
+<svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path></svg>
+</a>
+<a class="w-12 h-12 flex items-center justify-center border-3 border-black bg-white hover:bg-primary hover:text-black transition-colors shadow-neo-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]" href="#">
+<span class="sr-only">Dribbble</span>
+<svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.47.477.965.694 1.453-.756 1.053-1.676 2.064-2.766 2.924-3.595-2.096-6.173-2.617-6.703-2.902zm2.14 7.697c.453.303 2.502 1.487 5.722 3.327-1.574.686-3.266.626-4.706-.153a8.563 8.563 0 01-1.016-3.174zM12 20.525c-1.31 0-2.54-.338-3.619-.92 3.292-1.921 5.372-5.462 5.632-6.52.883-.092 1.803-.095 2.748.005a8.535 8.535 0 01-4.761 7.435zm5.908-3.085c-1.096-.15-2.083-.178-2.978-.088.35-1.36.273-2.936-.058-4.326 2.548-.28 5.166.194 5.485.259a8.538 8.538 0 01-2.45 4.155z" fill-rule="evenodd"></path></svg>
+</a>
+<a class="w-12 h-12 flex items-center justify-center border-3 border-black bg-white hover:bg-black hover:text-white transition-colors shadow-neo-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]" href="#">
+<span class="sr-only">Email</span>
+<span class="material-symbols-outlined w-6 h-6">mail</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>
