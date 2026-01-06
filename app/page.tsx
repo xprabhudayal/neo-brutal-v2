@@ -42,14 +42,14 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-4 relative z-10">
                 <Link
                   href="/projects"
-                  className="px-8 py-4 bg-primary border-3 border-neo-border text-black font-bold text-lg uppercase tracking-wider hover:shadow-neo hover:-translate-y-1 transition-all flex items-center gap-2 group"
+                  className="px-8 py-4 bg-primary text-black font-bold text-lg uppercase tracking-wider btn-neo flex items-center gap-2 group"
                 >
                   View Selected Works
                   <ArrowDown className="w-6 h-6 group-hover:translate-y-1 transition-transform" />
                 </Link>
                 <Link
                   href="/about"
-                  className="px-8 py-4 bg-white border-3 border-neo-border text-black font-bold text-lg uppercase tracking-wider hover:bg-black hover:text-primary hover:shadow-neo hover:-translate-y-1 transition-all"
+                  className="px-8 py-4 bg-white text-black font-bold text-lg uppercase tracking-wider hover:bg-black hover:text-primary btn-neo transition-all"
                 >
                   About Me
                 </Link>

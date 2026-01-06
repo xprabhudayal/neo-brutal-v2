@@ -40,13 +40,13 @@ export default function ResumePage() {
               <p className="font-mono text-xs text-gray-600 mb-4">AI Engineer & Full Stack Dev</p>
 
               <div className="flex gap-2 justify-center">
-                <a href={getSocialLink('GitHub')} target="_blank" rel="noopener noreferrer" className="flex-1 h-10 flex items-center justify-center border-2 border-neo-border bg-white hover:bg-black hover:text-white transition-colors">
+                <a href={getSocialLink('GitHub')} target="_blank" rel="noopener noreferrer" className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo">
                   <Github className="w-5 h-5" />
                 </a>
-                <a href={getSocialLink('LinkedIn')} target="_blank" rel="noopener noreferrer" className="flex-1 h-10 flex items-center justify-center border-2 border-neo-border bg-white hover:bg-black hover:text-white transition-colors">
+                <a href={getSocialLink('LinkedIn')} target="_blank" rel="noopener noreferrer" className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo">
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href={`mailto:${contact.email}`} className="flex-1 h-10 flex items-center justify-center border-2 border-neo-border bg-white hover:bg-black hover:text-white transition-colors">
+                <a href={`mailto:${contact.email}`} className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo">
                   <Mail className="w-5 h-5" />
                 </a>
               </div>
@@ -71,7 +71,7 @@ export default function ResumePage() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-4 mt-2">
-                <button className="flex items-center gap-3 px-6 py-3 bg-primary border-3 border-neo-border font-bold uppercase tracking-wider hover:shadow-neo-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+                <button className="flex items-center gap-3 px-6 py-3 bg-primary font-bold uppercase tracking-wider btn-neo transition-all">
                   <Download className="w-5 h-5" />
                   Download PDF Resume
                 </button>

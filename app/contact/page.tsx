@@ -81,7 +81,7 @@ export default function ContactPage() {
                             href={getSocialLink('LinkedIn')}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block border-3 border-black p-5 bg-white hover:bg-primary hover:text-black transition-all hover:shadow-[2px_2px_0px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] group/card h-full"
+                            className="block p-5 bg-white hover:bg-primary hover:text-black btn-neo group/card h-full"
                         >
                             <div className="flex justify-between items-start mb-8">
                                 <Linkedin className="w-8 h-8" />
@@ -96,7 +96,7 @@ export default function ContactPage() {
                             href={getSocialLink('GitHub')}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block border-3 border-black p-5 bg-white hover:bg-primary hover:text-black transition-all hover:shadow-[2px_2px_0px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] group/card h-full"
+                            className="block p-5 bg-white hover:bg-primary hover:text-black btn-neo group/card h-full"
                         >
                             <div className="flex justify-between items-start mb-8">
                                 <Github className="w-8 h-8" />
@@ -111,7 +111,7 @@ export default function ContactPage() {
                             href={getSocialLink('X (Twitter)')}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block border-3 border-black p-5 bg-white hover:bg-primary hover:text-black transition-all hover:shadow-[2px_2px_0px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] group/card h-full"
+                            className="block p-5 bg-white hover:bg-primary hover:text-black btn-neo group/card h-full"
                         >
                             <div className="flex justify-between items-start mb-8">
                                 <Twitter className="w-8 h-8" />

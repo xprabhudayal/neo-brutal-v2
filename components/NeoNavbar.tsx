@@ -58,7 +58,7 @@ export default function NeoNavbar({ onOpenAI }: NeoNavbarProps) {
                     <div className="flex items-center gap-4">
                         <button
                             onClick={onOpenAI}
-                            className="hidden lg:flex items-center justify-center h-10 px-6 border-3 border-neo-border bg-primary text-black font-bold text-sm uppercase tracking-wide hover:bg-black hover:text-white hover:shadow-neo transition-all active:translate-y-1 active:shadow-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                            className="hidden lg:flex items-center justify-center h-10 px-6 bg-primary text-black font-bold text-sm uppercase tracking-wide hover:bg-black hover:text-white btn-neo"
                         >
                             Call my assistant
                         </button>
@@ -108,7 +108,7 @@ export default function NeoNavbar({ onOpenAI }: NeoNavbarProps) {
                             onOpenAI();
                             setIsMenuOpen(false);
                         }}
-                        className="w-full py-4 border-3 border-neo-border bg-primary text-black font-bold uppercase tracking-wide hover:bg-black hover:text-white transition-all shadow-neo-sm"
+                        className="w-full py-4 bg-primary text-black font-bold uppercase tracking-wide hover:bg-black hover:text-white btn-neo"
                     >
                         Call my assistant
                     </button>

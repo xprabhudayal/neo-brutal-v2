@@ -24,14 +24,17 @@
   ::-webkit-scrollbar {
     width: 12px;
   }
+
   ::-webkit-scrollbar-track {
     background: #ffffff;
     border-left: 3px solid #000;
   }
+
   ::-webkit-scrollbar-thumb {
     background: #39FF14;
     border: 3px solid #000;
   }
+
   ::-webkit-scrollbar-thumb:hover {
     background: #000;
   }
@@ -41,28 +44,50 @@
   .neo-brutal-box {
     @apply border-3 border-neo-border bg-neo-card shadow-neo transition-all duration-200;
   }
+
   .neo-brutal-box:hover {
     @apply translate-x-[2px] translate-y-[2px] shadow-neo-hover;
   }
+
   .bg-grid {
     background-size: 40px 40px;
     background-image:
-        linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   }
+
   .pattern-diagonal {
     background-image: repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 0, transparent 50%);
     background-size: 10px 10px;
   }
+
   .marquee-mask {
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   }
+
   .logo-grayscale {
     filter: grayscale(100%) opacity(0.5);
     transition: filter 0.3s ease, opacity 0.3s ease;
   }
+
   .logo-grayscale:hover {
     filter: grayscale(0%) opacity(1);
+  }
+
+  /* Standard Neo-Brutalist Button */
+  .btn-neo {
+    @apply border-3 border-neo-border transition-all duration-200;
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  }
+
+  .btn-neo:hover {
+    @apply translate-x-[2px] translate-y-[2px];
+    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+  }
+
+  .btn-neo:active {
+    @apply translate-x-[4px] translate-y-[4px];
+    box-shadow: none;
   }
 }

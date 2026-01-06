@@ -53,9 +53,9 @@ export default function ProjectsClient() {
                             <button
                                 key={cat}
                                 onClick={() => setFilter(cat as any)}
-                                className={`px-4 py-2 font-mono text-xs font-bold uppercase transition-colors border-2 ${filter === cat
-                                        ? 'bg-black text-white border-black hover:bg-primary hover:text-black'
-                                        : 'bg-white text-black border-transparent hover:border-black hover:bg-secondary'
+                                className={`px-4 py-2 font-mono text-xs font-bold uppercase btn-neo ${filter === cat
+                                    ? 'bg-black text-white hover:bg-primary hover:text-black'
+                                    : 'bg-white text-black hover:text-black hover:bg-secondary'
                                     }`}
                             >
                                 {cat}

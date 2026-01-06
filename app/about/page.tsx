@@ -30,7 +30,7 @@ export default function AboutPage() {
                                         href={link.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex-1 h-10 flex items-center justify-center border-2 border-neo-border bg-white hover:bg-black hover:text-white transition-colors group"
+                                        className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo group"
                                         title={link.name}
                                     >
                                         {link.name === "GitHub" && <Github className="w-5 h-5" />}
@@ -40,7 +40,7 @@ export default function AboutPage() {
                                 ))}
                                 <a
                                     href={`mailto:${contact.email}`}
-                                    className="flex-1 h-10 flex items-center justify-center border-2 border-neo-border bg-white hover:bg-black hover:text-white transition-colors"
+                                    className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo"
                                 >
                                     <Mail className="w-5 h-5" />
                                 </a>
@@ -183,7 +183,7 @@ export default function AboutPage() {
                         <p className="font-mono font-bold mb-8 max-w-xl mx-auto">I am currently open to new opportunities. Let's discuss architecture, agents, or the singularity.</p>
                         <Link
                             href="/contact"
-                            className="inline-block bg-primary text-black px-8 py-4 font-bold text-lg uppercase tracking-widest border-2 border-black hover:bg-black hover:text-white hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all"
+                            className="inline-block bg-primary text-black px-8 py-4 font-bold text-lg uppercase tracking-widest btn-neo hover:bg-black hover:text-white"
                         >
                             Initiate Contact
                         </Link>
