@@ -3,89 +3,160 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { RESUME_DATA } from '@/components/constants';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Terminal, Smartphone, ArrowRight, Play } from 'lucide-react';
 
 export default function ProjectsClient() {
-    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const [filter, setFilter] = useState<'All' | 'Full Stack' | 'AI' | 'Experimental'>('All');
+
+    // Simple keyword mapping for demo purposes. 
+    // In a real app, you'd probably add a 'category' field to RESUME_DATA.projects.
+    // For now, I'll filter based on tech stack or title keywords.
+    const filteredProjects = RESUME_DATA.projects.filter(project => {
+        if (filter === 'All') return true;
+
+        const tags = project.tech.map(t => t.toLowerCase());
+        const title = project.title.toLowerCase();
+
+        if (filter === 'Full Stack') return tags.some(t => t.includes('react') || t.includes('next') || t.includes('web'));
+        if (filter === 'AI') return tags.some(t => t.includes('ai') || t.includes('python') || t.includes('langgraph') || t.includes('gpt'));
+        if (filter === 'Experimental') return tags.some(t => t.includes('three') || t.includes('webgl') || t.includes('experimental'));
+
+        return true;
+    });
 
     return (
-        <div className="w-full min-h-screen bg-background pt-32 pb-20 px-4 sm:px-6 md:px-8 lg:px-16 text-foreground">
-
-            <div className="max-w-7xl mx-auto">
-                {/* Header */}
-                <div className="mb-16 border-b-4 border-border pb-8">
-                    <h1 className="text-7xl md:text-9xl font-black uppercase mb-4 tracking-tighter">
-                        WORK.
-                    </h1>
-                    <p className="text-xl font-mono text-muted-foreground max-w-2xl bg-primary text-primary-foreground inline-block px-2">
-                        AI ENG • FULL STACK • OPEN SOURCE
-                    </p>
+        <div className="flex-1 w-full bg-neo-bg">
+            <section className="max-w-7xl mx-auto px-4 md:px-6 py-12 lg:py-20">
+                <div className="mb-16 flex flex-col lg:flex-row gap-8 lg:items-end justify-between relative">
+                    <div>
+                        <div className="inline-block px-3 py-1 bg-black text-white border-2 border-black font-mono text-xs font-bold uppercase tracking-widest mb-4">
+                            Portfolio 2024
+                        </div>
+                        <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
+                            Selected<br />
+                            <span className="text-primary relative inline-block">
+                                Projects
+                                <svg className="absolute -bottom-2 w-full h-3 text-black" preserveAspectRatio="none" viewBox="0 0 100 10">
+                                    <path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" strokeWidth="3"></path>
+                                </svg>
+                            </span>
+                        </h1>
+                    </div>
+                    <div className="font-mono text-lg font-bold border-l-8 border-primary pl-6 max-w-xl py-2 bg-white/50 backdrop-blur-sm">
+                        <p>A curated collection of high-performance applications, engineering challenges, and digital experiments. Built with raw code and precision.</p>
+                    </div>
                 </div>
 
-                {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {RESUME_DATA.projects.map((project, index) => {
-                        const isLarge = index % 5 === 0 || index % 5 === 3;
-                        const colSpan = isLarge ? 'md:col-span-2' : 'md:col-span-1';
+                <div className="mb-10 flex flex-wrap gap-4 items-center justify-between border-y-3 border-neo-border py-4 bg-white">
+                    <div className="flex gap-2 px-4 overflow-x-auto pb-2 md:pb-0">
+                        {['All', 'Full Stack', 'AI'].map((cat) => (
+                            <button
+                                key={cat}
+                                onClick={() => setFilter(cat as any)}
+                                className={`px-4 py-2 font-mono text-xs font-bold uppercase transition-colors border-2 ${filter === cat
+                                        ? 'bg-black text-white border-black hover:bg-primary hover:text-black'
+                                        : 'bg-white text-black border-transparent hover:border-black hover:bg-secondary'
+                                    }`}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
+                    <div className="px-4 flex items-center gap-2 font-mono text-xs font-bold">
+                        <span className="w-3 h-3 bg-primary border-2 border-black rounded-full animate-pulse"></span>
+                        {filteredProjects.length} PROJECTS DEPLOYED
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 auto-rows-[minmax(350px,auto)]">
+                    {filteredProjects.map((project, index) => {
+                        // Creating a pseudo-random layout pattern based on index
+                        const isFeatured = index === 0; // First project is big feature
+                        const isVertical = index === 1; // Second is vertical card
+
+                        let colSpan = 'lg:col-span-3'; // Default
+                        let rowSpan = '';
+
+                        if (isFeatured) {
+                            colSpan = 'lg:col-span-4';
+                            rowSpan = 'lg:row-span-2';
+                        } else if (isVertical) {
+                            colSpan = 'lg:col-span-2';
+                            rowSpan = 'lg:row-span-2';
+                        }
 
                         return (
-                            <a
-                                key={project.title}
-                                href={project.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={`group relative ${colSpan} bg-card text-card-foreground border-2 border-border p-0 neo-shadow hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none transition-all duration-200 flex flex-col`}
-                                onMouseEnter={() => setHoveredIndex(index)}
-                                onMouseLeave={() => setHoveredIndex(null)}
-                            >
-                                {project.image ? (
-                                    <div className="relative w-full h-56 md:h-64 overflow-hidden border-b-2 border-border grayscale group-hover:grayscale-0 transition-all duration-500">
-                                        <Image
-                                            src={project.image}
-                                            alt={project.title}
-                                            fill
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                            className="object-cover"
-                                        />
-                                        <div className="absolute inset-0 bg-primary mix-blend-multiply opacity-20 group-hover:opacity-0 transition-all" />
-                                    </div>
-                                ) : (
-                                    <div className="h-56 w-full bg-muted border-b-2 border-border flex items-center justify-center">
-                                        <span className="font-black text-4xl text-muted-foreground uppercase rotate-[-10deg]">No Image</span>
+                            <article key={project.title} className={`${colSpan} ${rowSpan} neo-brutal-box flex flex-col group relative overflow-hidden`}>
+                                {isFeatured && (
+                                    <div className="absolute top-0 right-0 bg-primary border-l-3 border-b-3 border-black px-4 py-2 font-mono font-bold text-xs uppercase shadow-neo z-20">
+                                        Featured Case Study
                                     </div>
                                 )}
 
-                                <div className="p-6 flex flex-col h-full">
-                                    <div className="flex items-start justify-between gap-3 mb-4">
-                                        <h3 className="text-2xl font-black uppercase leading-none group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                                            {project.title}
-                                        </h3>
-                                        <div className="p-1 border-2 border-border bg-foreground text-background group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                                            <ArrowUpRight className="w-6 h-6" />
-                                        </div>
-                                    </div>
+                                <div className={`relative flex-1 min-h-[${isFeatured ? '300px' : '200px'}] border-b-3 border-neo-border overflow-hidden bg-gray-100`}>
+                                    {/* Placeholder pattern if no image */}
+                                    <div className="absolute inset-0 pattern-diagonal opacity-10"></div>
 
-                                    <div className="flex flex-wrap gap-2 mb-6">
-                                        {project.tech.map((tech) => (
-                                            <span key={tech} className="px-2 py-1 text-xs font-bold font-mono border border-border uppercase">
-                                                {tech}
-                                            </span>
+                                    {project.image ? (
+                                        <div className="w-full h-full relative group-hover:scale-105 transition-transform duration-500">
+                                            <Image
+                                                src={project.image}
+                                                alt={project.title}
+                                                fill
+                                                className="object-cover"
+                                            />
+                                            <div className="absolute inset-0 bg-primary mix-blend-multiply opacity-20 group-hover:opacity-0 transition-opacity" />
+                                        </div>
+                                    ) : (
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <Terminal className="w-20 h-20 text-gray-400 group-hover:text-primary transition-colors" />
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className="p-6 md:p-8 bg-white flex flex-col gap-4 relative z-10 flex-grow">
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.tech.slice(0, 3).map(t => (
+                                            <span key={t} className="px-2 py-1 bg-secondary border-2 border-black font-mono text-[10px] font-bold uppercase">{t}</span>
                                         ))}
                                     </div>
 
-                                    <p className="text-sm font-mono text-muted-foreground leading-relaxed mb-6 flex-grow">
+                                    <div className="flex justify-between items-start">
+                                        <h3 className={`font-black uppercase tracking-tight group-hover:text-primary transition-colors ${isFeatured ? 'text-3xl md:text-5xl' : 'text-2xl'}`}>
+                                            {project.title}
+                                        </h3>
+                                        {project.url && (
+                                            <a
+                                                href={project.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center justify-center w-10 h-10 border-3 border-black bg-white hover:bg-black hover:text-primary transition-colors rounded-full"
+                                            >
+                                                <ArrowUpRight className="font-bold w-5 h-5" />
+                                            </a>
+                                        )}
+                                    </div>
+
+                                    <p className="font-mono text-sm leading-relaxed text-gray-700 max-w-2xl">
                                         {project.description}
                                     </p>
 
-                                    <div className="mt-auto pt-4 border-t border-border border-dashed">
-                                        <span className="text-xs font-black uppercase text-muted-foreground">View Source</span>
-                                    </div>
+                                    {isVertical && (
+                                        <a
+                                            href={project.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="mt-auto w-full py-3 border-3 border-black bg-primary text-center font-bold uppercase text-sm hover:bg-black hover:text-white transition-all shadow-neo-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
+                                        >
+                                            View Project
+                                        </a>
+                                    )}
                                 </div>
-                            </a>
+                            </article>
                         );
                     })}
                 </div>
-            </div>
+            </section>
         </div>
     );
 }
