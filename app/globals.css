@@ -66,6 +66,10 @@
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   }
 
+  .group:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+
   .logo-grayscale {
     filter: grayscale(100%) opacity(0.5);
     transition: filter 0.3s ease, opacity 0.3s ease;
