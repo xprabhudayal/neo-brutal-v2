@@ -18,7 +18,7 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(200px,auto)]">
 
                 {/* Availability Card */}
-                <section className="col-span-12 md:col-span-7 lg:col-span-8 border-3 border-neo-border bg-white text-neo-text p-8 md:p-10 shadow-neo flex flex-col justify-between relative overflow-hidden group hover:shadow-neo-hover-lg hover:-translate-y-1 transition-all duration-300">
+                <section className="col-span-12 md:col-span-7 lg:col-span-8 border-3 border-neo-border bg-white text-neo-text p-8 md:p-10 shadow-neo flex flex-col justify-between relative overflow-hidden group hover:shadow-neo-hover-lg hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300">
                     <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
                         <Rocket className="w-32 h-32 text-black" />
                     </div>
@@ -41,7 +41,7 @@ export default function ContactPage() {
                 </section>
 
                 {/* Direct Contact Card */}
-                <section className="col-span-12 md:col-span-5 lg:col-span-4 border-3 border-neo-border bg-primary p-8 md:p-10 shadow-neo flex flex-col relative group hover:shadow-neo-hover-lg hover:-translate-y-1 transition-all duration-300">
+                <section className="col-span-12 md:col-span-5 lg:col-span-4 border-3 border-neo-border bg-primary p-8 md:p-10 shadow-neo flex flex-col relative group hover:shadow-neo-hover-lg hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300">
                     <div className="flex items-center justify-between mb-8">
                         <h2 className="text-2xl font-black uppercase tracking-tight">Direct<br />Contact</h2>
                         <div className="w-12 h-12 bg-black text-white flex items-center justify-center border-3 border-transparent group-hover:bg-white group-hover:text-black group-hover:border-black transition-all">
@@ -66,7 +66,7 @@ export default function ContactPage() {
                 </section>
 
                 {/* Social Grid Header */}
-                <section className="col-span-12 border-3 border-neo-border bg-secondary p-8 md:p-10 shadow-neo group hover:shadow-neo-hover-lg hover:-translate-y-1 transition-all duration-300">
+                <section className="col-span-12 border-3 border-neo-border bg-secondary p-8 md:p-10 shadow-neo group hover:shadow-neo-hover-lg hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 border-b-3 border-black pb-6">
                         <div className="flex items-center gap-4">
                             <Globe className="w-10 h-10 bg-black text-white p-2 border-2 border-black" />
@@ -81,7 +81,7 @@ export default function ContactPage() {
                             href={getSocialLink('LinkedIn')}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block border-3 border-black p-5 bg-white hover:bg-primary hover:text-black transition-all hover:shadow-[6px_6px_0px_0px_#000000] group/card h-full"
+                            className="block border-3 border-black p-5 bg-white hover:bg-primary hover:text-black transition-all hover:shadow-[2px_2px_0px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] group/card h-full"
                         >
                             <div className="flex justify-between items-start mb-8">
                                 <Linkedin className="w-8 h-8" />
@@ -96,7 +96,7 @@ export default function ContactPage() {
                             href={getSocialLink('GitHub')}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block border-3 border-black p-5 bg-white hover:bg-primary hover:text-black transition-all hover:shadow-[6px_6px_0px_0px_#000000] group/card h-full"
+                            className="block border-3 border-black p-5 bg-white hover:bg-primary hover:text-black transition-all hover:shadow-[2px_2px_0px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] group/card h-full"
                         >
                             <div className="flex justify-between items-start mb-8">
                                 <Github className="w-8 h-8" />
@@ -111,7 +111,7 @@ export default function ContactPage() {
                             href={getSocialLink('X (Twitter)')}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block border-3 border-black p-5 bg-white hover:bg-primary hover:text-black transition-all hover:shadow-[6px_6px_0px_0px_#000000] group/card h-full"
+                            className="block border-3 border-black p-5 bg-white hover:bg-primary hover:text-black transition-all hover:shadow-[2px_2px_0px_0px_#000000] hover:translate-x-[2px] hover:translate-y-[2px] group/card h-full"
                         >
                             <div className="flex justify-between items-start mb-8">
                                 <Twitter className="w-8 h-8" />
