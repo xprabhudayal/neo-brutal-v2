@@ -104,73 +104,82 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
   };
 
   const cleanup = useCallback(() => {
-    console.log('🧹 Cleaning up resources...');
+    console.log('🧹 Cleaning up resources (Graceful Shutdown)...');
 
-    // Stop all audio sources
+    // Phase 1: Stop New Data Flow (Stop Input)
+    if (mediaStreamRef.current) {
+      const stream = mediaStreamRef.current;
+      mediaStreamRef.current = null;
+      stream.getTracks().forEach(track => track.stop());
+      console.log('✅ Phase 1: Input stopped');
+    }
+
+    // Phase 2: Disconnect Processing Chain
+    if (scriptProcessorRef.current) {
+      const processor = scriptProcessorRef.current;
+      scriptProcessorRef.current = null;
+      try {
+        processor.disconnect();
+        console.log('✅ Phase 2: Processing disconnected');
+      } catch (e) {
+        console.warn('⚠️ Phase 2 Check:', e);
+      }
+    }
+
+    // Also disconnect AI audio reference
+    if (aiAudioDestinationRef.current) {
+      try {
+        aiAudioDestinationRef.current.disconnect();
+        aiAudioDestinationRef.current = null;
+      } catch (e) { }
+    }
+
+    // Phase 3: Clear Pending Operations
     audioSourcesRef.current.forEach(source => {
       try {
         source.stop();
-      } catch (e) {
-        // Already stopped
-      }
+        source.disconnect();
+      } catch (e) { }
     });
     audioSourcesRef.current.clear();
 
-    // Clear all transcription timers
     transcriptionTimersRef.current.forEach(timer => clearTimeout(timer));
     transcriptionTimersRef.current.clear();
 
-    // Clear message queue
     messageQueueRef.current.clear();
+    console.log('✅ Phase 3: Pending operations cleared');
 
-    // Disconnect audio processing BEFORE closing session
-    if (scriptProcessorRef.current) {
-      try {
-        scriptProcessorRef.current.disconnect();
-      } catch (e) {
-        // Already disconnected
-      }
-      scriptProcessorRef.current = null;
-    }
-
-    // Stop media stream BEFORE closing session
-    if (mediaStreamRef.current) {
-      mediaStreamRef.current.getTracks().forEach(track => track.stop());
-      mediaStreamRef.current = null;
-    }
-
-    // Close session
+    // Phase 4: Close Communications
     if (sessionRef.current) {
+      const session = sessionRef.current;
+      sessionRef.current = null;
       try {
-        sessionRef.current.close();
+        session.close();
       } catch (e) {
         console.error('Error closing session:', e);
       }
-      sessionRef.current = null;
+      console.log('✅ Phase 4: Session closed');
     }
 
-    // Close audio contexts LAST
+    // Phase 5: Release Resources (Contexts)
     if (inputAudioContextRef.current) {
       try {
         if (inputAudioContextRef.current.state !== 'closed') {
-          inputAudioContextRef.current.close();
+          inputAudioContextRef.current.close().catch(console.error);
         }
-      } catch (e) {
-        // Already closed
-      }
+      } catch (e) { }
       inputAudioContextRef.current = null;
     }
 
     if (outputAudioContextRef.current) {
       try {
         if (outputAudioContextRef.current.state !== 'closed') {
-          outputAudioContextRef.current.close();
+          outputAudioContextRef.current.close().catch(console.error);
         }
-      } catch (e) {
-        // Already closed
-      }
+      } catch (e) { }
       outputAudioContextRef.current = null;
     }
+    console.log('✅ Phase 5: Resources released');
   }, []);
 
   // Process a complete turn (wait for turnComplete)
@@ -352,8 +361,12 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
           break;
         }
       }
-    } catch (error) {
-      console.error('❌ Turn processing error:', error);
+    } catch (error: any) {
+      if (error?.message === 'Queue cleared') {
+        console.log('🏁 Turn processing stopped. (Queue cleared)');
+      } else {
+        console.error('❌ Turn processing error:', error);
+      }
     } finally {
       processingTurnRef.current = false;
     }
@@ -551,11 +564,25 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
             <h2 id="live-chat-title" className="text-xl font-bold uppercase tracking-tight text-neo-text font-mono">
               Voice Interface
             </h2>
-            <div className="flex items-center gap-2 mt-1">
-              <div className={`w-2 h-2 rounded-full ${status.includes('Connected') ? 'bg-primary animate-pulse' : 'bg-gray-400'}`} />
-              <p className="text-xs font-bold uppercase tracking-wider text-neo-text/70">
-                {status}
-              </p>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 mt-1">
+                <div className={`w-2 h-2 rounded-full ${status.includes('Connected') ? 'bg-primary animate-pulse' : 'bg-gray-400'}`} />
+                <p className="text-xs font-bold uppercase tracking-wider text-neo-text/70">
+                  {status}
+                </p>
+              </div>
+
+              {/* End Call Button */}
+              <button
+                onClick={() => {
+                  setStatus('Disconnecting...');
+                  onClose();
+                }}
+                className="px-3 py-1 bg-red-500 text-white text-xs font-bold uppercase tracking-wider border-2 border-neo-border shadow-neo-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none transition-all flex items-center gap-1"
+              >
+                <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
+                End Call
+              </button>
             </div>
           </div>
           <button
