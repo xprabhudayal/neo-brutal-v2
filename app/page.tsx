@@ -3,8 +3,6 @@
 import Link from 'next/link';
 import { ArrowDown, FolderOpen, Mail, Code2, Terminal, GitBranch, Search, Zap } from 'lucide-react';
 import { RESUME_DATA } from "@/components/constants";
-import TiltCard from '@/components/TiltCard';
-import ScrambleText from '@/components/ScrambleText';
 
 export default function HomePage() {
   const { name, summary, workExperience, projects, achievements } = RESUME_DATA;
@@ -18,47 +16,45 @@ export default function HomePage() {
 
           {/* Main Hero Card */}
           <div className="lg:col-span-8 flex flex-col gap-6">
-            <TiltCard className="h-full">
-              <div className="border-3 border-neo-border bg-white p-8 md:p-16 shadow-neo relative overflow-hidden h-full flex flex-col justify-center min-h-[500px]">
-                {/* Background Decoration */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-secondary rounded-full blur-3xl -mr-20 -mt-20 opacity-50"></div>
+            <div className="border-3 border-neo-border bg-white p-8 md:p-16 shadow-neo relative overflow-hidden h-full flex flex-col justify-center min-h-[500px]">
+              {/* Background Decoration */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-secondary rounded-full blur-3xl -mr-20 -mt-20 opacity-50"></div>
 
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="inline-block px-3 py-1 bg-black text-primary border-2 border-black font-mono text-xs font-bold uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(39,255,20,1)]">
-                    Available for Hire
-                  </div>
-                  <div className="h-0.5 flex-1 bg-gray-200"></div>
+              <div className="flex items-center gap-4 mb-8">
+                <div className="inline-block px-3 py-1 bg-black text-primary border-2 border-black font-mono text-xs font-bold uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(39,255,20,1)]">
+                  Available for Hire
                 </div>
-
-                <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-8 relative z-10">
-                  Build<br />
-                  <span className="text-primary relative inline-block text-shadow-outline">
-                    <ScrambleText text="DIFFERENT" autoStart={true} />
-                  </span><br />
-                  Scale Hard
-                </h1>
-
-                <p className="text-xl md:text-2xl font-bold font-mono max-w-2xl leading-relaxed border-l-8 border-primary pl-6 mb-10 text-gray-800">
-                  I am a top 1% Software Engineer crafting high-performance, unapologetic digital experiences. No fluff, just raw code.
-                </p>
-
-                <div className="flex flex-wrap gap-4 relative z-10">
-                  <Link
-                    href="/projects"
-                    className="px-8 py-4 bg-primary text-black font-bold text-lg uppercase tracking-wider btn-neo flex items-center gap-2 group"
-                  >
-                    View Selected Works
-                    <ArrowDown className="w-6 h-6 group-hover:translate-y-1 transition-transform" />
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="px-8 py-4 bg-white text-black font-bold text-lg uppercase tracking-wider hover:bg-black hover:text-primary btn-neo transition-all"
-                  >
-                    About Me
-                  </Link>
-                </div>
+                <div className="h-0.5 flex-1 bg-gray-200"></div>
               </div>
-            </TiltCard>
+
+              <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-8 relative z-10">
+                Build<br />
+                <span className="text-primary relative inline-block text-shadow-outline">
+                  DIFFERENT
+                </span><br />
+                Scale Hard
+              </h1>
+
+              <p className="text-xl md:text-2xl font-bold font-mono max-w-2xl leading-relaxed border-l-8 border-primary pl-6 mb-10 text-gray-800">
+                I am a top 1% Software Engineer crafting high-performance, unapologetic digital experiences. No fluff, just raw code.
+              </p>
+
+              <div className="flex flex-wrap gap-4 relative z-10">
+                <Link
+                  href="/projects"
+                  className="px-8 py-4 bg-primary text-black font-bold text-lg uppercase tracking-wider btn-neo flex items-center gap-2 group"
+                >
+                  View Selected Works
+                  <ArrowDown className="w-6 h-6 group-hover:translate-y-1 transition-transform" />
+                </Link>
+                <Link
+                  href="/about"
+                  className="px-8 py-4 bg-white text-black font-bold text-lg uppercase tracking-wider hover:bg-black hover:text-primary btn-neo transition-all"
+                >
+                  About Me
+                </Link>
+              </div>
+            </div>
           </div>
 
           {/* Right Column Grid */}
@@ -99,30 +95,30 @@ export default function HomePage() {
       </section>
 
       {/* Marquee Section */}
-      <section className="py-16 bg-transparent relative overflow-hidden border-y-3 border-neo-border bg-white">
+      <section className="py-16 bg-transparent relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 marquee-mask relative z-10 w-full overflow-hidden">
           <div className="flex w-max animate-marquee group">
             {/* Repeat content to ensure seamless loop */}
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex items-center gap-20 px-10">
                 {/* Tech Stack Icons - Simulating the ones from the HTML but using Lucide/Text for now or simplified */}
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black uppercase text-gray-300 hover:text-black transition-colors cursor-default">
-                  NEXT.JS
+                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black text-gray-300 hover:text-black transition-colors cursor-default">
+                  Next.js
                 </div>
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black uppercase text-gray-300 hover:text-black transition-colors cursor-default">
-                  REACT
+                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black text-gray-300 hover:text-black transition-colors cursor-default">
+                  ReactJS
                 </div>
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black uppercase text-gray-300 hover:text-black transition-colors cursor-default">
-                  TYPESCRIPT
+                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black text-gray-300 hover:text-black transition-colors cursor-default">
+                  TypeScript
                 </div>
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black uppercase text-gray-300 hover:text-black transition-colors cursor-default">
-                  PYTHON
+                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black text-gray-300 hover:text-black transition-colors cursor-default">
+                  Python
                 </div>
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black uppercase text-gray-300 hover:text-black transition-colors cursor-default">
-                  LANGGRAPH
+                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black text-gray-300 hover:text-black transition-colors cursor-default">
+                  LangGraph
                 </div>
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black uppercase text-gray-300 hover:text-black transition-colors cursor-default">
-                  SUPABASE
+                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black text-gray-300 hover:text-black transition-colors cursor-default">
+                  Supabase
                 </div>
               </div>
             ))}
@@ -139,7 +135,7 @@ export default function HomePage() {
             <div>
               <div className="flex justify-between items-start mb-6">
                 <h2 className="text-4xl font-black uppercase tracking-tighter">Selected<br />Works</h2>
-                <FolderOpen className="w-12 h-12 text-primary drop-shadow-[2px_2px_0px_rgba(0,0,0,1)]" />
+                <FolderOpen className="w-12 h-12 text-primary" />
               </div>
               <p className="font-mono text-gray-600 mb-8 max-w-sm">
                 Curated selection of high-impact projects. From enterprise SaaS to experimental web art.

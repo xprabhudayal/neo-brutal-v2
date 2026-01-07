@@ -66,10 +66,6 @@
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   }
 
-  .group:hover .animate-marquee {
-    animation-play-state: paused;
-  }
-
   .logo-grayscale {
     filter: grayscale(100%) opacity(0.5);
     transition: filter 0.3s ease, opacity 0.3s ease;
@@ -87,7 +83,7 @@
 
   .btn-neo:hover {
     @apply translate-x-[2px] translate-y-[2px];
-    box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+    box-shadow: none;
   }
 
   .btn-neo:active {

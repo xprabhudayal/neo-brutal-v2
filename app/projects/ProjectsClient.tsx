@@ -30,7 +30,7 @@ export default function ProjectsClient() {
                 <div className="mb-16 flex flex-col lg:flex-row gap-8 lg:items-end justify-between relative">
                     <div>
                         <div className="inline-block px-3 py-1 bg-black text-white border-2 border-black font-mono text-xs font-bold uppercase tracking-widest mb-4">
-                            Portfolio 2024
+                            Portfolio 2026
                         </div>
                         <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
                             Selected<br />

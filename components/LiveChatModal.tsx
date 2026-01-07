@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { SYSTEM_INSTRUCTION } from './constants';
 import { X as XIcon, Mic as MicIcon, Volume2 as Volume2Icon } from 'lucide-react';
 import { AsyncQueue } from '../utils/AsyncQueue';
+import { LiveWaveform } from './ui/live-waveform';
 
 // Audio utility functions
 function encode(bytes: Uint8Array): string {
@@ -66,7 +67,9 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
   const messageQueueRef = useRef<AsyncQueue<any>>(new AsyncQueue<any>());
   const inputAudioContextRef = useRef<AudioContext | null>(null);
   const outputAudioContextRef = useRef<AudioContext | null>(null);
+  const aiAudioDestinationRef = useRef<MediaStreamAudioDestinationNode | null>(null);
   const mediaStreamRef = useRef<MediaStream | null>(null);
+  const [mediaStream, setMediaStream] = useState<MediaStream | null>(null);
   const scriptProcessorRef = useRef<ScriptProcessorNode | null>(null);
   const nextStartTimeRef = useRef<number>(0);
   const audioSourcesRef = useRef<Set<AudioBufferSourceNode>>(new Set());
@@ -196,6 +199,12 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
             const source = audioCtx.createBufferSource();
             source.buffer = audioBuffer;
             source.connect(audioCtx.destination);
+
+            // Also connect to the visualization stream if available
+            if (aiAudioDestinationRef.current) {
+              source.connect(aiAudioDestinationRef.current);
+            }
+
             source.start(nextStartTimeRef.current);
 
             nextStartTimeRef.current += audioBuffer.duration;
@@ -248,6 +257,7 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
         }
 
         mediaStreamRef.current = stream;
+        setMediaStream(stream);
 
         setStatus('Connecting to AI...');
 
@@ -265,6 +275,10 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
 
         inputAudioContextRef.current = inputAudioContext;
         outputAudioContextRef.current = outputAudioContext;
+
+        // Create destination for AI audio visualization
+        const aiDestination = outputAudioContext.createMediaStreamDestination();
+        aiAudioDestinationRef.current = aiDestination;
 
         // Dynamically import geminiService to avoid SSR issues
         const { startLiveConversation } = await import('../services/geminiService');
@@ -396,61 +410,85 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
 
   return (
     <div
-      className="fixed inset-0 bg-[#030014]/90 backdrop-blur-2xl z-50 flex items-center justify-center"
+      className="fixed inset-0 bg-white/10 backdrop-blur-sm z-50 flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="live-chat-title"
     >
-      {/* Background glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-sky-500/10 via-indigo-500/10 to-violet-500/10 rounded-full blur-[100px]" />
-      </div>
-
       <div
         ref={modalRef}
-        className="relative bg-white/[0.02] border border-white/[0.08] rounded-3xl w-full max-w-2xl h-[80vh] flex flex-col p-6 shadow-[0_20px_60px_rgba(0,0,0,0.5)] backdrop-blur-xl"
+        className="relative bg-neo-card border-3 border-neo-border rounded-none w-full max-w-lg flex flex-col shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden"
       >
-        <div className="flex justify-between items-center mb-6 pb-4 border-b border-white/[0.05]">
+        {/* Header */}
+        <div className="flex justify-between items-center p-5 border-b-3 border-neo-border bg-secondary">
           <div>
-            <h2 id="live-chat-title" className="text-xl font-semibold text-white">Live Conversation</h2>
-            <p className="text-sm text-white/40 mt-1">AI-powered voice chat</p>
+            <h2 id="live-chat-title" className="text-xl font-bold uppercase tracking-tight text-neo-text font-mono">
+              Voice Interface
+            </h2>
+            <div className="flex items-center gap-2 mt-1">
+              <div className={`w-2 h-2 rounded-full ${status.includes('Connected') ? 'bg-primary animate-pulse' : 'bg-gray-400'}`} />
+              <p className="text-xs font-bold uppercase tracking-wider text-neo-text/70">
+                {status}
+              </p>
+            </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sky-500/50"
+            className="p-2 border-2 border-transparent hover:border-neo-border hover:bg-white transition-all duration-200 group"
             aria-label="Close chat"
           >
-            <XIcon className="w-5 h-5 text-white/70" />
+            <XIcon className="w-6 h-6 text-neo-text group-hover:scale-110 transition-transform" />
           </button>
         </div>
 
-        <div className="flex-grow overflow-y-auto pr-2 space-y-4">
-          {transcriptions.map((t, i) => (
-            <div key={i} className={`flex items-start gap-3 ${t.speaker === 'user' ? 'justify-end' : ''}`}>
-              {t.speaker === 'model' && (
-                <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500/20 to-violet-500/20 border border-white/10 flex items-center justify-center">
-                  <Volume2Icon className="w-4 h-4 text-indigo-400" />
-                </div>
-              )}
-              <div
-                className={`px-4 py-3 rounded-2xl max-w-md text-sm ${t.speaker === 'user'
-                  ? 'bg-gradient-to-r from-sky-500/20 to-indigo-500/20 border border-sky-500/20 text-white'
-                  : 'bg-white/5 border border-white/10 text-white/80'
-                  } ${t.isFinal ? '' : 'opacity-60'}`}
-              >
-                {t.text}
-              </div>
-              {t.speaker === 'user' && (
-                <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500/20 to-indigo-500/20 border border-white/10 flex items-center justify-center">
-                  <MicIcon className="w-4 h-4 text-sky-400" />
-                </div>
-              )}
-            </div>
-          ))}
+        {/* Main Visualizer Area */}
+        <div className="flex-grow flex flex-col items-center justify-center py-12 min-h-[300px] bg-neo-bg relative overflow-hidden">
+
+          {/* Grid Background */}
+          <div className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: 'radial-gradient(#000 1px, transparent 1px)',
+              backgroundSize: '20px 20px'
+            }}
+          />
+
+          {/* Live Waveform Visualizer */}
+          <div className="relative z-10 w-full h-64 flex items-center justify-center px-12">
+            <LiveWaveform
+              active={
+                (transcriptions.length > 0 && transcriptions[transcriptions.length - 1].speaker === 'model' && !transcriptions[transcriptions.length - 1].isFinal) ||
+                status.includes('talking') ||
+                status.includes('Connected')
+              }
+              processing={status.includes('Connecting')}
+              mediaStream={
+                (transcriptions.length > 0 && transcriptions[transcriptions.length - 1].speaker === 'model' && !transcriptions[transcriptions.length - 1].isFinal) || status === 'AI Speaking'
+                  ? aiAudioDestinationRef.current?.stream || null
+                  : mediaStream
+              }
+              barColor="#39FF14"
+              barWidth={4}
+              barGap={2}
+              height={120}
+              className="w-full text-primary"
+            />
+          </div>
         </div>
 
-        <div className="pt-4 mt-4 text-center border-t border-white/[0.05]">
-          <p className="text-sm text-white/40">{status}</p>
+        {/* Dynamic Transcription Area */}
+        <div className="p-6 bg-white border-t-3 border-neo-border min-h-[140px] flex flex-col justify-center text-center relative">
+          {transcriptions.length > 0 ? (
+            <div className="space-y-2">
+              <p className="font-mono text-xs font-bold text-neo-text/50 uppercase tracking-widest mb-2">
+                {transcriptions[transcriptions.length - 1].speaker === 'user' ? 'You said' : 'Assistant says'}
+              </p>
+              <p className="text-lg font-bold text-neo-text leading-tight md:text-xl transition-all duration-300">
+                "{transcriptions[transcriptions.length - 1].text}"
+              </p>
+            </div>
+          ) : (
+            <p className="text-neo-text/40 font-mono text-sm">Waiting for conversation to start...</p>
+          )}
         </div>
       </div>
     </div>

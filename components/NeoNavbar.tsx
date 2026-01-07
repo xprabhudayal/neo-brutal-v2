@@ -18,8 +18,8 @@ export default function NeoNavbar({ onOpenAI }: NeoNavbarProps) {
 
                     {/* Logo Section */}
                     <Link href="/" className="flex items-center gap-4 group cursor-pointer">
-                        <div className="w-14 h-14 border-3 border-neo-border bg-primary flex items-center justify-center shadow-neo-sm group-hover:translate-x-[2px] group-hover:translate-y-[2px] group-hover:shadow-none transition-all">
-                            <span className="font-mono font-black text-2xl text-black leading-none">PDV</span>
+                        <div className="w-14 h-10 border-3 border-neo-border bg-primary flex items-center justify-center shadow-neo-sm group-hover:translate-x-[2px] group-hover:translate-y-[2px] group-hover:shadow-none transition-all">
+                            <span className="font-mono font-bold text-xl text-black">PDV</span>
                         </div>
                         <h2 className="text-2xl font-bold tracking-tighter uppercase hidden sm:block text-black">
                             Prabhudayal<span className="text-primary">_</span>
@@ -58,7 +58,7 @@ export default function NeoNavbar({ onOpenAI }: NeoNavbarProps) {
                     <div className="flex items-center gap-4">
                         <button
                             onClick={onOpenAI}
-                            className="hidden lg:flex items-center justify-center h-10 px-6 bg-primary text-black font-bold text-sm uppercase tracking-wide hover:bg-black hover:text-white btn-neo"
+                            className="hidden lg:flex items-center justify-center h-10 px-6 bg-primary text-black font-bold text-sm uppercase tracking-wide btn-neo"
                         >
                             Call my assistant
                         </button>

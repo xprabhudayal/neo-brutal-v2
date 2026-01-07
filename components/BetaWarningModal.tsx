@@ -66,9 +66,7 @@ export default function BetaWarningModal({ onClose, onStart }: BetaWarningModalP
                     <button
                         onClick={handleStart}
                         className={`
-                            h-14 flex items-center justify-center gap-3 px-6 font-black text-base border-2 border-border transition-all duration-200 uppercase tracking-wide
-                            bg-primary text-primary-foreground neo-shadow 
-                            hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none
+                            h-14 flex items-center justify-center gap-3 px-6 font-black text-base border-2 border-border transition-all duration-200 uppercase tracking-wide btn-neo bg-primary
                             ${isBlinkingStart ? 'animate-blink' : ''}
                         `}
                     >
@@ -80,9 +78,7 @@ export default function BetaWarningModal({ onClose, onStart }: BetaWarningModalP
                     <button
                         onClick={handleLinks}
                         className={`
-                            h-14 flex items-center justify-center gap-3 px-6 font-black text-base border-2 border-border transition-all duration-200 uppercase tracking-wide
-                            bg-background text-foreground neo-shadow 
-                            hover:bg-muted hover:translate-x-[4px] hover:translate-y-[4px] hover:shadow-none
+                            h-14 flex items-center justify-center gap-3 px-6 font-black text-base border-2 border-border transition-all duration-200 uppercase tracking-wide btn-neo
                             ${isBlinkingLinks ? 'animate-blink' : ''}
                         `}
                     >
