@@ -57,7 +57,20 @@ async function decodeAudioData(
   return buffer;
 }
 
-type Transcription = { speaker: 'user' | 'model'; text: string; isFinal: boolean };
+type WordTiming = {
+  word: string;
+  startTime: number;
+  endTime: number;
+};
+
+type Transcription = {
+  speaker: 'user' | 'model';
+  text: string;
+  isFinal: boolean;
+  fullText?: string;
+  displayedText?: string;
+  words?: WordTiming[];
+};
 
 export default function LiveChatModal({ onClose }: { onClose: () => void }) {
   const [status, setStatus] = useState('Initializing...');
@@ -75,6 +88,20 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
   const audioSourcesRef = useRef<Set<AudioBufferSourceNode>>(new Set());
   const isInitializingRef = useRef<boolean>(false);
   const processingTurnRef = useRef<boolean>(false);
+  const transcriptionTimersRef = useRef<Set<NodeJS.Timeout>>(new Set());
+
+  // Helper to estimate word timings based on audio duration
+  const estimateWordTimings = (text: string, audioStartTime: number, audioDuration: number): WordTiming[] => {
+    const words = text.split(' ');
+    // Simple estimation: distribute time evenly across words
+    const timePerWord = audioDuration / Math.max(1, words.length);
+
+    return words.map((word, i) => ({
+      word,
+      startTime: audioStartTime + (i * timePerWord),
+      endTime: audioStartTime + ((i + 1) * timePerWord)
+    }));
+  };
 
   const cleanup = useCallback(() => {
     console.log('🧹 Cleaning up resources...');
@@ -88,6 +115,10 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
       }
     });
     audioSourcesRef.current.clear();
+
+    // Clear all transcription timers
+    transcriptionTimersRef.current.forEach(timer => clearTimeout(timer));
+    transcriptionTimersRef.current.clear();
 
     // Clear message queue
     messageQueueRef.current.clear();
@@ -153,38 +184,10 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
       while (true) {
         const message = await messageQueueRef.current.get();
 
-        // Handle transcriptions
-        if (message.serverContent?.inputTranscription) {
-          const { text, isFinal } = message.serverContent.inputTranscription;
-          console.log(`📝 User: "${text}" (final: ${isFinal})`);
+        // 1. Handle Audio FIRST to establish timing
+        let audioDuration = 0;
+        let currentAudioStartTime = nextStartTimeRef.current;
 
-          setTranscriptions(prev => {
-            const last = prev[prev.length - 1];
-            if (last?.speaker === 'user' && !last.isFinal) {
-              const updated = [...prev];
-              updated[updated.length - 1] = { speaker: 'user', text, isFinal };
-              return updated;
-            }
-            return [...prev, { speaker: 'user', text, isFinal }];
-          });
-        }
-
-        if (message.serverContent?.outputTranscription) {
-          const { text, isFinal } = message.serverContent.outputTranscription;
-          console.log(`🤖 Model: "${text}" (final: ${isFinal})`);
-
-          setTranscriptions(prev => {
-            const last = prev[prev.length - 1];
-            if (last?.speaker === 'model' && !last.isFinal) {
-              const updated = [...prev];
-              updated[updated.length - 1] = { speaker: 'model', text, isFinal };
-              return updated;
-            }
-            return [...prev, { speaker: 'model', text, isFinal }];
-          });
-        }
-
-        // Handle audio
         const audioData = message.serverContent?.modelTurn?.parts?.[0]?.inlineData?.data;
         if (audioData && outputAudioContextRef.current) {
           try {
@@ -195,7 +198,12 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
               nextStartTimeRef.current = currentTime + 0.1;
             }
 
+            // Capture accurate start time for this chunk
+            currentAudioStartTime = nextStartTimeRef.current;
+
             const audioBuffer = await decodeAudioData(decode(audioData), audioCtx, 24000, 1);
+            audioDuration = audioBuffer.duration;
+
             const source = audioCtx.createBufferSource();
             source.buffer = audioBuffer;
             source.connect(audioCtx.destination);
@@ -214,10 +222,128 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
               audioSourcesRef.current.delete(source);
             };
 
-            console.log(`🔊 Scheduled audio: ${audioBuffer.duration.toFixed(2)}s at ${nextStartTimeRef.current.toFixed(2)}s`);
+            console.log(`🔊 Scheduled audio: ${audioBuffer.duration.toFixed(2)}s at ${currentAudioStartTime.toFixed(2)}s`);
           } catch (error) {
             console.error('❌ Audio playback error:', error);
           }
+        }
+
+        // 2. Handle Model Transcription with Sync
+        if (message.serverContent?.outputTranscription) {
+          const { text, isFinal } = message.serverContent.outputTranscription;
+          const audioCtx = outputAudioContextRef.current;
+
+          if (audioCtx && audioDuration > 0) {
+            // We have audio timing, so syncing is possible
+            const wordTimings = estimateWordTimings(text, currentAudioStartTime, audioDuration);
+
+            // Initialize transcription with empty displayed text but full data
+            setTranscriptions(prev => {
+              const last = prev[prev.length - 1];
+              // If we're appending to an existing non-final model message
+              if (last?.speaker === 'model' && !last.isFinal) {
+                const updated = [...prev];
+                // Combine with previous words if appending? 
+                // Note: typically chunks are separate, but let's just push new entry for simplicity relative to audio chunk
+                // Or better: update the last one if it's the same turn.
+                // For simplicity in this sync approach, we'll treat each chunk's text as a new segment to sync
+                // But typically UI wants one continuous block. 
+                // Let's just push a new state update that knows the full text eventually.
+
+                // Correction: The API sends `outputTranscription` for the audio chunk. 
+                // We should append to the displayed text only when the timer fires.
+
+                // Let's just track the whole thing as a new entry for now to ensure sync works, 
+                // OR better: Append to previous if mostly contiguous.
+
+                // Actually, `estimateWordTimings` relies on the *current* audio chunk duration matching the *current* text chunk.
+                // If they come together, they match.
+
+                // We'll append a new transcription entry for each chunk to keep logic simple and robust
+                // merging visually is handled by the UI if needed, or we just let it flow.
+                return [...prev, {
+                  speaker: 'model',
+                  text, // Keeps raw text reference
+                  fullText: text,
+                  displayedText: '', // Start hidden
+                  words: wordTimings,
+                  isFinal
+                }
+                ];
+              }
+
+              return [...prev, {
+                speaker: 'model',
+                text,
+                fullText: text,
+                displayedText: '',
+                words: wordTimings,
+                isFinal
+              }];
+            });
+
+            // Schedule word reveals
+            wordTimings.forEach((wordTiming) => {
+              // Calculate delay relative to NOW
+              const delay = (wordTiming.startTime - audioCtx.currentTime) * 1000;
+
+              const timer = setTimeout(() => {
+                setTranscriptions(prev => {
+                  const updated = [...prev];
+                  // Find the last model message (which corresponds to this chunk roughly)
+                  // Ideally we'd use IDs, but here we assume FIFO processing matches order
+                  const lastIndex = updated.map(t => t.speaker).lastIndexOf('model');
+
+                  if (lastIndex !== -1) {
+                    const current = updated[lastIndex];
+                    if (current.words) { // Check if it's one of our synced ones
+                      // Reveal words that should be shown by now
+                      // Actually, we can just append this word to displayedText
+                      const currentDisplayed = current.displayedText || '';
+                      updated[lastIndex] = {
+                        ...current,
+                        displayedText: currentDisplayed ? `${currentDisplayed} ${wordTiming.word}` : wordTiming.word
+                      };
+                    }
+                  }
+                  return updated;
+                });
+                // Remove self from set
+                transcriptionTimersRef.current.delete(timer);
+              }, Math.max(0, delay));
+
+              transcriptionTimersRef.current.add(timer);
+            });
+
+          } else {
+            // Fallback if no audio context or audio data (e.g. text-only response?)
+            // Just show immediately
+            setTranscriptions(prev => {
+              const last = prev[prev.length - 1];
+              if (last?.speaker === 'model' && !last.isFinal) {
+                const updated = [...prev];
+                updated[updated.length - 1] = { speaker: 'model', text, isFinal, displayedText: text };
+                return updated;
+              }
+              return [...prev, { speaker: 'model', text, isFinal, displayedText: text }];
+            });
+          }
+        }
+
+        // 3. Handle User Transcription (Immediate)
+        if (message.serverContent?.inputTranscription) {
+          const { text, isFinal } = message.serverContent.inputTranscription;
+          console.log(`📝 User: "${text}" (final: ${isFinal})`);
+
+          setTranscriptions(prev => {
+            const last = prev[prev.length - 1];
+            if (last?.speaker === 'user' && !last.isFinal) {
+              const updated = [...prev];
+              updated[updated.length - 1] = { speaker: 'user', text, isFinal, displayedText: text }; // User text is immediate
+              return updated;
+            }
+            return [...prev, { speaker: 'user', text, isFinal, displayedText: text }];
+          });
         }
 
         // Check for turn completion
@@ -483,7 +609,7 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
                 {transcriptions[transcriptions.length - 1].speaker === 'user' ? 'You said' : 'Assistant says'}
               </p>
               <p className="text-lg font-bold text-neo-text leading-tight md:text-xl transition-all duration-300">
-                "{transcriptions[transcriptions.length - 1].text}"
+                "{transcriptions[transcriptions.length - 1].displayedText !== undefined ? transcriptions[transcriptions.length - 1].displayedText : transcriptions[transcriptions.length - 1].text}"
               </p>
             </div>
           ) : (
