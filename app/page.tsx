@@ -103,6 +103,10 @@ export default function HomePage() {
 
       {/* Marquee Section */}
       <section className="py-16 bg-transparent relative overflow-hidden">
+        {/* Technologies Header */}
+        <div className="text-center mb-8">
+          <h3 className="text-sm font-bold tracking-widest uppercase text-gray-500">The Arsenal</h3>
+        </div>
         <div className="max-w-7xl mx-auto px-4 marquee-mask relative z-10 w-full overflow-hidden">
           <div className="flex w-max animate-marquee group">
             {/* Repeat content to ensure seamless loop */}
