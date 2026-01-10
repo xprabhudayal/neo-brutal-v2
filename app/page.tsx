@@ -101,34 +101,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Marquee Section */}
-      <section className="py-16 bg-transparent relative overflow-hidden">
+      {/* Marquee Section - Hazard Tape Style */}
+      <section className="py-0 bg-primary border-y-[3px] border-black relative overflow-hidden">
         {/* Technologies Header */}
-        <div className="text-center mb-8">
-          <h3 className="text-sm font-bold tracking-widest uppercase text-gray-500">The Arsenal</h3>
+        <div className="text-center py-2 border-b-[3px] border-black">
+          <h3 className="text-sm font-bold tracking-widest uppercase text-black">The Arsenal</h3>
         </div>
-        <div className="max-w-7xl mx-auto px-4 marquee-mask relative z-10 w-full overflow-hidden">
-          <div className="flex w-max animate-marquee group">
+        <div className="w-full overflow-hidden py-6">
+          <div className="flex w-max animate-marquee">
             {/* Repeat content to ensure seamless loop */}
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex items-center gap-20 px-10">
-                {/* Tech Stack Icons - Simulating the ones from the HTML but using Lucide/Text for now or simplified */}
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black hover:text-black transition-colors cursor-default" style={{ color: 'transparent', WebkitTextStroke: '2px black' }}>
+                <div className="md:text-4xl text-2xl font-black text-black uppercase tracking-tight">
                   Next.js
                 </div>
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black hover:text-black transition-colors cursor-default" style={{ color: 'transparent', WebkitTextStroke: '2px black' }}>
+                <div className="md:text-4xl text-2xl font-black text-black uppercase tracking-tight">
                   ReactJS
                 </div>
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black hover:text-black transition-colors cursor-default" style={{ color: 'transparent', WebkitTextStroke: '2px black' }}>
+                <div className="md:text-4xl text-2xl font-black text-black uppercase tracking-tight">
                   TypeScript
                 </div>
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black hover:text-black transition-colors cursor-default" style={{ color: 'transparent', WebkitTextStroke: '2px black' }}>
+                <div className="md:text-4xl text-2xl font-black text-black uppercase tracking-tight">
                   Python
                 </div>
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black hover:text-black transition-colors cursor-default" style={{ color: 'transparent', WebkitTextStroke: '2px black' }}>
+                <div className="md:text-4xl text-2xl font-black text-black uppercase tracking-tight">
                   LangGraph
                 </div>
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black hover:text-black transition-colors cursor-default" style={{ color: 'transparent', WebkitTextStroke: '2px black' }}>
+                <div className="md:text-4xl text-2xl font-black text-black uppercase tracking-tight">
                   Supabase
                 </div>
               </div>
