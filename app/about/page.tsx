@@ -22,29 +22,6 @@ export default function AboutPage() {
                             </div>
                             <h1 className="font-bold text-xl uppercase leading-none mb-1">{name}</h1>
                             <p className="font-mono text-xs text-gray-600 mb-4">AI Engineer & Full Stack</p>
-
-                            <div className="flex gap-2 justify-center">
-                                {contact.links.map((link) => (
-                                    <a
-                                        key={link.name}
-                                        href={link.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo group"
-                                        title={link.name}
-                                    >
-                                        {link.name === "GitHub" && <Github className="w-5 h-5" />}
-                                        {link.name === "LinkedIn" && <Linkedin className="w-5 h-5" />}
-                                        {link.name === "X (Twitter)" && <Twitter className="w-5 h-5" />}
-                                    </a>
-                                ))}
-                                <a
-                                    href={`mailto:${contact.email}`}
-                                    className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo"
-                                >
-                                    <Mail className="w-5 h-5" />
-                                </a>
-                            </div>
                         </div>
 
                         <nav className="border-3 border-neo-border bg-white p-0 shadow-neo flex flex-col">
@@ -77,8 +54,7 @@ export default function AboutPage() {
                                 Status: Online
                             </div>
                             <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-6">
-                                Constructing<br />
-                                <span className="text-stroke-3 text-transparent bg-clip-text bg-black" style={{ WebkitTextStroke: "2px black" }}>Intelligent Systems</span>
+                                Hello 🤝 <span className="bg-black terminal-invert">World</span>
                             </h1>
                             <div className="prose prose-lg max-w-3xl">
                                 <p className="font-mono text-lg md:text-xl leading-relaxed mb-6 border-l-4 border-black pl-6 bg-secondary p-4">
@@ -87,6 +63,7 @@ export default function AboutPage() {
                                 <p className="font-display font-medium text-lg text-gray-800 mb-4 whitespace-pre-wrap">
                                     {summary}
                                 </p>
+                                <hr className="my-6" />
                                 <p className="font-display text-gray-600 mb-0">
                                     I don't just write software; I build digital environments that respect the user's intelligence and solve complex problems with elegant, robust code.
                                 </p>

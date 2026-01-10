@@ -34,11 +34,8 @@ export default function ProjectsClient() {
                         </div>
                         <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
                             Selected<br />
-                            <span className="text-primary relative inline-block">
+                            <span className="text-primary relative inline-block terminal-invert">
                                 Projects
-                                <svg className="absolute -bottom-2 w-full h-3 text-black" preserveAspectRatio="none" viewBox="0 0 100 10">
-                                    <path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" strokeWidth="3"></path>
-                                </svg>
                             </span>
                         </h1>
                     </div>

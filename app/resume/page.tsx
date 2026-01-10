@@ -31,24 +31,42 @@ export default function ResumePage() {
 
         {/* Sidebar */}
         <aside className="hidden lg:block lg:col-span-3 sticky top-28">
-          <div className="flex flex-col gap-6">
-            <div className="border-3 border-neo-border bg-white p-6 shadow-neo">
-              <div className="w-full aspect-square border-3 border-neo-border mb-4 overflow-hidden relative bg-gray-100 flex items-center justify-center">
-                <User className="w-24 h-24 text-gray-400" />
+          <div className="flex items-center gap-4">
+            <div className="h-8 w-8 bg-black flex items-center justify-center text-white">
+              <Code2 className="w-4 h-4" />
+            </div>
+            <h2 className="text-3xl font-black uppercase tracking-tight">Technical Stack</h2>
+            <div className="h-1 flex-1 bg-black"></div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="border-3 border-neo-border bg-white shadow-neo group hover:shadow-neo-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+              <div className="bg-support border-b-3 border-neo-border p-3">
+                <h3 className="font-mono font-bold uppercase text-sm flex justify-between items-center text-black">
+                  <span>// Core Technologies</span>
+                  <span className="bg-black text-white px-1 text-xs">[01]</span>
+                </h3>
               </div>
-              <h1 className="font-bold text-xl uppercase leading-none mb-1">{RESUME_DATA.name}</h1>
-              <p className="font-mono text-xs text-gray-600 mb-4">AI Engineer & Full Stack Dev</p>
-
-              <div className="flex gap-2 justify-center">
-                <a href={getSocialLink('GitHub')} target="_blank" rel="noopener noreferrer" className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo">
-                  <Github className="w-5 h-5" />
-                </a>
-                <a href={getSocialLink('LinkedIn')} target="_blank" rel="noopener noreferrer" className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo">
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a href={`mailto:${contact.email}`} className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo">
-                  <Mail className="w-5 h-5" />
-                </a>
+              <div className="p-6 flex flex-wrap gap-2">
+                {coreSkills.map((skill) => (
+                  <span key={skill} className="px-3 py-1 border-2 border-black bg-white hover:bg-black hover:text-white font-bold text-sm transition-colors cursor-default">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="border-3 border-neo-border bg-white shadow-neo group hover:shadow-neo-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+              <div className="bg-black text-white border-b-3 border-neo-border p-3">
+                <h3 className="font-mono font-bold uppercase text-sm flex justify-between items-center">
+                  <span>// Tools & Others</span>
+                  <span className="bg-primary text-black px-1 text-xs">[02]</span>
+                </h3>
+              </div>
+              <div className="p-6 flex flex-wrap gap-2">
+                {otherSkills.map((skill) => (
+                  <span key={skill} className="px-3 py-1 border-2 border-black bg-white hover:bg-primary font-bold text-sm transition-colors cursor-default">
+                    {skill}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -66,7 +84,7 @@ export default function ResumePage() {
                 <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9] mb-4">
                   {RESUME_DATA.name.split(' ')[0]}<br />{RESUME_DATA.name.split(' ')[1]}
                 </h1>
-                <p className="text-xl md:text-2xl font-medium max-w-2xl leading-relaxed border-l-4 border-primary pl-4">
+                <p className="text-xl max-w-2xl text-gray-500 leading-relaxed border-l-4 border-primary pl-4">
                   {RESUME_DATA.summary}
                 </p>
               </div>
@@ -77,7 +95,7 @@ export default function ResumePage() {
                 </button>
                 <div className="flex items-center gap-2 px-4 py-3 border-3 border-neo-border bg-white font-mono text-sm">
                   <span className="w-3 h-3 bg-primary rounded-full animate-pulse"></span>
-                  Bangalore, India
+                  India
                 </div>
               </div>
             </div>
@@ -85,45 +103,7 @@ export default function ResumePage() {
 
           {/* Skills Section */}
           <section className="flex flex-col gap-6" id="skills">
-            <div className="flex items-center gap-4">
-              <div className="h-8 w-8 bg-black flex items-center justify-center text-white">
-                <Code2 className="w-4 h-4" />
-              </div>
-              <h2 className="text-3xl font-black uppercase tracking-tight">Technical Stack</h2>
-              <div className="h-1 flex-1 bg-black"></div>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-3 border-neo-border bg-white shadow-neo group hover:shadow-neo-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
-                <div className="bg-support border-b-3 border-neo-border p-3">
-                  <h3 className="font-mono font-bold uppercase text-sm flex justify-between items-center text-black">
-                    <span>// Core Technologies</span>
-                    <span className="bg-black text-white px-1 text-xs">[01]</span>
-                  </h3>
-                </div>
-                <div className="p-6 flex flex-wrap gap-2">
-                  {coreSkills.map((skill) => (
-                    <span key={skill} className="px-3 py-1 border-2 border-black bg-white hover:bg-black hover:text-white font-bold text-sm transition-colors cursor-default">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <div className="border-3 border-neo-border bg-white shadow-neo group hover:shadow-neo-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
-                <div className="bg-black text-white border-b-3 border-neo-border p-3">
-                  <h3 className="font-mono font-bold uppercase text-sm flex justify-between items-center">
-                    <span>// Tools & Others</span>
-                    <span className="bg-primary text-black px-1 text-xs">[02]</span>
-                  </h3>
-                </div>
-                <div className="p-6 flex flex-wrap gap-2">
-                  {otherSkills.map((skill) => (
-                    <span key={skill} className="px-3 py-1 border-2 border-black bg-white hover:bg-primary font-bold text-sm transition-colors cursor-default">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+
           </section>
 
           {/* Experience Section */}

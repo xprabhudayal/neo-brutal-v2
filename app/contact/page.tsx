@@ -11,7 +11,7 @@ export default function ContactPage() {
         <div className="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 py-8 md:py-16 bg-grid">
             <div className="mb-12">
                 <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-none">
-                    Get In <span className="text-primary underline decoration-4 decoration-black underline-offset-8">Touch</span>
+                    Get In <span className="text-primary terminal-invert">Touch</span>
                 </h1>
             </div>
 
@@ -23,8 +23,8 @@ export default function ContactPage() {
                         <Rocket className="w-32 h-32 text-black" />
                     </div>
                     <div className="relative z-10">
-                        <div className="inline-flex items-center gap-3 border-3 border-black px-3 py-1 rounded-full mb-6 bg-secondary w-fit">
-                            <span className="w-3 h-3 bg-primary border-2 border-black rounded-full animate-[pulse_1s_ease-in-out_infinite]"></span>
+                        <div className="inline-flex items-center gap-3 border-3 border-black px-3 py-1 mb-6 bg-secondary w-fit">
+                            <span className="w-3 h-3 bg-primary border-2 rounded-full border-black animate-[pulse_1s_ease-in-out_infinite]"></span>
                             <span className="font-mono text-xs font-bold uppercase tracking-widest text-black">Live Status</span>
                         </div>
                         <h2 className="text-4xl md:text-5xl font-black uppercase leading-tight mb-2">Available for<br />New Projects</h2>
