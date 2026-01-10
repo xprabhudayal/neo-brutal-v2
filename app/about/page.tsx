@@ -82,7 +82,7 @@ export default function AboutPage() {
                             </h1>
                             <div className="prose prose-lg max-w-3xl">
                                 <p className="font-mono text-lg md:text-xl leading-relaxed mb-6 border-l-4 border-black pl-6 bg-secondary p-4">
-                                    I am {name}, a multidisciplinary engineer obsessed with AI agents, scalable architecture, and raw performance.
+                                    I am {name}, a multidisciplinary engineer obsessed with AI agents, Agentic Systems, and raw performance.
                                 </p>
                                 <p className="font-display font-medium text-lg text-gray-800 mb-4 whitespace-pre-wrap">
                                     {summary}
