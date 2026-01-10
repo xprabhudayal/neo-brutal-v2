@@ -93,7 +93,7 @@ export default function HomePage() {
                 <GitBranch className="w-8 h-8" />
                 <div>
                   <h3 className="font-black text-4xl">50+</h3>
-                  <p className="font-mono text-[10px] font-bold uppercase leading-tight mt-1 text-white">Projects<br />Deployed</p>
+                  <p className="font-mono text-[10px] font-bold uppercase leading-tight mt-1 text-white">Projects<br />Built</p>
                 </div>
               </div>
             </div>
