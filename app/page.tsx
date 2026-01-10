@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { ArrowDown, FolderOpen, Mail, Code2, Terminal, GitBranch, Search, Zap } from 'lucide-react';
+import LogoSpotlightCarousel from '@/components/LogoSpotlightCarousel';
 import { RESUME_DATA } from "@/components/constants";
 
 export default function HomePage() {
@@ -35,7 +36,7 @@ export default function HomePage() {
                 Ship Fast
               </h1>
 
-              <p className="text-lg md:text-xl font-bold font-mono max-w-2xl leading-relaxed border-l-4 border-primary pl-6 mb-4 text-gray-600">
+              <p className="text-xl max-w-2xl text-gray-500 font-mono leading-relaxed border-l-4 border-primary pl-6 mb-4">
                 I am a Research-backed AI Engineer bridging research and production. I build latency-optimized Voice Agents and Computer Vision systems. No fluff, just shipping code.
               </p>
 
@@ -105,7 +106,7 @@ export default function HomePage() {
       <section className="py-0 bg-primary border-y-[3px] border-black relative overflow-hidden">
         {/* Technologies Header */}
         <div className="text-center py-2 border-b-[3px] border-black">
-          <h3 className="terminal-invert text-sm font-bold tracking-widest uppercase inline-block">The Arsenal</h3>
+          <h3 className="text-sm font-bold tracking-widest uppercase inline-block">The Arsenal</h3>
         </div>
         <div className="w-full overflow-hidden py-6">
           <div className="flex w-max animate-marquee">
@@ -139,72 +140,15 @@ export default function HomePage() {
       {/* Validated At Section */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-16">
         <div className="border-3 border-neo-border bg-white p-8 md:p-12 shadow-neo">
-          <div className="text-center mb-10">
+          <div className="text-center mb-4">
             <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4">Validated At</h2>
             <p className="font-mono text-gray-600 max-w-2xl mx-auto">
               "I don't just write code in a void. My systems have been stress-tested at top research labs and national hackathons."
             </p>
           </div>
 
-          {/* Logo Strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {/* ESIEA Paris */}
-            <a
-              href="https://www.esiea.fr/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col items-center p-6 border-3 border-transparent hover:border-black hover:bg-secondary transition-all"
-            >
-              <div className="w-20 h-20 mb-4 flex items-center justify-center">
-                <img src="/images/logos/esiea.webp" alt="ESIEA Paris" className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
-              </div>
-              <span className="font-bold text-sm uppercase tracking-tight">ESIEA Paris</span>
-              <span className="text-xs font-mono text-gray-500 mt-1">Research Intern</span>
-            </a>
-
-            {/* IIM Nagpur */}
-            <a
-              href="https://www.iimnagpur.ac.in/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col items-center p-6 border-3 border-transparent hover:border-black hover:bg-secondary transition-all"
-            >
-              <div className="w-20 h-20 mb-4 flex items-center justify-center">
-                <img src="/images/logos/iim-nagpur.webp" alt="IIM Nagpur" className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
-              </div>
-              <span className="font-bold text-sm uppercase tracking-tight">IIM Nagpur</span>
-              <span className="terminal-invert-sm font-mono mt-1">Hackathon Winner</span>
-            </a>
-
-            {/* IIIT Delhi */}
-            <a
-              href="https://iiitd.ac.in/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col items-center p-6 border-3 border-transparent hover:border-black hover:bg-secondary transition-all"
-            >
-              <div className="w-20 h-20 mb-4 flex items-center justify-center">
-                <img src="/images/logos/iiit-delhi.webp" alt="IIIT Delhi" className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
-              </div>
-              <span className="font-bold text-sm uppercase tracking-tight">IIIT Delhi</span>
-              <span className="terminal-invert-sm font-mono mt-1">HackLLM Winner</span>
-            </a>
-
-            {/* Sakana AI */}
-            <a
-              href="https://sakana.ai/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col items-center p-6 border-3 border-transparent hover:border-black hover:bg-secondary transition-all"
-            >
-              <span className="terminal-invert-sm font-mono uppercase mb-2">Open Source</span>
-              <div className="w-20 h-20 mb-4 flex items-center justify-center">
-                <img src="/images/logos/sakana-ai.webp" alt="Sakana AI" className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
-              </div>
-              <span className="font-bold text-sm uppercase tracking-tight">Sakana AI</span>
-              <span className="text-xs font-mono text-gray-500 mt-1">Contributor</span>
-            </a>
-          </div>
+          {/* Single-Logo Spotlight Carousel */}
+          <LogoSpotlightCarousel />
         </div>
       </section>
 
