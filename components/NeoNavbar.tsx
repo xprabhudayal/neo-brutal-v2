@@ -60,7 +60,7 @@ export default function NeoNavbar({ onOpenAI }: NeoNavbarProps) {
                             onClick={onOpenAI}
                             className="hidden lg:flex items-center justify-center h-10 px-6 bg-primary text-black font-bold text-sm uppercase tracking-wide btn-neo"
                         >
-                            Call my assistant
+                            Talk to my AI Agent 🎙️
                         </button>
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -110,7 +110,7 @@ export default function NeoNavbar({ onOpenAI }: NeoNavbarProps) {
                         }}
                         className="w-full py-4 bg-primary text-black font-bold uppercase tracking-wide hover:bg-black hover:text-white btn-neo"
                     >
-                        Call my assistant
+                        Talk to my AI Agent 🎙️
                     </button>
                 </div>
             )}
