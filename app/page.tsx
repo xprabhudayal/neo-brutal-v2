@@ -28,15 +28,19 @@ export default function HomePage() {
               </div>
 
               <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-8 relative z-10">
-                Build<br />
+                Engineer<br />
                 <span className="text-primary relative inline-block text-shadow-outline">
-                  DIFFERENT
+                  Intelligence
                 </span><br />
-                Scale Hard
+                Ship Fast
               </h1>
 
-              <p className="text-xl md:text-2xl font-bold font-mono max-w-2xl leading-relaxed border-l-8 border-primary pl-6 mb-10 text-gray-800">
-                I am a top 1% Software Engineer crafting high-performance, unapologetic digital experiences. No fluff, just raw code.
+              <p className="text-xl md:text-2xl font-bold font-mono max-w-2xl leading-relaxed border-l-8 border-primary pl-6 mb-6 text-gray-800">
+                I am a Research-backed AI Engineer bridging research and production. I build latency-optimized Voice Agents and Computer Vision systems. No fluff, just shipping code.
+              </p>
+
+              <p className="text-sm font-mono text-gray-600 mb-10">
+                🏆 2x Hackathon Winner & ESIEA Paris Researcher
               </p>
 
               <div className="flex flex-wrap gap-4 relative z-10">
@@ -47,12 +51,15 @@ export default function HomePage() {
                   View Selected Works
                   <ArrowDown className="w-6 h-6 group-hover:translate-y-1 transition-transform" />
                 </Link>
-                <Link
-                  href="/about"
-                  className="px-8 py-4 bg-white text-black font-bold text-lg uppercase tracking-wider hover:bg-black hover:text-primary btn-neo transition-all"
+                <a
+                  href="https://cal.com/ai.pdv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 bg-white text-black font-bold text-lg uppercase tracking-wider hover:bg-black hover:text-primary btn-neo transition-all flex items-center gap-2"
                 >
-                  About Me
-                </Link>
+                  Book Strategy Call
+                  <span className="text-xl">↗</span>
+                </a>
               </div>
             </div>
           </div>
