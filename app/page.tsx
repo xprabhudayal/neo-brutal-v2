@@ -136,6 +136,129 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Validated At Section */}
+      <section className="max-w-7xl mx-auto px-4 md:px-6 py-16">
+        <div className="border-3 border-neo-border bg-white p-8 md:p-12 shadow-neo">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4">Validated At</h2>
+            <p className="font-mono text-gray-600 max-w-2xl mx-auto">
+              "I don't just write code in a void. My systems have been stress-tested at top research labs and national hackathons."
+            </p>
+          </div>
+
+          {/* Logo Strip */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {/* ESIEA Paris */}
+            <a
+              href="https://www.esiea.fr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center p-6 border-3 border-transparent hover:border-black hover:bg-secondary transition-all"
+            >
+              <div className="w-20 h-20 mb-4 flex items-center justify-center">
+                <img src="/images/logos/esiea.webp" alt="ESIEA Paris" className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
+              </div>
+              <span className="font-bold text-sm uppercase tracking-tight">ESIEA Paris</span>
+              <span className="text-xs font-mono text-gray-500 mt-1">Research Intern</span>
+            </a>
+
+            {/* IIM Nagpur */}
+            <a
+              href="https://www.iimnagpur.ac.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center p-6 border-3 border-transparent hover:border-black hover:bg-secondary transition-all"
+            >
+              <div className="w-20 h-20 mb-4 flex items-center justify-center">
+                <img src="/images/logos/iim-nagpur.webp" alt="IIM Nagpur" className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
+              </div>
+              <span className="font-bold text-sm uppercase tracking-tight">IIM Nagpur</span>
+              <span className="text-xs font-mono text-primary bg-black px-2 py-0.5 mt-1">Hackathon Winner</span>
+            </a>
+
+            {/* IIIT Delhi */}
+            <a
+              href="https://iiitd.ac.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center p-6 border-3 border-transparent hover:border-black hover:bg-secondary transition-all"
+            >
+              <div className="w-20 h-20 mb-4 flex items-center justify-center">
+                <img src="/images/logos/iiit-delhi.webp" alt="IIIT Delhi" className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
+              </div>
+              <span className="font-bold text-sm uppercase tracking-tight">IIIT Delhi</span>
+              <span className="text-xs font-mono text-primary bg-black px-2 py-0.5 mt-1">HackLLM Winner</span>
+            </a>
+
+            {/* Sakana AI */}
+            <a
+              href="https://sakana.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center p-6 border-3 border-transparent hover:border-black hover:bg-secondary transition-all"
+            >
+              <span className="text-[10px] font-mono text-primary bg-black px-2 py-0.5 mb-2 uppercase">Open Source</span>
+              <div className="w-20 h-20 mb-4 flex items-center justify-center">
+                <img src="/images/logos/sakana-ai.webp" alt="Sakana AI" className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
+              </div>
+              <span className="font-bold text-sm uppercase tracking-tight">Sakana AI</span>
+              <span className="text-xs font-mono text-gray-500 mt-1">Contributor</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Battle Tested - Achievements Carousel */}
+      <section className="max-w-7xl mx-auto px-4 md:px-6 py-12">
+        <div className="flex items-center gap-4 mb-8">
+          <div className="h-8 w-8 bg-black flex items-center justify-center text-primary">
+            <Zap className="w-5 h-5" />
+          </div>
+          <h2 className="text-3xl font-black uppercase tracking-tight">Battle Tested</h2>
+          <div className="h-1 flex-1 bg-black"></div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* IIM Nagpur Hackathon */}
+          <div className="border-3 border-neo-border bg-white shadow-neo overflow-hidden group">
+            <div className="aspect-video overflow-hidden border-b-3 border-black">
+              <img
+                src="/images/achievements/iim-hackathon.webp"
+                alt="IIM Nagpur Hackathon Certificate"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="p-6">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="bg-primary text-black text-xs font-bold px-2 py-1 border-2 border-black uppercase">Winner</span>
+                <span className="bg-black text-primary text-xs font-bold px-2 py-1 uppercase">1ST Place</span>
+              </div>
+              <h3 className="text-xl font-black uppercase tracking-tight mb-2">IIM Nagpur Hackathon</h3>
+              <p className="font-mono text-sm text-gray-600">AI Product Comparison Agent</p>
+            </div>
+          </div>
+
+          {/* IIIT Delhi HackLLM */}
+          <div className="border-3 border-neo-border bg-white shadow-neo overflow-hidden group">
+            <div className="aspect-video overflow-hidden border-b-3 border-black">
+              <img
+                src="/images/achievements/hackllm-certificate.webp"
+                alt="IIIT Delhi HackLLM Certificate"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="p-6">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="bg-primary text-black text-xs font-bold px-2 py-1 border-2 border-black uppercase">Winner</span>
+                <span className="bg-black text-primary text-xs font-bold px-2 py-1 uppercase">3RD Place</span>
+              </div>
+              <h3 className="text-xl font-black uppercase tracking-tight mb-2">IIIT Delhi HackLLM</h3>
+              <p className="font-mono text-sm text-gray-600">Medical AI Summarization System</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Selected Works & CTA */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-12 lg:py-20">
         <div className="grid md:grid-cols-2 gap-8">
