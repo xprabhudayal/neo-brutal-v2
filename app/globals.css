@@ -90,4 +90,24 @@
     @apply translate-x-[4px] translate-y-[4px];
     box-shadow: none;
   }
+
+  /* Terminal Inversion - Neon green on black block */
+  .terminal-invert {
+    @apply bg-black px-2 py-1;
+    color: #39FF14;
+    border-radius: 0; /* Sharp edges for Neo-Brutalism */
+  }
+
+  .terminal-invert-sm {
+    @apply bg-black px-1.5 py-0.5;
+    color: #39FF14;
+    border-radius: 0;
+    font-size: 0.75rem;
+  }
+
+  .terminal-invert-lg {
+    @apply bg-black px-3 py-2;
+    color: #39FF14;
+    border-radius: 0;
+  }
 }

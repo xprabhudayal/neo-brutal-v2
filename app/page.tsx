@@ -29,7 +29,7 @@ export default function HomePage() {
 
               <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-8 relative z-10">
                 Engineer<br />
-                <span className="text-primary relative inline-block text-shadow-outline">
+                <span className="terminal-invert-lg font-black inline-block">
                   Intelligence
                 </span><br />
                 Ship Fast
@@ -105,7 +105,7 @@ export default function HomePage() {
       <section className="py-0 bg-primary border-y-[3px] border-black relative overflow-hidden">
         {/* Technologies Header */}
         <div className="text-center py-2 border-b-[3px] border-black">
-          <h3 className="text-sm font-bold tracking-widest uppercase text-black">The Arsenal</h3>
+          <h3 className="terminal-invert text-sm font-bold tracking-widest uppercase inline-block">The Arsenal</h3>
         </div>
         <div className="w-full overflow-hidden py-6">
           <div className="flex w-max animate-marquee">
@@ -173,7 +173,7 @@ export default function HomePage() {
                 <img src="/images/logos/iim-nagpur.webp" alt="IIM Nagpur" className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
               </div>
               <span className="font-bold text-sm uppercase tracking-tight">IIM Nagpur</span>
-              <span className="text-xs font-mono text-primary bg-black px-2 py-0.5 mt-1">Hackathon Winner</span>
+              <span className="terminal-invert-sm font-mono mt-1">Hackathon Winner</span>
             </a>
 
             {/* IIIT Delhi */}
@@ -187,7 +187,7 @@ export default function HomePage() {
                 <img src="/images/logos/iiit-delhi.webp" alt="IIIT Delhi" className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
               </div>
               <span className="font-bold text-sm uppercase tracking-tight">IIIT Delhi</span>
-              <span className="text-xs font-mono text-primary bg-black px-2 py-0.5 mt-1">HackLLM Winner</span>
+              <span className="terminal-invert-sm font-mono mt-1">HackLLM Winner</span>
             </a>
 
             {/* Sakana AI */}
@@ -197,7 +197,7 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="group flex flex-col items-center p-6 border-3 border-transparent hover:border-black hover:bg-secondary transition-all"
             >
-              <span className="text-[10px] font-mono text-primary bg-black px-2 py-0.5 mb-2 uppercase">Open Source</span>
+              <span className="terminal-invert-sm font-mono uppercase mb-2">Open Source</span>
               <div className="w-20 h-20 mb-4 flex items-center justify-center">
                 <img src="/images/logos/sakana-ai.webp" alt="Sakana AI" className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
               </div>
@@ -231,7 +231,7 @@ export default function HomePage() {
             <div className="p-6">
               <div className="flex items-center gap-2 mb-2">
                 <span className="bg-primary text-black text-xs font-bold px-2 py-1 border-2 border-black uppercase">Winner</span>
-                <span className="bg-black text-primary text-xs font-bold px-2 py-1 uppercase">1ST Place</span>
+                <span className="terminal-invert text-xs font-bold uppercase">1ST Place</span>
               </div>
               <h3 className="text-xl font-black uppercase tracking-tight mb-2">IIM Nagpur Hackathon</h3>
               <p className="font-mono text-sm text-gray-600">AI Product Comparison Agent</p>
@@ -250,7 +250,7 @@ export default function HomePage() {
             <div className="p-6">
               <div className="flex items-center gap-2 mb-2">
                 <span className="bg-primary text-black text-xs font-bold px-2 py-1 border-2 border-black uppercase">Winner</span>
-                <span className="bg-black text-primary text-xs font-bold px-2 py-1 uppercase">3RD Place</span>
+                <span className="terminal-invert text-xs font-bold uppercase">3RD Place</span>
               </div>
               <h3 className="text-xl font-black uppercase tracking-tight mb-2">IIIT Delhi HackLLM</h3>
               <p className="font-mono text-sm text-gray-600">Medical AI Summarization System</p>
