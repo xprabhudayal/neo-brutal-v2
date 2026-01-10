@@ -27,7 +27,7 @@ export default function HomePage() {
                 <div className="h-0.5 flex-1 bg-gray-200"></div>
               </div>
 
-              <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-8 relative z-10">
+              <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[0.85] mb-6 relative z-10">
                 Engineer<br />
                 <span className="terminal-invert-lg font-black inline-block">
                   Intelligence
@@ -35,11 +35,11 @@ export default function HomePage() {
                 Ship Fast
               </h1>
 
-              <p className="text-xl md:text-2xl font-bold font-mono max-w-2xl leading-relaxed border-l-8 border-primary pl-6 mb-6 text-gray-600">
+              <p className="text-lg md:text-xl font-bold font-mono max-w-2xl leading-relaxed border-l-4 border-primary pl-6 mb-4 text-gray-600">
                 I am a Research-backed AI Engineer bridging research and production. I build latency-optimized Voice Agents and Computer Vision systems. No fluff, just shipping code.
               </p>
 
-              <p className="text-sm font-mono text-gray-600 mb-10">
+              <p className="text-xs font-mono text-gray-500 mb-8">
                 🏆 2x Hackathon Winner & ESIEA Paris Researcher
               </p>
 

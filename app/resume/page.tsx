@@ -31,44 +31,52 @@ export default function ResumePage() {
 
         {/* Sidebar */}
         <aside className="hidden lg:block lg:col-span-3 sticky top-28">
-          <div className="flex items-center gap-4">
-            <div className="h-8 w-8 bg-black flex items-center justify-center text-white">
-              <Code2 className="w-4 h-4" />
-            </div>
-            <h2 className="text-3xl font-black uppercase tracking-tight">Technical Stack</h2>
-            <div className="h-1 flex-1 bg-black"></div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="border-3 border-neo-border bg-white shadow-neo group hover:shadow-neo-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
-              <div className="bg-support border-b-3 border-neo-border p-3">
-                <h3 className="font-mono font-bold uppercase text-sm flex justify-between items-center text-black">
-                  <span>// Core Technologies</span>
-                  <span className="bg-black text-white px-1 text-xs">[01]</span>
-                </h3>
+          <div className="flex flex-col gap-6">
+            <div className="border-3 border-neo-border bg-white p-6 shadow-neo">
+              <div className="w-full aspect-square border-3 border-neo-border mb-4 overflow-hidden relative bg-secondary">
+                <img
+                  src="/profile-photo.webp"
+                  alt={RESUME_DATA.name}
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                />
               </div>
-              <div className="p-6 flex flex-wrap gap-2">
-                {coreSkills.map((skill) => (
-                  <span key={skill} className="px-3 py-1 border-2 border-black bg-white hover:bg-black hover:text-white font-bold text-sm transition-colors cursor-default">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="border-3 border-neo-border bg-white shadow-neo group hover:shadow-neo-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
-              <div className="bg-black text-white border-b-3 border-neo-border p-3">
-                <h3 className="font-mono font-bold uppercase text-sm flex justify-between items-center">
-                  <span>// Tools & Others</span>
-                  <span className="bg-primary text-black px-1 text-xs">[02]</span>
-                </h3>
-              </div>
-              <div className="p-6 flex flex-wrap gap-2">
-                {otherSkills.map((skill) => (
-                  <span key={skill} className="px-3 py-1 border-2 border-black bg-white hover:bg-primary font-bold text-sm transition-colors cursor-default">
-                    {skill}
-                  </span>
-                ))}
+              <h1 className="font-bold text-xl uppercase leading-none mb-1">{RESUME_DATA.name}</h1>
+              <p className="font-mono text-xs text-gray-600 mb-4">AI Engineer & Full Stack Dev</p>
+
+              <div className="flex gap-2 justify-center">
+                <a href={getSocialLink('GitHub')} target="_blank" rel="noopener noreferrer" className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo">
+                  <Github className="w-5 h-5" />
+                </a>
+                <a href={getSocialLink('LinkedIn')} target="_blank" rel="noopener noreferrer" className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a href={`mailto:${contact.email}`} className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo">
+                  <Mail className="w-5 h-5" />
+                </a>
               </div>
             </div>
+
+            <nav className="border-3 border-neo-border bg-white p-0 shadow-neo flex flex-col">
+              <div className="bg-black text-white p-3 border-b-3 border-neo-border">
+                <h3 className="font-mono text-xs uppercase tracking-widest">Resume.exe</h3>
+              </div>
+              <a className="px-4 py-3 border-b-2 border-gray-100 hover:bg-primary font-mono text-sm font-bold flex items-center gap-2 transition-colors" href="#skills">
+                <Code2 className="w-5 h-5" />
+                <span>_SKILLS</span>
+              </a>
+              <a className="px-4 py-3 border-b-2 border-gray-100 hover:bg-primary font-mono text-sm font-bold flex items-center gap-2 transition-colors" href="#experience">
+                <Briefcase className="w-5 h-5" />
+                <span>_EXPERIENCE</span>
+              </a>
+              <a className="px-4 py-3 border-b-2 border-gray-100 hover:bg-primary font-mono text-sm font-bold flex items-center gap-2 transition-colors" href="#education">
+                <School className="w-5 h-5" />
+                <span>_EDUCATION</span>
+              </a>
+              <a className="px-4 py-3 hover:bg-primary font-mono text-sm font-bold flex items-center gap-2 transition-colors" href="#awards">
+                <Trophy className="w-5 h-5" />
+                <span>_AWARDS</span>
+              </a>
+            </nav>
           </div>
         </aside>
 
@@ -103,7 +111,45 @@ export default function ResumePage() {
 
           {/* Skills Section */}
           <section className="flex flex-col gap-6" id="skills">
-
+            <div className="flex items-center gap-4">
+              <div className="h-8 w-8 bg-black flex items-center justify-center text-white">
+                <Code2 className="w-4 h-4" />
+              </div>
+              <h2 className="text-3xl font-black uppercase tracking-tight">Technical Stack</h2>
+              <div className="h-1 flex-1 bg-black"></div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="border-3 border-neo-border bg-white shadow-neo group hover:shadow-neo-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+                <div className="bg-secondary border-b-3 border-neo-border p-3">
+                  <h3 className="font-mono font-bold uppercase text-sm flex justify-between items-center text-black">
+                    <span>// Core Technologies</span>
+                    <span className="bg-black text-white px-1 text-xs">[01]</span>
+                  </h3>
+                </div>
+                <div className="p-6 flex flex-wrap gap-2">
+                  {coreSkills.map((skill) => (
+                    <span key={skill} className="px-3 py-1 border-2 border-black bg-white hover:bg-black hover:text-white font-bold text-sm transition-colors cursor-default">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="border-3 border-neo-border bg-white shadow-neo group hover:shadow-neo-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+                <div className="bg-black text-white border-b-3 border-neo-border p-3">
+                  <h3 className="font-mono font-bold uppercase text-sm flex justify-between items-center">
+                    <span>// Tools & Others</span>
+                    <span className="bg-primary text-black px-1 text-xs">[02]</span>
+                  </h3>
+                </div>
+                <div className="p-6 flex flex-wrap gap-2">
+                  {otherSkills.map((skill) => (
+                    <span key={skill} className="px-3 py-1 border-2 border-black bg-white hover:bg-primary font-bold text-sm transition-colors cursor-default">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </section>
 
           {/* Experience Section */}
