@@ -112,22 +112,22 @@ export default function HomePage() {
             {/* Repeat content to ensure seamless loop */}
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex items-center gap-20 px-10">
-                <div className="md:text-4xl text-2xl font-black text-black uppercase tracking-tight">
+                <div className="md:text-4xl text-2xl font-black text-black tracking-tight">
                   Next.js
                 </div>
-                <div className="md:text-4xl text-2xl font-black text-black uppercase tracking-tight">
+                <div className="md:text-4xl text-2xl font-black text-black tracking-tight">
                   ReactJS
                 </div>
-                <div className="md:text-4xl text-2xl font-black text-black uppercase tracking-tight">
+                <div className="md:text-4xl text-2xl font-black text-black tracking-tight">
                   TypeScript
                 </div>
-                <div className="md:text-4xl text-2xl font-black text-black uppercase tracking-tight">
+                <div className="md:text-4xl text-2xl font-black text-black tracking-tight">
                   Python
                 </div>
-                <div className="md:text-4xl text-2xl font-black text-black uppercase tracking-tight">
+                <div className="md:text-4xl text-2xl font-black text-black tracking-tight">
                   LangGraph
                 </div>
-                <div className="md:text-4xl text-2xl font-black text-black uppercase tracking-tight">
+                <div className="md:text-4xl text-2xl font-black text-black tracking-tight">
                   Supabase
                 </div>
               </div>
