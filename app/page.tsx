@@ -35,7 +35,7 @@ export default function HomePage() {
                 Ship Fast
               </h1>
 
-              <p className="text-xl md:text-2xl font-bold font-mono max-w-2xl leading-relaxed border-l-8 border-primary pl-6 mb-6 text-gray-800">
+              <p className="text-xl md:text-2xl font-bold font-mono max-w-2xl leading-relaxed border-l-8 border-primary pl-6 mb-6 text-gray-600">
                 I am a Research-backed AI Engineer bridging research and production. I build latency-optimized Voice Agents and Computer Vision systems. No fluff, just shipping code.
               </p>
 
