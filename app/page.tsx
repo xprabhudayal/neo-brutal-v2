@@ -113,22 +113,22 @@ export default function HomePage() {
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex items-center gap-20 px-10">
                 {/* Tech Stack Icons - Simulating the ones from the HTML but using Lucide/Text for now or simplified */}
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black text-gray-300 hover:text-black transition-colors cursor-default">
+                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black hover:text-black transition-colors cursor-default" style={{ color: 'transparent', WebkitTextStroke: '2px black' }}>
                   Next.js
                 </div>
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black text-gray-300 hover:text-black transition-colors cursor-default">
+                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black hover:text-black transition-colors cursor-default" style={{ color: 'transparent', WebkitTextStroke: '2px black' }}>
                   ReactJS
                 </div>
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black text-gray-300 hover:text-black transition-colors cursor-default">
+                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black hover:text-black transition-colors cursor-default" style={{ color: 'transparent', WebkitTextStroke: '2px black' }}>
                   TypeScript
                 </div>
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black text-gray-300 hover:text-black transition-colors cursor-default">
+                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black hover:text-black transition-colors cursor-default" style={{ color: 'transparent', WebkitTextStroke: '2px black' }}>
                   Python
                 </div>
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black text-gray-300 hover:text-black transition-colors cursor-default">
+                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black hover:text-black transition-colors cursor-default" style={{ color: 'transparent', WebkitTextStroke: '2px black' }}>
                   LangGraph
                 </div>
-                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black text-gray-300 hover:text-black transition-colors cursor-default">
+                <div className="flex items-center gap-4 md:text-4xl text-2xl font-black hover:text-black transition-colors cursor-default" style={{ color: 'transparent', WebkitTextStroke: '2px black' }}>
                   Supabase
                 </div>
               </div>
