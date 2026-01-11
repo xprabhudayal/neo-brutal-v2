@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowDown, FolderOpen, Mail, Code2, Terminal, GitBranch, Search, Zap } from 'lucide-react';
+import { ArrowDown, FolderOpen, Mail, Code2, Terminal, GitBranch, Zap } from 'lucide-react';
 import LogoSpotlightCarousel from '@/components/LogoSpotlightCarousel';
 import { RESUME_DATA } from "@/components/constants";
 
@@ -203,64 +203,108 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Selected Works & CTA */}
+      {/* Explore More - Navigation Bento Grid */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-12 lg:py-20">
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="flex items-center gap-4 mb-8">
+          <div className="h-8 w-8 bg-black flex items-center justify-center text-primary">
+            <ArrowDown className="w-5 h-5" />
+          </div>
+          <h2 className="text-3xl font-black uppercase tracking-tight">Explore More</h2>
+          <div className="h-1 flex-1 bg-black"></div>
+        </div>
 
-          {/* Selected Works Box */}
-          <div className="neo-brutal-box p-8 md:p-12 bg-white flex flex-col justify-between min-h-[400px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          {/* About Card */}
+          <Link
+            href="/about"
+            className="neo-brutal-box p-6 bg-white flex flex-col justify-between min-h-[280px] group"
+          >
             <div>
-              <div className="flex justify-between items-start mb-6">
-                <h2 className="text-4xl font-black uppercase tracking-tighter">Selected<br />Works</h2>
-                <FolderOpen className="w-12 h-12 text-primary" />
+              <div className="flex justify-between items-start mb-4">
+                <span className="terminal-invert-sm font-mono">01</span>
+                <Code2 className="w-8 h-8 text-gray-400 group-hover:text-primary transition-colors" />
               </div>
-              <p className="font-mono text-gray-600 mb-8 max-w-sm">
-                Curated selection of high-impact projects. From enterprise SaaS to experimental web art.
+              <h3 className="text-2xl font-black uppercase tracking-tighter mb-2">About</h3>
+              <p className="font-mono text-sm text-gray-600">
+                The story, the stack, the mission.
               </p>
-
-              {/* Mini List of Top Projects */}
-              <ul className="mb-8 space-y-2 font-mono text-sm">
-                {featuredProjects.map((p, idx) => (
-                  <li key={idx} className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-black"></span>
-                    {p.title}
-                  </li>
-                ))}
-              </ul>
-
             </div>
-            <Link
-              href="/projects"
-              className="w-full py-4 border-3 border-black bg-primary text-black font-bold uppercase text-center hover:bg-black hover:text-white transition-colors shadow-neo-sm"
-            >
-              Browse Portfolio
-            </Link>
-          </div>
+            <div className="mt-6 font-mono text-sm font-bold uppercase flex items-center gap-2 text-black group-hover:text-primary transition-colors">
+              Read More <span className="text-lg">→</span>
+            </div>
+          </Link>
 
-          {/* Let's Build / Contact Box */}
-          <div className="neo-brutal-box bg-secondary overflow-hidden relative min-h-[400px] flex items-center justify-center">
-            <div className="absolute inset-0 pattern-diagonal opacity-5"></div>
-            <div className="relative z-10 text-center p-8">
-              <h2 className="text-4xl font-black uppercase tracking-tighter mb-4">Let's Build</h2>
-              <p className="font-mono text-lg mb-8">Have a vision? I have the stack.</p>
-              <div className="flex justify-center gap-4">
-                <a
-                  href={`mailto:${RESUME_DATA.contact.email}`}
-                  className="w-16 h-16 flex items-center justify-center border-3 border-black bg-white hover:bg-primary transition-colors shadow-neo-sm text-black"
-                >
-                  <Mail className="w-6 h-6" />
-                </a>
-                <a
-                  href={RESUME_DATA.contact.links.find(l => l.name === 'LinkedIn')?.url || '#'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-16 h-16 flex items-center justify-center border-3 border-black bg-white hover:bg-[#0077b5] hover:text-white transition-colors shadow-neo-sm text-black"
-                >
-                  <Search className="w-6 h-6" /> {/* Placeholder for LinkedIn if not imported, but we used lucide icon before */}
-                </a>
+          {/* Selected Works Card */}
+          <Link
+            href="/projects"
+            className="neo-brutal-box p-6 bg-primary flex flex-col justify-between min-h-[280px] group"
+          >
+            <div>
+              <div className="flex justify-between items-start mb-4">
+                <span className="bg-black text-primary px-1.5 py-0.5 font-mono text-xs">02</span>
+                <FolderOpen className="w-8 h-8 text-black/50 group-hover:text-black transition-colors" />
               </div>
+              <h3 className="text-2xl font-black uppercase tracking-tighter mb-2">Selected<br />Works</h3>
+              <p className="font-mono text-sm text-black/70">
+                {featuredProjects.length}+ curated projects.
+              </p>
             </div>
-          </div>
+            <ul className="mt-4 space-y-1 font-mono text-xs text-black/60">
+              {featuredProjects.slice(0, 3).map((p, idx) => (
+                <li key={idx} className="flex items-center gap-2 truncate">
+                  <span className="w-1 h-1 bg-black"></span>
+                  {p.title}
+                </li>
+              ))}
+            </ul>
+          </Link>
+
+          {/* Resume Card */}
+          <Link
+            href="/resume"
+            className="neo-brutal-box p-6 bg-black text-white flex flex-col justify-between min-h-[280px] group"
+          >
+            <div>
+              <div className="flex justify-between items-start mb-4">
+                <span className="bg-primary text-black px-1.5 py-0.5 font-mono text-xs font-bold">03</span>
+                <Terminal className="w-8 h-8 text-gray-500 group-hover:text-primary transition-colors" />
+              </div>
+              <h3 className="text-2xl font-black uppercase tracking-tighter mb-2 text-primary">Resume</h3>
+              <p className="font-mono text-sm text-gray-400">
+                Experience, education, skills — all in one place.
+              </p>
+            </div>
+            <div className="mt-6 font-mono text-sm font-bold uppercase flex items-center gap-2 text-primary group-hover:text-white transition-colors">
+              View Resume <span className="text-lg">→</span>
+            </div>
+          </Link>
+
+          {/* Let's Build / Contact Card */}
+          <Link
+            href="/contact"
+            className="neo-brutal-box p-6 bg-secondary flex flex-col justify-between min-h-[280px] group relative overflow-hidden"
+          >
+            <div className="absolute inset-0 pattern-diagonal opacity-5"></div>
+            <div className="relative z-10">
+              <div className="flex justify-between items-start mb-4">
+                <span className="terminal-invert-sm font-mono">04</span>
+                <Mail className="w-8 h-8 text-gray-400 group-hover:text-black transition-colors" />
+              </div>
+              <h3 className="text-2xl font-black uppercase tracking-tighter mb-2">Let's<br />Build</h3>
+              <p className="font-mono text-sm text-gray-600">
+                Have a vision? I have the stack.
+              </p>
+            </div>
+            <div className="relative z-10 mt-6 flex gap-3">
+              <span className="w-10 h-10 flex items-center justify-center border-2 border-black bg-white text-black">
+                <Mail className="w-4 h-4" />
+              </span>
+              <span className="w-10 h-10 flex items-center justify-center border-2 border-black bg-white text-black">
+                <GitBranch className="w-4 h-4" />
+              </span>
+            </div>
+          </Link>
         </div>
       </section>
     </div>
