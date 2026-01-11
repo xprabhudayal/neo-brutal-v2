@@ -95,14 +95,13 @@ export default function ProjectsClient() {
                                     <div className="absolute inset-0 pattern-diagonal opacity-10"></div>
 
                                     {project.image ? (
-                                        <div className="w-full h-full relative group-hover:scale-105 transition-transform duration-500">
+                                        <div className="w-full h-full relative">
                                             <Image
                                                 src={project.image}
                                                 alt={project.title}
                                                 fill
-                                                className="object-cover"
+                                                className="object-cover img-bw-to-color"
                                             />
-                                            <div className="absolute inset-0 bg-primary mix-blend-multiply opacity-20 group-hover:opacity-0 transition-opacity" />
                                         </div>
                                     ) : (
                                         <div className="absolute inset-0 flex items-center justify-center">

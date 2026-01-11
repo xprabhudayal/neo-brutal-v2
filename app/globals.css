@@ -112,4 +112,14 @@
     color: #39FF14;
     border-radius: 0;
   }
+
+  /* Grayscale to Color image effect - for content images (not logos) */
+  .img-bw-to-color {
+    @apply grayscale transition-all duration-500;
+  }
+
+  .img-bw-to-color:hover,
+  .group:hover .img-bw-to-color {
+    @apply grayscale-0;
+  }
 }

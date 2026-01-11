@@ -170,7 +170,7 @@ export default function HomePage() {
               <img
                 src="/images/achievements/iim-hackathon.webp"
                 alt="IIM Nagpur Hackathon Certificate"
-                className="w-full h-full object-cover transition-transform duration-300"
+                className="w-full h-full object-cover img-bw-to-color"
               />
             </div>
             <div className="p-6">
@@ -189,7 +189,7 @@ export default function HomePage() {
               <img
                 src="/images/achievements/hackllm-certificate.webp"
                 alt="IIIT Delhi HackLLM Certificate"
-                className="w-full h-full object-cover transition-transform duration-300"
+                className="w-full h-full object-cover img-bw-to-color"
               />
             </div>
             <div className="p-6">
