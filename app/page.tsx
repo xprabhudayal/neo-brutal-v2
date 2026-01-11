@@ -213,97 +213,70 @@ export default function HomePage() {
           <div className="h-1 flex-1 bg-black"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Asymmetric Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-          {/* About Card */}
+          {/* About Card - Tall Left Column (spans 2 rows) */}
           <Link
             href="/about"
-            className="neo-brutal-box p-6 bg-white flex flex-col justify-between min-h-[280px] group"
+            className="neo-brutal-box p-6 bg-white flex flex-col justify-between min-h-[400px] md:row-span-2 group"
           >
             <div>
               <div className="flex justify-between items-start mb-4">
                 <span className="terminal-invert-sm font-mono">01</span>
-                <Code2 className="w-8 h-8 text-gray-400 group-hover:text-primary transition-colors" />
+                <Code2 className="w-8 h-8 text-gray-400 group-hover:text-black transition-colors" />
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tighter mb-2">About</h3>
-              <p className="font-mono text-sm text-gray-600">
+              <h3 className="text-3xl font-black uppercase tracking-tighter mb-4">About</h3>
+              <p className="font-mono text-sm text-gray-600 leading-relaxed">
                 The story, the stack, the mission.
               </p>
             </div>
-            <div className="mt-6 font-mono text-sm font-bold uppercase flex items-center gap-2 text-black group-hover:text-primary transition-colors">
+            <div className="mt-8 font-mono text-sm font-bold uppercase flex items-center gap-2 text-black">
               Read More <span className="text-lg">→</span>
             </div>
           </Link>
 
-          {/* Selected Works Card */}
+          {/* Selected Works Card - Top Right */}
           <Link
             href="/projects"
-            className="neo-brutal-box p-6 bg-primary flex flex-col justify-between min-h-[280px] group"
+            className="neo-brutal-box p-6 bg-primary flex flex-col justify-between min-h-[190px] group"
           >
             <div>
-              <div className="flex justify-between items-start mb-4">
+              <div className="flex justify-between items-start mb-3">
                 <span className="bg-black text-primary px-1.5 py-0.5 font-mono text-xs">02</span>
                 <FolderOpen className="w-8 h-8 text-black/50 group-hover:text-black transition-colors" />
               </div>
               <h3 className="text-2xl font-black uppercase tracking-tighter mb-2">Selected<br />Works</h3>
-              <p className="font-mono text-sm text-black/70">
-                {featuredProjects.length}+ curated projects.
-              </p>
             </div>
-            <ul className="mt-4 space-y-1 font-mono text-xs text-black/60">
-              {featuredProjects.slice(0, 3).map((p, idx) => (
-                <li key={idx} className="flex items-center gap-2 truncate">
-                  <span className="w-1 h-1 bg-black"></span>
-                  {p.title}
-                </li>
-              ))}
-            </ul>
+            <p className="font-mono text-sm text-black/70">
+              {featuredProjects.length}+ curated projects.
+            </p>
           </Link>
 
-          {/* Resume Card */}
+          {/* Resume Card - Bottom Right */}
           <Link
             href="/resume"
-            className="neo-brutal-box p-6 bg-black text-white flex flex-col justify-between min-h-[280px] group"
+            className="neo-brutal-box p-6 bg-black text-white flex flex-col justify-between min-h-[190px] group"
           >
             <div>
-              <div className="flex justify-between items-start mb-4">
+              <div className="flex justify-between items-start mb-3">
                 <span className="bg-primary text-black px-1.5 py-0.5 font-mono text-xs font-bold">03</span>
                 <Terminal className="w-8 h-8 text-gray-500 group-hover:text-primary transition-colors" />
               </div>
               <h3 className="text-2xl font-black uppercase tracking-tighter mb-2 text-primary">Resume</h3>
-              <p className="font-mono text-sm text-gray-400">
-                Experience, education, skills — all in one place.
-              </p>
             </div>
-            <div className="mt-6 font-mono text-sm font-bold uppercase flex items-center gap-2 text-primary group-hover:text-white transition-colors">
-              View Resume <span className="text-lg">→</span>
-            </div>
+            <p className="font-mono text-sm text-gray-400 leading-relaxed">
+              Experience, education, skills — all in one place.
+            </p>
           </Link>
 
-          {/* Let's Build / Contact Card */}
+          {/* Let's Build - Full Width Bottom Bar */}
           <Link
             href="/contact"
-            className="neo-brutal-box p-6 bg-secondary flex flex-col justify-between min-h-[280px] group relative overflow-hidden"
+            className="neo-brutal-box p-6 bg-white flex items-center justify-between min-h-[80px] md:col-span-3 group"
           >
-            <div className="absolute inset-0 pattern-diagonal opacity-5"></div>
-            <div className="relative z-10">
-              <div className="flex justify-between items-start mb-4">
-                <span className="terminal-invert-sm font-mono">04</span>
-                <Mail className="w-8 h-8 text-gray-400 group-hover:text-black transition-colors" />
-              </div>
-              <h3 className="text-2xl font-black uppercase tracking-tighter mb-2">Let's<br />Build</h3>
-              <p className="font-mono text-sm text-gray-600">
-                Have a vision? I have the stack.
-              </p>
-            </div>
-            <div className="relative z-10 mt-6 flex gap-3">
-              <span className="w-10 h-10 flex items-center justify-center border-2 border-black bg-white text-black">
-                <Mail className="w-4 h-4" />
-              </span>
-              <span className="w-10 h-10 flex items-center justify-center border-2 border-black bg-white text-black">
-                <GitBranch className="w-4 h-4" />
-              </span>
-            </div>
+            <h3 className="text-2xl font-black uppercase tracking-tighter">Let's Build</h3>
+            <Mail className="w-8 h-8 text-gray-400 group-hover:text-black transition-colors" />
           </Link>
         </div>
       </section>
