@@ -204,54 +204,77 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Explore More - Navigation Bento Grid */}
+      {/* Explore More - Premium Navigation Bento Grid */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-12 lg:py-20">
-        <div className="flex items-center gap-4 mb-8">
-          <div className="h-8 w-8 bg-black flex items-center justify-center text-primary">
-            <ArrowDown className="w-5 h-5" />
+        <div className="flex items-center gap-4 mb-10">
+          <div className="h-10 w-10 bg-black flex items-center justify-center text-primary shadow-neo-sm">
+            <ArrowDown className="w-6 h-6" />
           </div>
-          <h2 className="text-3xl font-black uppercase tracking-tight">Explore More</h2>
+          <h2 className="text-4xl font-black uppercase tracking-tight">Explore More</h2>
           <div className="h-1 flex-1 bg-black"></div>
+          <span className="font-mono text-xs text-gray-500 hidden md:block">// QUICK NAV</span>
         </div>
 
-        {/* Asymmetric Bento Grid - 3 columns on desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Asymmetric Bento Grid - Enhanced Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-4 lg:gap-5">
 
-          {/* About Card - Tall Left Column (spans 2 rows on lg) */}
+          {/* About Card - Large Left (spans 2 cols, 2 rows) */}
           <Link
             href="/about"
-            className="neo-brutal-box p-6 bg-white flex flex-col justify-between min-h-[300px] lg:row-span-2 lg:min-h-[400px] group"
+            className="md:col-span-2 md:row-span-2 relative group overflow-hidden"
           >
-            <div>
-              <div className="flex justify-between items-start mb-4">
-                <span className="terminal-invert-sm font-mono">01</span>
-                <Code2 className="w-8 h-8 text-gray-400 group-hover:text-black transition-colors" />
+            <div className="border-4 border-black bg-white p-8 shadow-neo h-full min-h-[420px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none">
+              {/* Corner Decorations */}
+              <div className="absolute top-3 left-3 w-4 h-4 border-l-2 border-t-2 border-black"></div>
+              <div className="absolute top-3 right-3 w-4 h-4 border-r-2 border-t-2 border-black"></div>
+              <div className="absolute bottom-3 left-3 w-4 h-4 border-l-2 border-b-2 border-black"></div>
+              <div className="absolute bottom-3 right-3 w-4 h-4 border-r-2 border-b-2 border-black"></div>
+
+              <div>
+                <div className="flex justify-between items-start mb-6">
+                  <span className="terminal-invert font-mono text-sm">01</span>
+                  <Code2 className="w-10 h-10 text-gray-300 group-hover:text-black group-hover:rotate-12 transition-all duration-300" />
+                </div>
+                <h3 className="text-5xl font-black uppercase tracking-tighter mb-4 leading-[0.9]">
+                  About<span className="text-primary">.</span>
+                </h3>
+                <p className="font-mono text-base text-gray-500 leading-relaxed max-w-[200px]">
+                  The story, the stack, the mission behind the code.
+                </p>
               </div>
-              <h3 className="text-3xl font-black uppercase tracking-tighter mb-4">About</h3>
-              <p className="font-mono text-sm text-gray-600 leading-relaxed">
-                The story, the stack, the mission.
-              </p>
-            </div>
-            <div className="mt-8 font-mono text-sm font-bold uppercase flex items-center gap-2 text-black">
-              Read More <span className="text-lg">→</span>
+
+              <div className="flex items-center justify-between pt-6 border-t border-gray-200">
+                <span className="font-mono text-sm font-bold uppercase tracking-wider">Read More</span>
+                <span className="w-10 h-10 border-2 border-black flex items-center justify-center group-hover:bg-primary transition-colors">
+                  <span className="text-xl">→</span>
+                </span>
+              </div>
             </div>
           </Link>
 
-          {/* Selected Works Card - Top Middle */}
+          {/* Selected Works - Top Middle */}
           <Link
             href="/projects"
-            className="neo-brutal-box p-6 bg-primary flex flex-col justify-between min-h-[140px] group"
+            className="md:col-span-2 relative group"
           >
-            <div>
-              <div className="flex justify-between items-start mb-3">
-                <span className="bg-black text-primary px-1.5 py-0.5 font-mono text-xs">02</span>
-                <FolderOpen className="w-8 h-8 text-black/50 group-hover:text-black transition-colors" />
+            <div className="border-4 border-black bg-primary p-6 shadow-neo min-h-[200px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden">
+              {/* Diagonal stripes overlay */}
+              <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.1) 10px, rgba(0,0,0,0.1) 20px)' }}></div>
+
+              <div className="relative z-10">
+                <div className="flex justify-between items-start mb-4">
+                  <span className="bg-black text-primary px-2 py-1 font-mono text-xs font-bold">02</span>
+                  <FolderOpen className="w-10 h-10 text-black/40 group-hover:text-black group-hover:scale-110 transition-all duration-300" />
+                </div>
+                <h3 className="text-3xl font-black uppercase tracking-tighter leading-[0.9]">
+                  Selected<br />Works
+                </h3>
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tighter mb-2">Selected<br />Works</h3>
+              <div className="relative z-10 flex items-center justify-between pt-4">
+                <span className="font-mono text-sm text-black/70">{featuredProjects.length}+ projects</span>
+                <span className="font-black text-xl">↗</span>
+              </div>
             </div>
-            <p className="font-mono text-sm text-black/70">
-              {featuredProjects.length}+ curated projects.
-            </p>
           </Link>
 
           {/* Book a Call CTA - Top Right */}
@@ -259,54 +282,93 @@ export default function HomePage() {
             href="https://cal.com/ai.pdv"
             target="_blank"
             rel="noopener noreferrer"
-            className="neo-brutal-box p-6 bg-secondary flex flex-col justify-between min-h-[140px] group relative overflow-hidden"
+            className="md:col-span-2 relative group"
           >
-            <div className="absolute inset-0 pattern-diagonal opacity-5"></div>
-            <div className="relative z-10">
-              <div className="flex justify-between items-start mb-3">
-                <span className="terminal-invert-sm font-mono">CTA</span>
-                <Calendar className="w-8 h-8 text-gray-400 group-hover:text-black transition-colors" />
+            <div className="border-4 border-black bg-secondary p-6 shadow-neo min-h-[200px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden">
+              {/* Animated pulse effect on hover */}
+              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-500"></div>
+              <div className="absolute inset-0 pattern-diagonal opacity-5"></div>
+
+              <div className="relative z-10">
+                <div className="flex justify-between items-start mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                    <span className="terminal-invert-sm font-mono">OPEN</span>
+                  </div>
+                  <Calendar className="w-10 h-10 text-gray-400 group-hover:text-black group-hover:rotate-6 transition-all duration-300" />
+                </div>
+                <h3 className="text-2xl font-black uppercase tracking-tighter leading-[0.95]">
+                  Book a<br />Strategy Call
+                </h3>
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tighter mb-2">Book a<br />Strategy Call</h3>
+              <div className="relative z-10 font-mono text-sm text-gray-600 flex items-center gap-2">
+                <span>15 min intro</span>
+                <span className="text-primary font-bold">FREE ↗</span>
+              </div>
             </div>
-            <p className="relative z-10 font-mono text-sm text-gray-600">
-              15 min intro call ↗
-            </p>
           </a>
 
           {/* Resume Card - Bottom Middle */}
           <Link
             href="/resume"
-            className="neo-brutal-box p-6 bg-black text-white flex flex-col justify-between min-h-[140px] group"
+            className="md:col-span-2 relative group"
           >
-            <div>
-              <div className="flex justify-between items-start mb-3">
-                <span className="bg-primary text-black px-1.5 py-0.5 font-mono text-xs font-bold">03</span>
-                <Terminal className="w-8 h-8 text-gray-500 group-hover:text-primary transition-colors" />
+            <div className="border-4 border-black bg-black text-white p-6 shadow-[5px_5px_0px_0px_#39FF14] min-h-[200px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden">
+              {/* Scanline effect */}
+              <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(57, 255, 20, 0.03) 2px, rgba(57, 255, 20, 0.03) 4px)' }}></div>
+
+              <div className="relative z-10">
+                <div className="flex justify-between items-start mb-4">
+                  <span className="bg-primary text-black px-2 py-1 font-mono text-xs font-bold">03</span>
+                  <Terminal className="w-10 h-10 text-gray-600 group-hover:text-primary group-hover:scale-110 transition-all duration-300" />
+                </div>
+                <h3 className="text-3xl font-black uppercase tracking-tighter text-primary leading-[0.9]">Resume</h3>
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tighter mb-2 text-primary">Resume</h3>
+              <p className="relative z-10 font-mono text-sm text-gray-400">
+                Experience • Skills • Education
+              </p>
             </div>
-            <p className="font-mono text-sm text-gray-400 leading-relaxed">
-              Experience, education, skills.
-            </p>
           </Link>
 
-          {/* IST Clock Card - Bottom Right */}
-          <div className="neo-brutal-box p-6 bg-black flex flex-col justify-center min-h-[140px]">
-            <div className="flex justify-between items-start mb-2">
-              <span className="bg-primary text-black px-1.5 py-0.5 font-mono text-xs font-bold">LIVE</span>
-              <Clock className="w-6 h-6 text-primary" />
+          {/* IST Clock Card - Bottom Right (Larger) */}
+          <div className="md:col-span-2 relative">
+            <div className="border-4 border-black bg-black p-6 shadow-[5px_5px_0px_0px_#39FF14] min-h-[200px] flex flex-col justify-center relative overflow-hidden">
+              {/* CRT scanline effect */}
+              <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(57, 255, 20, 0.05) 2px, rgba(57, 255, 20, 0.05) 4px)' }}></div>
+              {/* Vignette */}
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 100%)' }}></div>
+
+              <div className="flex justify-between items-start mb-3 relative z-10">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                  <span className="bg-primary text-black px-2 py-0.5 font-mono text-[10px] font-bold tracking-wider">LIVE</span>
+                </div>
+                <Clock className="w-6 h-6 text-primary/60" />
+              </div>
+              <ISTClock />
             </div>
-            <ISTClock />
           </div>
 
           {/* Let's Build - Full Width Bottom Bar */}
           <Link
             href="/contact"
-            className="neo-brutal-box p-6 bg-white flex items-center justify-between min-h-[80px] md:col-span-2 lg:col-span-3 group"
+            className="md:col-span-6 relative group"
           >
-            <h3 className="text-2xl font-black uppercase tracking-tighter">Let's Build</h3>
-            <Mail className="w-8 h-8 text-gray-400 group-hover:text-black transition-colors" />
+            <div className="border-4 border-black bg-white px-8 py-6 shadow-neo flex items-center justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none group-hover:bg-primary">
+              <div className="flex items-center gap-6">
+                <span className="text-6xl font-black">→</span>
+                <div>
+                  <h3 className="text-3xl font-black uppercase tracking-tighter">Let's Build Together</h3>
+                  <p className="font-mono text-sm text-gray-500 group-hover:text-black/70 transition-colors">Have a vision? Let's make it happen.</p>
+                </div>
+              </div>
+              <div className="hidden md:flex items-center gap-4">
+                <Mail className="w-8 h-8 text-gray-400 group-hover:text-black transition-colors" />
+                <div className="w-14 h-14 border-3 border-black flex items-center justify-center bg-black text-primary group-hover:bg-primary group-hover:text-black transition-colors">
+                  <span className="text-2xl font-bold">↗</span>
+                </div>
+              </div>
+            </div>
           </Link>
         </div>
       </section>

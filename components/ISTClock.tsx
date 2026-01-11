@@ -64,7 +64,7 @@ export default function ISTClock() {
     if (!time) {
         return (
             <div className="flex flex-col items-center justify-center h-full">
-                <div className="animate-pulse text-primary font-mono">Loading...</div>
+                <div className="animate-pulse text-primary font-mono text-2xl">--:--</div>
             </div>
         );
     }
@@ -75,69 +75,75 @@ export default function ISTClock() {
     const m2 = parseInt(time.minutes[1]);
 
     return (
-        <div className="flex flex-col items-center justify-center h-full gap-4">
-            {/* Time Display */}
-            <div className="flex items-center gap-1">
-                {/* Hours */}
-                <Matrix
-                    rows={7}
-                    cols={5}
-                    pattern={digits[h1]}
-                    size={6}
-                    gap={1}
-                    palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.1)' }}
-                    ariaLabel={`Hour tens: ${h1}`}
-                />
-                <Matrix
-                    rows={7}
-                    cols={5}
-                    pattern={digits[h2]}
-                    size={6}
-                    gap={1}
-                    palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.1)' }}
-                    ariaLabel={`Hour ones: ${h2}`}
-                />
+        <div className="flex flex-col items-center justify-center h-full gap-3">
+            {/* Large Matrix Time Display */}
+            <div className="flex items-center gap-[2px] relative">
+                {/* Glow effect behind */}
+                <div className="absolute inset-0 bg-primary/10 blur-xl rounded-full scale-150" />
 
-                {/* Colon */}
-                <Matrix
-                    rows={7}
-                    cols={2}
-                    pattern={colonBlink[colonFrame]}
-                    size={6}
-                    gap={1}
-                    palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.1)' }}
-                    ariaLabel="Separator"
-                />
+                <div className="relative flex items-center gap-[2px]">
+                    {/* Hours */}
+                    <Matrix
+                        rows={7}
+                        cols={5}
+                        pattern={digits[h1]}
+                        size={10}
+                        gap={2}
+                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.08)' }}
+                        ariaLabel={`Hour tens: ${h1}`}
+                    />
+                    <Matrix
+                        rows={7}
+                        cols={5}
+                        pattern={digits[h2]}
+                        size={10}
+                        gap={2}
+                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.08)' }}
+                        ariaLabel={`Hour ones: ${h2}`}
+                    />
 
-                {/* Minutes */}
-                <Matrix
-                    rows={7}
-                    cols={5}
-                    pattern={digits[m1]}
-                    size={6}
-                    gap={1}
-                    palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.1)' }}
-                    ariaLabel={`Minute tens: ${m1}`}
-                />
-                <Matrix
-                    rows={7}
-                    cols={5}
-                    pattern={digits[m2]}
-                    size={6}
-                    gap={1}
-                    palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.1)' }}
-                    ariaLabel={`Minute ones: ${m2}`}
-                />
+                    {/* Colon */}
+                    <Matrix
+                        rows={7}
+                        cols={2}
+                        pattern={colonBlink[colonFrame]}
+                        size={10}
+                        gap={2}
+                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.08)' }}
+                        ariaLabel="Separator"
+                    />
+
+                    {/* Minutes */}
+                    <Matrix
+                        rows={7}
+                        cols={5}
+                        pattern={digits[m1]}
+                        size={10}
+                        gap={2}
+                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.08)' }}
+                        ariaLabel={`Minute tens: ${m1}`}
+                    />
+                    <Matrix
+                        rows={7}
+                        cols={5}
+                        pattern={digits[m2]}
+                        size={10}
+                        gap={2}
+                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.08)' }}
+                        ariaLabel={`Minute ones: ${m2}`}
+                    />
+                </div>
             </div>
 
-            {/* Time Info */}
-            <div className="text-center">
-                <p className="font-mono text-xs text-primary font-bold tracking-wider">
-                    {time.hours}:{time.minutes}:{time.seconds}
-                </p>
-                <p className="font-mono text-[10px] text-gray-500 uppercase tracking-widest mt-1">
-                    IST • GMT+5:30
-                </p>
+            {/* Seconds + Timezone */}
+            <div className="flex items-center gap-3 font-mono text-xs">
+                <span className="text-primary font-bold tabular-nums">
+                    :{time.seconds}
+                </span>
+                <span className="text-gray-500">•</span>
+                <span className="text-gray-400 uppercase tracking-wider">
+                    IST
+                </span>
             </div>
         </div>
     );
