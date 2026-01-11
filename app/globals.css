@@ -46,7 +46,8 @@
   }
 
   .neo-brutal-box:hover {
-    @apply translate-x-[2px] translate-y-[2px] shadow-neo-hover;
+    @apply translate-x-[2px] translate-y-[2px];
+    box-shadow: none;
   }
 
   .bg-grid {
@@ -95,7 +96,8 @@
   .terminal-invert {
     @apply bg-black px-2 py-1;
     color: #39FF14;
-    border-radius: 0; /* Sharp edges for Neo-Brutalism */
+    border-radius: 0;
+    /* Sharp edges for Neo-Brutalism */
   }
 
   .terminal-invert-sm {

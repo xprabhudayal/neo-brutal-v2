@@ -165,12 +165,12 @@ export default function HomePage() {
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* IIM Nagpur Hackathon */}
-          <div className="border-3 border-neo-border bg-white shadow-neo overflow-hidden group">
+          <div className="border-3 border-neo-border neo-brutal-box bg-white shadow-neo overflow-hidden group">
             <div className="aspect-video overflow-hidden border-b-3 border-black">
               <img
                 src="/images/achievements/iim-hackathon.webp"
                 alt="IIM Nagpur Hackathon Certificate"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-cover transition-transform duration-300"
               />
             </div>
             <div className="p-6">
@@ -184,12 +184,12 @@ export default function HomePage() {
           </div>
 
           {/* IIIT Delhi HackLLM */}
-          <div className="border-3 border-neo-border bg-white shadow-neo overflow-hidden group">
+          <div className="border-3 border-neo-border neo-brutal-box bg-white shadow-neo overflow-hidden group">
             <div className="aspect-video overflow-hidden border-b-3 border-black">
               <img
                 src="/images/achievements/hackllm-certificate.webp"
                 alt="IIIT Delhi HackLLM Certificate"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-cover transition-transform duration-300"
               />
             </div>
             <div className="p-6">
@@ -228,10 +228,10 @@ export default function HomePage() {
               <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(57, 255, 20, 0.03) 2px, rgba(57, 255, 20, 0.03) 4px)' }}></div>
 
               {/* Animated Corner Decorations */}
-              <div className="absolute top-4 left-4 w-5 h-5 border-l-2 border-t-2 border-primary transition-all duration-300 group-hover:w-8 group-hover:h-8 group-hover:top-2 group-hover:left-2"></div>
-              <div className="absolute top-4 right-4 w-5 h-5 border-r-2 border-t-2 border-primary transition-all duration-300 group-hover:w-8 group-hover:h-8 group-hover:top-2 group-hover:right-2"></div>
-              <div className="absolute bottom-4 left-4 w-5 h-5 border-l-2 border-b-2 border-primary transition-all duration-300 group-hover:w-8 group-hover:h-8 group-hover:bottom-2 group-hover:left-2"></div>
-              <div className="absolute bottom-4 right-4 w-5 h-5 border-r-2 border-b-2 border-primary transition-all duration-300 group-hover:w-8 group-hover:h-8 group-hover:bottom-2 group-hover:right-2"></div>
+              <div className="absolute top-4 left-4 w-5 h-5 border-l-2 border-t-2 border-primary"></div>
+              <div className="absolute top-4 right-4 w-5 h-5 border-r-2 border-t-2 border-primary"></div>
+              <div className="absolute bottom-4 left-4 w-5 h-5 border-l-2 border-b-2 border-primary"></div>
+              <div className="absolute bottom-4 right-4 w-5 h-5 border-r-2 border-b-2 border-primary"></div>
 
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-6">
@@ -297,7 +297,7 @@ export default function HomePage() {
                   <span className="terminal-invert-sm font-mono">OPEN</span>
                   <Calendar className="w-8 h-8 text-gray-400 group-hover:text-black group-hover:rotate-6 transition-all duration-300" />
                 </div>
-                <h3 className="text-xl font-black uppercase tracking-tighter leading-[0.95]">
+                <h3 className="text-3xl font-black uppercase tracking-tighter leading-[0.95]">
                   Book a<br />Strategy Call
                 </h3>
               </div>
@@ -342,8 +342,7 @@ export default function HomePage() {
 
               {/* Header */}
               <div className="relative z-10">
-                <p className="font-mono text-[10px] text-gray-500 uppercase tracking-widest mb-1">Local Time (IST)</p>
-                <p className="font-mono text-[10px] text-primary/60 uppercase tracking-wider">GMT+5:30 • 24H</p>
+                <p className="font-mono text-[10px] text-gray-200 uppercase tracking-widest mb-1">IST • GMT+5:30 • 24H</p>
               </div>
 
               {/* Clock */}
