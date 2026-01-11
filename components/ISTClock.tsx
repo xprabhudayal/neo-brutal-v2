@@ -3,33 +3,33 @@
 import { useState, useEffect } from 'react';
 import { Matrix, digits } from '@/components/ui/matrix';
 
-// Colon pattern for clock separator (7 rows x 2 cols)
+// Colon pattern for clock separator (7 rows x 3 cols) - wider spacing
 const colonPattern = [
-    [0, 0],
-    [0, 1],
-    [0, 0],
-    [0, 0],
-    [0, 0],
-    [0, 1],
-    [0, 0],
+    [0, 0, 0],
+    [0, 1, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 1, 0],
+    [0, 0, 0],
 ];
 
 // Blinking colon animation
 const colonBlink = [
     colonPattern,
     [
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0],
-        [0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
     ],
 ];
 
 export default function ISTClock() {
-    const [time, setTime] = useState<{ hours: string; minutes: string; seconds: string } | null>(null);
+    const [time, setTime] = useState<{ hours: string; minutes: string } | null>(null);
     const [colonFrame, setColonFrame] = useState(0);
 
     useEffect(() => {
@@ -42,9 +42,8 @@ export default function ISTClock() {
 
             const hours = istTime.getHours().toString().padStart(2, '0');
             const minutes = istTime.getMinutes().toString().padStart(2, '0');
-            const seconds = istTime.getSeconds().toString().padStart(2, '0');
 
-            setTime({ hours, minutes, seconds });
+            setTime({ hours, minutes });
         };
 
         updateTime();
@@ -75,75 +74,68 @@ export default function ISTClock() {
     const m2 = parseInt(time.minutes[1]);
 
     return (
-        <div className="flex flex-col items-center justify-center h-full gap-3">
-            {/* Large Matrix Time Display */}
-            <div className="flex items-center gap-[2px] relative">
-                {/* Glow effect behind */}
-                <div className="absolute inset-0 bg-primary/10 blur-xl rounded-full scale-150" />
+        <div className="flex flex-col items-center justify-center h-full">
+            {/* Large Matrix Time Display with proper spacing */}
+            <div className="flex items-center gap-1 relative">
+                {/* Subtle glow effect behind */}
+                <div className="absolute inset-0 bg-primary/5 blur-2xl rounded-full scale-125" />
 
-                <div className="relative flex items-center gap-[2px]">
+                <div className="relative flex items-center gap-1">
                     {/* Hours */}
                     <Matrix
                         rows={7}
                         cols={5}
                         pattern={digits[h1]}
-                        size={10}
+                        size={12}
                         gap={2}
-                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.08)' }}
+                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.06)' }}
                         ariaLabel={`Hour tens: ${h1}`}
                     />
+                    <div className="w-1" /> {/* Spacer */}
                     <Matrix
                         rows={7}
                         cols={5}
                         pattern={digits[h2]}
-                        size={10}
+                        size={12}
                         gap={2}
-                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.08)' }}
+                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.06)' }}
                         ariaLabel={`Hour ones: ${h2}`}
                     />
 
-                    {/* Colon */}
+                    {/* Colon with extra spacing */}
+                    <div className="w-2" /> {/* Spacer before colon */}
                     <Matrix
                         rows={7}
-                        cols={2}
+                        cols={3}
                         pattern={colonBlink[colonFrame]}
-                        size={10}
+                        size={12}
                         gap={2}
-                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.08)' }}
+                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.06)' }}
                         ariaLabel="Separator"
                     />
+                    <div className="w-2" /> {/* Spacer after colon */}
 
                     {/* Minutes */}
                     <Matrix
                         rows={7}
                         cols={5}
                         pattern={digits[m1]}
-                        size={10}
+                        size={12}
                         gap={2}
-                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.08)' }}
+                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.06)' }}
                         ariaLabel={`Minute tens: ${m1}`}
                     />
+                    <div className="w-1" /> {/* Spacer */}
                     <Matrix
                         rows={7}
                         cols={5}
                         pattern={digits[m2]}
-                        size={10}
+                        size={12}
                         gap={2}
-                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.08)' }}
+                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.06)' }}
                         ariaLabel={`Minute ones: ${m2}`}
                     />
                 </div>
-            </div>
-
-            {/* Seconds + Timezone */}
-            <div className="flex items-center gap-3 font-mono text-xs">
-                <span className="text-primary font-bold tabular-nums">
-                    :{time.seconds}
-                </span>
-                <span className="text-gray-500">•</span>
-                <span className="text-gray-400 uppercase tracking-wider">
-                    IST
-                </span>
             </div>
         </div>
     );
