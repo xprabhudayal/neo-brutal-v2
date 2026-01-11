@@ -1,8 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowDown, FolderOpen, Mail, Code2, Terminal, GitBranch, Zap } from 'lucide-react';
+import { ArrowDown, FolderOpen, Mail, Code2, Terminal, GitBranch, Zap, Calendar, Clock } from 'lucide-react';
 import LogoSpotlightCarousel from '@/components/LogoSpotlightCarousel';
+import ISTClock from '@/components/ISTClock';
 import { RESUME_DATA } from "@/components/constants";
 
 export default function HomePage() {
@@ -213,13 +214,13 @@ export default function HomePage() {
           <div className="h-1 flex-1 bg-black"></div>
         </div>
 
-        {/* Asymmetric Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Asymmetric Bento Grid - 3 columns on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          {/* About Card - Tall Left Column (spans 2 rows) */}
+          {/* About Card - Tall Left Column (spans 2 rows on lg) */}
           <Link
             href="/about"
-            className="neo-brutal-box p-6 bg-white flex flex-col justify-between min-h-[400px] md:row-span-2 group"
+            className="neo-brutal-box p-6 bg-white flex flex-col justify-between min-h-[300px] lg:row-span-2 lg:min-h-[400px] group"
           >
             <div>
               <div className="flex justify-between items-start mb-4">
@@ -236,10 +237,10 @@ export default function HomePage() {
             </div>
           </Link>
 
-          {/* Selected Works Card - Top Right */}
+          {/* Selected Works Card - Top Middle */}
           <Link
             href="/projects"
-            className="neo-brutal-box p-6 bg-primary flex flex-col justify-between min-h-[190px] group"
+            className="neo-brutal-box p-6 bg-primary flex flex-col justify-between min-h-[140px] group"
           >
             <div>
               <div className="flex justify-between items-start mb-3">
@@ -253,10 +254,30 @@ export default function HomePage() {
             </p>
           </Link>
 
-          {/* Resume Card - Bottom Right */}
+          {/* Book a Call CTA - Top Right */}
+          <a
+            href="https://cal.com/ai.pdv"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="neo-brutal-box p-6 bg-secondary flex flex-col justify-between min-h-[140px] group relative overflow-hidden"
+          >
+            <div className="absolute inset-0 pattern-diagonal opacity-5"></div>
+            <div className="relative z-10">
+              <div className="flex justify-between items-start mb-3">
+                <span className="terminal-invert-sm font-mono">CTA</span>
+                <Calendar className="w-8 h-8 text-gray-400 group-hover:text-black transition-colors" />
+              </div>
+              <h3 className="text-2xl font-black uppercase tracking-tighter mb-2">Book a<br />Strategy Call</h3>
+            </div>
+            <p className="relative z-10 font-mono text-sm text-gray-600">
+              15 min intro call ↗
+            </p>
+          </a>
+
+          {/* Resume Card - Bottom Middle */}
           <Link
             href="/resume"
-            className="neo-brutal-box p-6 bg-black text-white flex flex-col justify-between min-h-[190px] group"
+            className="neo-brutal-box p-6 bg-black text-white flex flex-col justify-between min-h-[140px] group"
           >
             <div>
               <div className="flex justify-between items-start mb-3">
@@ -266,14 +287,23 @@ export default function HomePage() {
               <h3 className="text-2xl font-black uppercase tracking-tighter mb-2 text-primary">Resume</h3>
             </div>
             <p className="font-mono text-sm text-gray-400 leading-relaxed">
-              Experience, education, skills — all in one place.
+              Experience, education, skills.
             </p>
           </Link>
+
+          {/* IST Clock Card - Bottom Right */}
+          <div className="neo-brutal-box p-6 bg-black flex flex-col justify-center min-h-[140px]">
+            <div className="flex justify-between items-start mb-2">
+              <span className="bg-primary text-black px-1.5 py-0.5 font-mono text-xs font-bold">LIVE</span>
+              <Clock className="w-6 h-6 text-primary" />
+            </div>
+            <ISTClock />
+          </div>
 
           {/* Let's Build - Full Width Bottom Bar */}
           <Link
             href="/contact"
-            className="neo-brutal-box p-6 bg-white flex items-center justify-between min-h-[80px] md:col-span-3 group"
+            className="neo-brutal-box p-6 bg-white flex items-center justify-between min-h-[80px] md:col-span-2 lg:col-span-3 group"
           >
             <h3 className="text-2xl font-black uppercase tracking-tighter">Let's Build</h3>
             <Mail className="w-8 h-8 text-gray-400 group-hover:text-black transition-colors" />
