@@ -41,7 +41,7 @@ export default function ProjectsClient() {
                     </div>
                     <div className="font-mono text-lg font-bold border-l-8 border-primary pl-6 max-w-xl py-2 bg-white/50 backdrop-blur-sm">
                         <p>A curated collection of high-performance applications, engineering challenges, and digital experiments. Built with raw code and precision.</p>
-                    </div>
+                    </div>̉
                 </div>
 
                 <div className="mb-12 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between border-y-4 border-black py-6 bg-white">
@@ -112,7 +112,7 @@ export default function ProjectsClient() {
                             <article key={project.title} className={`${colSpan} ${rowSpan} neo-brutal-box flex flex-col group relative overflow-hidden border-4 border-black bg-white shadow-[8px_8px_0px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-300`}>
                                 {index === 0 && (
                                     <div className="absolute top-0 right-0 bg-primary border-l-4 border-b-4 border-black px-6 py-2 font-mono font-black text-sm uppercase z-20">
-                                        Featured Case Study
+                                        Featured
                                     </div>
                                 )}
 

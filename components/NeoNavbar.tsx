@@ -13,21 +13,24 @@ export default function NeoNavbar({ onOpenAI }: NeoNavbarProps) {
 
     return (
         <nav className="sticky top-0 z-50 w-full bg-white border-b-3 border-neo-border">
-            <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
-                <div className="flex items-center justify-between h-20">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 w-full relative">
+                <div className="flex items-center justify-between h-20 relative">
 
                     {/* Logo Section */}
-                    <Link href="/" className="flex items-center gap-4 group cursor-pointer">
+                    <Link href="/" className="flex items-center gap-4 group cursor-pointer relative z-10">
                         <div className="w-14 h-10 border-3 border-neo-border bg-primary flex items-center justify-center shadow-neo-sm group-hover:translate-x-[2px] group-hover:translate-y-[2px] group-hover:shadow-none transition-all">
                             <span className="font-mono font-bold text-xl text-black">PDV</span>
                         </div>
-                        <h2 className="text-2xl font-bold tracking-tighter uppercase hidden sm:block text-black">
-                            Prabhudayal<span className="text-primary">_</span>
-                        </h2>
                     </Link>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center gap-1">
+                    {/* Desktop Navigation - Absolutely Centered */}
+                    <div className="hidden md:flex items-center gap-1 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <Link
+                            href="/"
+                            className="px-4 py-2 font-mono text-sm font-bold border-2 border-transparent hover:border-neo-border hover:bg-secondary text-black transition-all uppercase tracking-tight"
+                        >
+                            Home
+                        </Link>
                         <Link
                             href="/about"
                             className="px-4 py-2 font-mono text-sm font-bold border-2 border-transparent hover:border-neo-border hover:bg-secondary text-black transition-all uppercase tracking-tight"
@@ -55,12 +58,12 @@ export default function NeoNavbar({ onOpenAI }: NeoNavbarProps) {
                     </div>
 
                     {/* Right Section: AI Button & Mobile Toggle */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 relative z-10">
                         <button
                             onClick={onOpenAI}
                             className="hidden lg:flex items-center justify-center h-10 px-6 bg-primary text-black font-bold text-sm uppercase tracking-wide btn-neo"
                         >
-                            Talk to my AI Agent 🎙️
+                            Talk to my AI Agent
                         </button>
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
