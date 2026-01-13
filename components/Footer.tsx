@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { Marquee } from "@/components/ui/Marquee";
+import { RESUME_DATA } from "@/components/constants";
 
 export default function Footer() {
     return (
@@ -31,9 +32,15 @@ export default function Footer() {
 
                     {/* Links */}
                     <div className="flex flex-col gap-2 w-full md:w-auto">
-                        {['GitHub', 'Twitter', 'LinkedIn', 'Instagram'].map((link) => (
-                            <Link key={link} href="#" className="flex items-center justify-between text-2xl font-bold uppercase border-b border-muted dark:border-black/20 py-2 hover:text-primary dark:hover:text-white hover:border-primary dark:hover:border-white transition-colors group text-background dark:text-black">
-                                {link}
+                        {RESUME_DATA.contact.links.map((link) => (
+                            <Link
+                                key={link.name}
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center justify-between text-2xl font-bold uppercase border-b border-muted dark:border-black/20 py-2 hover:text-primary dark:hover:text-white hover:border-primary dark:hover:border-white transition-colors group text-background dark:text-black"
+                            >
+                                {link.name}
                                 <ArrowUpRight className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         ))}
