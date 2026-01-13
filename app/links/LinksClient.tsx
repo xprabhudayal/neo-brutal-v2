@@ -3,6 +3,7 @@
 import React from 'react';
 import { RESUME_DATA } from "@/components/constants";
 import Footer from "@/components/Footer";
+import NeoTooltip from "@/components/NeoTooltip";
 import { ArrowUpRight } from 'lucide-react';
 
 export default function LinksClient() {
@@ -30,24 +31,25 @@ export default function LinksClient() {
                 <div className="flex flex-col gap-6">
                     {allLinks.map((link) => {
                         return (
-                            <a
-                                key={link.name}
-                                href={link.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="group relative block"
-                            >
-                                {/* Shadow layer - stays fixed */}
-                                <div className="absolute inset-0 bg-border dark:bg-white translate-x-1 translate-y-1" />
-                                {/* Main card - pushes DOWN on hover (neo-brutal style) */}
-                                <div className="relative bg-card text-card-foreground border-2 border-border p-6 flex items-center justify-between transition-all duration-150 group-hover:translate-x-[2px] group-hover:translate-y-[2px] group-active:translate-x-[4px] group-active:translate-y-[4px]">
-                                    <div className="flex items-center gap-4">
-                                        {link.icon && React.createElement(link.icon as React.ComponentType<{ size: number }>, { size: 32 })}
-                                        <span className="text-2xl md:text-3xl font-bold uppercase">{link.name}</span>
+                            <NeoTooltip key={link.name} content={link.name}>
+                                <a
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group relative block w-full"
+                                >
+                                    {/* Shadow layer - stays fixed */}
+                                    <div className="absolute inset-0 bg-border dark:bg-white translate-x-1 translate-y-1" />
+                                    {/* Main card - pushes DOWN on hover (neo-brutal style) */}
+                                    <div className="relative bg-card text-card-foreground border-2 border-border p-6 flex items-center justify-between transition-all duration-150 group-hover:translate-x-[2px] group-hover:translate-y-[2px] group-active:translate-x-[4px] group-active:translate-y-[4px] group-hover:bg-primary group-hover:text-black">
+                                        <div className="flex items-center gap-4">
+                                            {link.icon && React.createElement(link.icon as React.ComponentType<{ size: number }>, { size: 32 })}
+                                            <span className="text-2xl md:text-3xl font-bold uppercase">{link.name}</span>
+                                        </div>
+                                        <ArrowUpRight size={32} className="group-hover:rotate-45 transition-transform duration-300" />
                                     </div>
-                                    <ArrowUpRight size={32} className="group-hover:rotate-45 transition-transform duration-300" />
-                                </div>
-                            </a>
+                                </a>
+                            </NeoTooltip>
                         );
                     })}
 

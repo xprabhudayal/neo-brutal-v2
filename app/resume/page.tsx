@@ -1,25 +1,20 @@
 "use client";
 
 import { RESUME_DATA } from "@/components/constants";
+import NeoTooltip from "@/components/NeoTooltip";
 import {
   Download,
   Briefcase,
   School,
   Trophy,
-  Mail,
-  Linkedin,
-  Github,
-  Twitter,
   Code2,
-  Instagram,
-  User
+  ArrowUpRight
 } from "lucide-react";
 
 export default function ResumePage() {
   const { contact, workExperience, education, skills, achievements } = RESUME_DATA;
 
-  // Helper to find social links
-  const getSocialLink = (name: string) => contact.links.find(l => l.name === name)?.url || '#';
+
 
   // Flatten skills for display
   const coreSkills = [...skills.programming, ...skills.ai_ml];
@@ -43,16 +38,22 @@ export default function ResumePage() {
               <h1 className="font-bold text-xl uppercase leading-none mb-1">{RESUME_DATA.name}</h1>
               <p className="font-mono text-xs text-gray-600 mb-4">AI Engineer & Full Stack Dev</p>
 
-              <div className="flex gap-2 justify-center">
-                <a href={getSocialLink('GitHub')} target="_blank" rel="noopener noreferrer" className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo">
-                  <Github className="w-5 h-5" />
-                </a>
-                <a href={getSocialLink('LinkedIn')} target="_blank" rel="noopener noreferrer" className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo">
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a href={`mailto:${contact.email}`} className="flex-1 h-10 flex items-center justify-center bg-white hover:bg-black hover:text-white btn-neo">
-                  <Mail className="w-5 h-5" />
-                </a>
+              <div className="flex gap-2 justify-center flex-wrap">
+                {contact.links.map((link) => {
+                  const Icon = link.icon || ArrowUpRight;
+                  return (
+                    <NeoTooltip key={link.name} content={link.name}>
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 flex items-center justify-center bg-white hover:bg-primary hover:text-black btn-neo transition-all"
+                      >
+                        <Icon className="w-5 h-5" />
+                      </a>
+                    </NeoTooltip>
+                  );
+                })}
               </div>
             </div>
 

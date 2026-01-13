@@ -4,8 +4,7 @@ import { Mail, Clock, MapPin, ArrowUpRight, Github, Linkedin, Twitter, Rocket, G
 export default function ContactPage() {
     const { contact } = RESUME_DATA;
 
-    // Helper to find social links
-    const getSocialLink = (name: string) => contact.links.find(l => l.name === name)?.url || '#';
+
 
     return (
         <div className="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 py-8 md:py-16 bg-grid">
@@ -76,50 +75,32 @@ export default function ContactPage() {
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {/* LinkedIn */}
-                        <a
-                            href={getSocialLink('LinkedIn')}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block p-5 bg-white hover:bg-primary hover:text-black btn-neo group/card h-full"
-                        >
-                            <div className="flex justify-between items-start mb-8">
-                                <Linkedin className="w-8 h-8" />
-                                <ArrowUpRight className="w-6 h-6 opacity-0 group-hover/card:opacity-100 transition-opacity -translate-y-1 translate-x-1" />
-                            </div>
-                            <span className="font-bold font-mono text-lg block">LinkedIn</span>
-                            <span className="text-xs font-mono opacity-60">Professional</span>
-                        </a>
-
-                        {/* GitHub */}
-                        <a
-                            href={getSocialLink('GitHub')}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block p-5 bg-white hover:bg-primary hover:text-black btn-neo group/card h-full"
-                        >
-                            <div className="flex justify-between items-start mb-8">
-                                <Github className="w-8 h-8" />
-                                <ArrowUpRight className="w-6 h-6 opacity-0 group-hover/card:opacity-100 transition-opacity -translate-y-1 translate-x-1" />
-                            </div>
-                            <span className="font-bold font-mono text-lg block">GitHub</span>
-                            <span className="text-xs font-mono opacity-60">Code Repos</span>
-                        </a>
-
-                        {/* X / Twitter */}
-                        <a
-                            href={getSocialLink('X (Twitter)')}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block p-5 bg-white hover:bg-primary hover:text-black btn-neo group/card h-full"
-                        >
-                            <div className="flex justify-between items-start mb-8">
-                                <Twitter className="w-8 h-8" />
-                                <ArrowUpRight className="w-6 h-6 opacity-0 group-hover/card:opacity-100 transition-opacity -translate-y-1 translate-x-1" />
-                            </div>
-                            <span className="font-bold font-mono text-lg block">X / Twitter</span>
-                            <span className="text-xs font-mono opacity-60">Thoughts</span>
-                        </a>
+                        {contact.links.map((link) => {
+                            const Icon = link.icon || ArrowUpRight;
+                            return (
+                                <a
+                                    key={link.name}
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block p-5 bg-white hover:bg-primary hover:text-black btn-neo group/card h-full w-full text-left"
+                                >
+                                    <div className="flex justify-between items-start mb-8">
+                                        <Icon className="w-8 h-8" />
+                                        <ArrowUpRight className="w-6 h-6 opacity-0 group-hover/card:opacity-100 transition-opacity -translate-y-1 translate-x-1" />
+                                    </div>
+                                    <span className="font-bold font-mono text-lg block">{link.name}</span>
+                                    <span className="text-xs font-mono opacity-60">
+                                        {link.name === 'LinkedIn' ? 'Professional' :
+                                            link.name === 'GitHub' ? 'Code Repos' :
+                                                link.name === 'Twitter' ? 'Thoughts' :
+                                                    link.name === 'Instagram' ? 'Social' :
+                                                        link.name === 'LeetCode' ? 'Coding' :
+                                                            'Connect'}
+                                    </span>
+                                </a>
+                            );
+                        })}
                     </div>
                 </section>
             </div>

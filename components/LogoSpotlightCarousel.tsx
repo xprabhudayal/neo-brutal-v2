@@ -43,7 +43,7 @@ export default function LogoSpotlightCarousel() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % ORGANIZATIONS.length);
-        }, 4000);
+        }, 3000);
 
         return () => clearInterval(interval);
     }, []);
