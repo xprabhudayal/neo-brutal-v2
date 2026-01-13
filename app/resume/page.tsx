@@ -158,36 +158,32 @@ export default function ResumePage() {
               <h2 className="text-3xl font-black uppercase tracking-tight">Professional Experience</h2>
               <div className="h-1 flex-1 bg-black"></div>
             </div>
-            <div className="relative timeline-line pl-0 md:pl-0">
+
+            <div className="relative border-l-4 border-black ml-4 md:ml-6 pl-8 md:pl-12 flex flex-col gap-12">
               {workExperience.map((job, index) => (
-                <div key={job.company} className="relative mb-12 last:mb-0">
-                  <div className={`md:flex items-center w-full ${index % 2 !== 0 ? 'flex-row-reverse' : ''}`}>
-                    <div className={`hidden md:block w-[50%] ${index % 2 !== 0 ? 'pl-12 text-left' : 'pr-12 text-right'}`}>
-                      <div className={`inline-block border-2 border-black px-3 py-1 font-mono text-sm font-bold mb-2 transform ${index % 2 !== 0 ? 'rotate-2 bg-white text-black shadow-[4px_4px_0px_0px_#E0EFE0]' : '-rotate-2 bg-black text-white shadow-[4px_4px_0px_0px_#39FF14]'}`}>
-                        {job.date}
-                      </div>
-                      <h3 className="text-2xl font-bold uppercase">{job.title}</h3>
-                      <p className="text-lg font-mono font-bold text-gray-600">{job.company}</p>
-                    </div>
-                    <div className={`absolute left-[22px] md:left-1/2 md:-ml-3 w-6 h-6 border-3 border-black z-10 rounded-none shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ${index % 2 !== 0 ? 'bg-white' : 'bg-primary'}`}></div>
-                    <div className={`ml-16 md:ml-0 md:w-[50%] ${index % 2 !== 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                      <div className="md:hidden mb-4">
-                        <div className={`inline-block border-2 border-black px-3 py-1 font-mono text-sm font-bold mb-2 ${index % 2 !== 0 ? 'bg-white text-black shadow-[4px_4px_0px_0px_#E0EFE0]' : 'bg-black text-white shadow-[4px_4px_0px_0px_#39FF14]'}`}>
-                          {job.date}
-                        </div>
-                        <h3 className="text-2xl font-bold uppercase">{job.title}</h3>
+                <div key={job.company} className="relative">
+                  {/* Timeline Dot */}
+                  <div className="absolute -left-[46px] md:-left-[62px] top-6 w-6 h-6 bg-primary border-4 border-black box-content"></div>
+
+                  <div className="neo-brutal-box p-6 md:p-8 bg-white relative hover:translate-x-[2px] hover:translate-y-[2px] transition-transform">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b-2 border-gray-100 pb-4">
+                      <div>
+                        <h3 className="text-2xl font-black uppercase leading-tight mb-1">{job.title}</h3>
                         <p className="text-lg font-mono font-bold text-gray-600">{job.company}</p>
                       </div>
-                      <div className="neo-brutal-box p-6 relative">
-                        <ul className="space-y-3 list-none">
-                          {job.points.map((point, i) => (
-                            <li key={i} className="flex items-start gap-3">
-                              <span className="text-base leading-relaxed">{point}</span>
-                            </li>
-                          ))}
-                        </ul>
+                      <div className="self-start md:self-center bg-black text-white px-4 py-2 font-mono text-sm font-bold shadow-[4px_4px_0px_0px_#39FF14]">
+                        {job.date}
                       </div>
                     </div>
+
+                    <ul className="space-y-4 list-none">
+                      {job.points.map((point, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <span className="min-w-[6px] h-[6px] mt-[10px] bg-black"></span>
+                          <span className="text-base leading-relaxed text-gray-800">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               ))}
@@ -203,22 +199,20 @@ export default function ResumePage() {
               <h2 className="text-3xl font-black uppercase tracking-tight">Education</h2>
               <div className="h-1 flex-1 bg-black"></div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6">
               {education.map((edu) => (
-                <div key={edu.institution} className="neo-brutal-box flex flex-col h-full bg-white relative group overflow-hidden">
-                  <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <School className="w-24 h-24" />
+                <div key={edu.institution} className="neo-brutal-box flex flex-col md:flex-row bg-white relative group overflow-hidden">
+                  <div className="md:w-64 bg-secondary border-b-3 md:border-b-0 md:border-r-3 border-neo-border p-6 flex flex-col justify-center items-center text-center group-hover:bg-primary transition-colors">
+                    <span className="font-mono font-black text-xl">{edu.date}</span>
+                    <span className="mt-2 text-xs font-bold uppercase tracking-widest border-2 border-black px-2 py-0.5 bg-white">Degree</span>
                   </div>
-                  <div className="bg-black text-white p-3 border-b-3 border-neo-border flex justify-between items-center z-10 relative">
-                    <span className="font-mono font-bold">{edu.date}</span>
-                    <span className="bg-primary text-black px-2 py-0.5 text-xs font-bold uppercase tracking-wider">Degree</span>
-                  </div>
-                  <div className="p-6 flex flex-col justify-between flex-grow z-10 relative">
-                    <div>
-                      <h3 className="text-xl font-bold uppercase mb-2 leading-tight">{edu.degree}</h3>
-                      <p className="font-mono text-sm text-gray-600 border-l-2 border-primary pl-3 mb-4">{edu.institution}</p>
-                      <p className="font-mono text-xs text-gray-500">{edu.details}</p>
+                  <div className="p-8 flex-1 flex flex-col justify-center relative">
+                    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                      <School className="w-32 h-32" />
                     </div>
+                    <h3 className="text-2xl font-black uppercase leading-tight mb-2 relative z-10">{edu.degree}</h3>
+                    <p className="font-mono text-gray-600 text-lg relative z-10">{edu.institution}</p>
+                    <p className="mt-4 font-mono text-sm text-gray-500 relative z-10">{edu.details}</p>
                   </div>
                 </div>
               ))}
