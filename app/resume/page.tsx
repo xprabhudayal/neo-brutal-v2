@@ -98,10 +98,15 @@ export default function ResumePage() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-4 mt-2">
-                <button className="flex items-center gap-3 px-6 py-3 bg-primary font-bold uppercase tracking-wider btn-neo transition-all">
+                <a
+                  href="/docs/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-6 py-3 bg-primary font-bold uppercase tracking-wider btn-neo transition-all"
+                >
                   <Download className="w-5 h-5" />
                   Download PDF Resume
-                </button>
+                </a>
 
               </div>
             </div>
