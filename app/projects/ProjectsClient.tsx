@@ -32,7 +32,7 @@ export default function ProjectsClient() {
                         <div className="inline-block px-3 py-1 bg-black text-white border-2 border-black font-mono text-xs font-bold uppercase tracking-widest mb-4 shadow-[4px_4px_0px_0px_rgba(57,255,20,1)]">
                             Portfolio 2026
                         </div>
-                        <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
+                        <h1 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
                             Selected<br />
                             <span className="text-primary relative inline-block terminal-invert">
                                 Projects
@@ -65,7 +65,7 @@ export default function ProjectsClient() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 auto-rows-[450px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 auto-rows-[380px] md:auto-rows-[450px]">
                     {filteredProjects.map((project, index) => {
                         // Asymmetric Grid Pattern
                         // Pattern repeats every 6 items:
@@ -117,7 +117,7 @@ export default function ProjectsClient() {
                                 )}
 
                                 {/* Image Section - 2/3 Height */}
-                                <div className={`relative w-full ${isTall ? 'h-[75%]' : 'h-[65%]'} border-b-4 border-black overflow-hidden bg-gray-100`}>
+                                <div className={`relative w-full h-[65%] ${isTall ? 'lg:h-[75%]' : ''} border-b-4 border-black overflow-hidden bg-gray-100`}>
                                     {/* Placeholder pattern if no image */}
                                     <div className="absolute inset-0 pattern-diagonal opacity-10"></div>
 
@@ -138,7 +138,7 @@ export default function ProjectsClient() {
                                 </div>
 
                                 {/* Text Section - 1/3 Height */}
-                                <div className={`p-6 flex flex-col gap-3 relative z-10 bg-white w-full ${isTall ? 'h-[25%]' : 'h-[35%]'} justify-between`}>
+                                <div className={`p-4 sm:p-6 flex flex-col gap-3 relative z-10 bg-white w-full h-[35%] ${isTall ? 'lg:h-[25%]' : ''} justify-between`}>
                                     <div className="flex flex-wrap gap-2">
                                         {project.tech.slice(0, 3).map(t => (
                                             <span key={t} className="px-2 py-1 bg-secondary border-2 border-black font-mono text-[10px] font-black uppercase shadow-[2px_2px_0px_0px_#000]">{t}</span>
@@ -169,7 +169,7 @@ export default function ProjectsClient() {
                         );
                     })}
                 </div>
-            </section>
-        </div>
+            </section >
+        </div >
     );
 }
