@@ -116,7 +116,7 @@ export default function ResumePage() {
               <div className="h-1 flex-1 bg-black"></div>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border-3 border-neo-border bg-white shadow-neo group hover:shadow-neo-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+              <div className="border-3 border-neo-border bg-white shadow-neo group hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
                 <div className="bg-secondary border-b-3 border-neo-border p-3">
                   <h3 className="font-mono font-bold uppercase text-sm flex justify-between items-center text-black">
                     <span>// Core Technologies</span>
@@ -131,7 +131,7 @@ export default function ResumePage() {
                   ))}
                 </div>
               </div>
-              <div className="border-3 border-neo-border bg-white shadow-neo group hover:shadow-neo-hover hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
+              <div className="border-3 border-neo-border bg-white shadow-neo group hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
                 <div className="bg-black text-white border-b-3 border-neo-border p-3">
                   <h3 className="font-mono font-bold uppercase text-sm flex justify-between items-center">
                     <span>// Tools & Others</span>
@@ -165,7 +165,7 @@ export default function ResumePage() {
                   {/* Timeline Dot */}
                   <div className="absolute -left-[46px] md:-left-[62px] top-6 w-6 h-6 bg-primary border-4 border-black box-content"></div>
 
-                  <div className="neo-brutal-box p-6 md:p-8 bg-white relative hover:translate-x-[2px] hover:translate-y-[2px] transition-transform">
+                  <div className="neo-brutal-box p-6 md:p-8 bg-white relative hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b-2 border-gray-100 pb-4">
                       <div>
                         <h3 className="text-2xl font-black uppercase leading-tight mb-1">{job.title}</h3>

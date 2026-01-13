@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Github, Linkedin, Twitter, Mail, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { RESUME_DATA } from './constants';
 
 export default function NeoFooter() {
@@ -27,12 +27,11 @@ export default function NeoFooter() {
         return () => clearInterval(interval);
     }, []);
 
-    const socialLinks = [
-        { icon: Github, href: 'https://github.com/xprabhudayal', label: 'GitHub' },
-        { icon: Linkedin, href: 'https://www.linkedin.com/in/prabhudayal-vaishnav/', label: 'LinkedIn' },
-        { icon: Twitter, href: 'https://x.com/prabhudayal0', label: 'Twitter' },
-        { icon: Mail, href: 'mailto:mail.prabhudayal@gmail.com', label: 'Email' },
-    ];
+    const socialLinks = RESUME_DATA.contact.links.map(link => ({
+        icon: link.icon,
+        href: link.url,
+        label: link.name
+    }));
 
     const quickLinks = [
         { label: 'About', href: '/about' },
