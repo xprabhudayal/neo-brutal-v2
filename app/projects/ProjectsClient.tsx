@@ -29,12 +29,12 @@ export default function ProjectsClient() {
             <section className="max-w-7xl mx-auto px-4 md:px-6 py-12 lg:py-20">
                 <div className="mb-16 flex flex-col lg:flex-row gap-8 lg:items-end justify-between relative">
                     <div>
-                        <div className="inline-block px-3 py-1 bg-black text-white border-2 border-black font-mono text-xs font-bold uppercase tracking-widest mb-4">
+                        <div className="inline-block px-3 py-1 bg-black text-white border-2 border-black font-mono text-xs font-bold uppercase tracking-widest mb-4 shadow-[4px_4px_0px_0px_rgba(57,255,20,1)]">
                             Portfolio 2026
                         </div>
                         <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
                             Selected<br />
-                            <span className="text-primary relative inline-block terminal-invert">
+                            <span className="bg-primary text-black px-2 mx-[-8px] decoration-clone box-decoration-clone">
                                 Projects
                             </span>
                         </h1>
@@ -44,53 +44,76 @@ export default function ProjectsClient() {
                     </div>
                 </div>
 
-                <div className="mb-10 flex flex-wrap gap-4 items-center justify-between border-y-3 border-neo-border py-4 bg-white">
-                    <div className="flex gap-2 px-4 overflow-x-auto pb-2 md:pb-0">
+                <div className="mb-12 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between border-y-4 border-black py-6 bg-white">
+                    <div className="flex flex-wrap gap-3">
                         {['All', 'Full Stack', 'AI'].map((cat) => (
                             <button
                                 key={cat}
                                 onClick={() => setFilter(cat as any)}
-                                className={`px-4 py-2 font-mono text-xs font-bold uppercase btn-neo ${filter === cat
-                                    ? 'bg-black text-white hover:bg-primary hover:text-black'
-                                    : 'bg-white text-black hover:text-black hover:bg-secondary'
+                                className={`px-6 py-2 font-mono text-sm font-black uppercase border-3 border-black transition-all duration-200 ${filter === cat
+                                    ? 'bg-black text-primary shadow-none translate-x-[2px] translate-y-[2px]'
+                                    : 'bg-white text-black shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-secondary'
                                     }`}
                             >
                                 {cat}
                             </button>
                         ))}
                     </div>
-                    <div className="px-4 flex items-center gap-2 font-mono text-xs font-bold">
-                        <span className="w-3 h-3 bg-primary border-2 border-black rounded-full animate-pulse"></span>
+                    <div className="flex items-center gap-3 font-mono text-sm font-bold bg-black text-white px-4 py-2 border-2 border-black shadow-[4px_4px_0px_0px_#39FF14]">
+                        <span className="w-3 h-3 bg-primary rounded-full animate-pulse"></span>
                         {filteredProjects.length} PROJECTS DEPLOYED
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 auto-rows-[minmax(350px,auto)]">
                     {filteredProjects.map((project, index) => {
-                        // Creating a pseudo-random layout pattern based on index
-                        const isFeatured = index === 0; // First project is big feature
-                        const isVertical = index === 1; // Second is vertical card
+                        // Asymmetric Grid Pattern
+                        // Pattern repeats every 6 items:
+                        // 0: Big Feature (4x2)
+                        // 1: Vertical (2x2)
+                        // 2: Wide (4x1)
+                        // 3: Standard (2x1)
+                        // 4: Standard (2x1)
+                        // 5: Wide (4x1)
 
-                        let colSpan = 'lg:col-span-3'; // Default
+                        const patternIndex = index % 6;
+                        let colSpan = 'lg:col-span-3'; // Fallback
                         let rowSpan = '';
 
-                        if (isFeatured) {
+                        // Apply pattern logic
+                        if (index === 0) {
+                            // First item always big feature
                             colSpan = 'lg:col-span-4';
                             rowSpan = 'lg:row-span-2';
-                        } else if (isVertical) {
+                        } else if (index === 1) {
+                            // Second item always vertical companion
                             colSpan = 'lg:col-span-2';
                             rowSpan = 'lg:row-span-2';
+                        } else {
+                            // Rotating pattern for rest
+                            switch (patternIndex) {
+                                case 2: colSpan = 'lg:col-span-4'; break;
+                                case 3: colSpan = 'lg:col-span-2'; break;
+                                case 4: colSpan = 'lg:col-span-2'; break;
+                                case 5: colSpan = 'lg:col-span-4'; break;
+                                default: colSpan = 'lg:col-span-3'; break; // Should not happen with mod 6
+                            }
+                        }
+
+                        // Special case: if we have odd number of items at the end, make last one full width or balanced
+                        if (index === filteredProjects.length - 1 && filteredProjects.length % 2 !== 0) {
+                            colSpan = 'lg:col-span-6';
                         }
 
                         return (
-                            <article key={project.title} className={`${colSpan} ${rowSpan} neo-brutal-box flex flex-col group relative overflow-hidden`}>
-                                {isFeatured && (
-                                    <div className="absolute top-0 right-0 bg-primary border-l-3 border-b-3 border-black px-4 py-2 font-mono font-bold text-xs uppercase shadow-neo z-20">
+                            <article key={project.title} className={`${colSpan} ${rowSpan} neo-brutal-box flex flex-col group relative overflow-hidden border-4 border-black bg-white shadow-[8px_8px_0px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-300`}>
+                                {index === 0 && (
+                                    <div className="absolute top-0 right-0 bg-primary border-l-4 border-b-4 border-black px-6 py-2 font-mono font-black text-sm uppercase z-20">
                                         Featured Case Study
                                     </div>
                                 )}
 
-                                <div className={`relative flex-1 min-h-[${isFeatured ? '300px' : '200px'}] border-b-3 border-neo-border overflow-hidden bg-gray-100`}>
+                                <div className={`relative flex-1 min-h-[${(rowSpan || index === 0) ? '300px' : '220px'}] border-b-4 border-black overflow-hidden bg-gray-100`}>
                                     {/* Placeholder pattern if no image */}
                                     <div className="absolute inset-0 pattern-diagonal opacity-10"></div>
 
@@ -100,7 +123,7 @@ export default function ProjectsClient() {
                                                 src={project.image}
                                                 alt={project.title}
                                                 fill
-                                                className="object-cover img-bw-to-color"
+                                                className="object-cover img-bw-to-color transition-all duration-500"
                                             />
                                         </div>
                                     ) : (
@@ -110,15 +133,15 @@ export default function ProjectsClient() {
                                     )}
                                 </div>
 
-                                <div className="p-6 md:p-8 bg-white flex flex-col gap-4 relative z-10 flex-grow">
+                                <div className="p-6 md:p-8 flex flex-col gap-4 relative z-10 flex-grow bg-white">
                                     <div className="flex flex-wrap gap-2">
                                         {project.tech.slice(0, 3).map(t => (
-                                            <span key={t} className="px-2 py-1 bg-secondary border-2 border-black font-mono text-[10px] font-bold uppercase">{t}</span>
+                                            <span key={t} className="px-2 py-1 bg-secondary border-2 border-black font-mono text-[10px] font-black uppercase shadow-[2px_2px_0px_0px_#000]">{t}</span>
                                         ))}
                                     </div>
 
-                                    <div className="flex justify-between items-start">
-                                        <h3 className={`font-black uppercase tracking-tight group-hover:text-primary transition-colors ${isFeatured ? 'text-3xl md:text-5xl' : 'text-2xl'}`}>
+                                    <div className="flex justify-between items-start gap-4">
+                                        <h3 className={`font-black uppercase tracking-tight group-hover:text-black transition-colors ${index === 0 ? 'text-3xl md:text-5xl' : 'text-2xl'}`}>
                                             {project.title}
                                         </h3>
                                         {project.url && (
@@ -126,9 +149,9 @@ export default function ProjectsClient() {
                                                 href={project.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="flex items-center justify-center w-10 h-10 border-3 border-black bg-white hover:bg-black hover:text-primary transition-colors rounded-full"
+                                                className="flex-shrink-0 flex items-center justify-center w-12 h-12 border-3 border-black bg-white hover:bg-black hover:text-primary transition-all rounded-none shadow-[4px_4px_0px_0px_#000] hover:shadow-none"
                                             >
-                                                <ArrowUpRight className="font-bold w-5 h-5" />
+                                                <ArrowUpRight className="font-bold w-6 h-6" />
                                             </a>
                                         )}
                                     </div>
@@ -136,17 +159,6 @@ export default function ProjectsClient() {
                                     <p className="font-mono text-sm leading-relaxed text-gray-700 max-w-2xl">
                                         {project.description}
                                     </p>
-
-                                    {isVertical && (
-                                        <a
-                                            href={project.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="mt-auto w-full py-3 border-3 border-black bg-primary text-center font-bold uppercase text-sm hover:bg-black hover:text-white transition-all shadow-neo-sm hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]"
-                                        >
-                                            View Project
-                                        </a>
-                                    )}
                                 </div>
                             </article>
                         );
