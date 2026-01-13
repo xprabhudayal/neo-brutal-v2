@@ -47,17 +47,28 @@ export default function AboutPage() {
                 {/* Main Content */}
                 <main className="lg:col-span-9 flex flex-col gap-12">
                     {/* Bio Section */}
-                    <section className="border-3 border-neo-border bg-white p-8 md:p-12 shadow-neo relative overflow-hidden" id="bio">
-                        <div className="absolute -right-10 -top-10 text-[180px] text-gray-100 font-black select-none pointer-events-none z-0">?</div>
+                    <section className="border-3 border-neo-border bg-white p-6 md:p-12 shadow-neo relative overflow-hidden" id="bio">
+                        <div className="absolute -right-10 -top-10 text-[120px] md:text-[180px] text-gray-100 font-black select-none pointer-events-none z-0">?</div>
                         <div className="relative z-10">
-                            <div className="inline-block px-3 py-1 bg-primary border-2 border-black font-mono text-xs mb-6 uppercase tracking-widest font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                            {/* Mobile User Info (since sidebar is hidden) */}
+                            <div className="lg:hidden flex items-center gap-4 mb-8 pb-6 border-b-2 border-dashed border-gray-200">
+                                <div className="w-16 h-16 border-3 border-neo-border overflow-hidden bg-secondary relative shrink-0">
+                                    <img src="/profile-photo.webp" alt={name} className="w-full h-full object-cover grayscale" />
+                                </div>
+                                <div>
+                                    <h1 className="font-bold text-lg uppercase leading-none mb-1">{name}</h1>
+                                    <p className="font-mono text-[10px] text-gray-600">AI Engineer & Full Stack</p>
+                                </div>
+                            </div>
+
+                            <div className="inline-block px-3 py-1 bg-primary border-2 border-black font-mono text-[10px] md:text-xs mb-4 md:mb-6 uppercase tracking-widest font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                                 Status: Online
                             </div>
-                            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-6">
+                            <h1 className="text-3xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-6">
                                 Hello 🤝 <span className="bg-black terminal-invert">World</span>
                             </h1>
                             <div className="prose prose-lg max-w-3xl">
-                                <p className="font-mono text-lg md:text-xl leading-relaxed mb-6 border-l-4 border-black pl-6 bg-secondary p-4">
+                                <p className="font-mono text-sm md:text-xl leading-relaxed mb-6 border-l-4 border-black pl-4 md:pl-6 bg-secondary p-3 md:p-4">
                                     I am {name}, a multidisciplinary engineer obsessed with AI agents, Agentic Systems, and raw performance.
                                 </p>
                                 <p className="font-display font-medium text-lg text-gray-800 mb-4 whitespace-pre-wrap">
