@@ -559,48 +559,48 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
         className="relative bg-neo-card border-3 border-neo-border rounded-none w-full max-w-lg flex flex-col shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden"
       >
         {/* Header */}
-        <div className="flex justify-between items-center p-5 border-b-3 border-neo-border bg-secondary">
-          <div>
-            <h2 id="live-chat-title" className="text-xl font-bold uppercase tracking-tight text-neo-text font-mono">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 sm:p-5 border-b-3 border-neo-border bg-secondary gap-4 sm:gap-0">
+          <div className="w-full sm:w-auto flex flex-row sm:flex-col justify-between items-center sm:items-start">
+            <h2 id="live-chat-title" className="text-lg sm:text-xl font-bold uppercase tracking-tight text-neo-text font-mono">
               Voice Interface
             </h2>
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 mt-1">
-                <div className={`w-2 h-2 rounded-full ${status.includes('Connected') ? 'bg-primary animate-pulse' : 'bg-gray-400'}`} />
-                <p className="text-xs font-bold uppercase tracking-wider text-neo-text/70">
-                  {status}
-                </p>
-              </div>
-
-              {/* End Call Button */}
-              <button
-                onClick={() => {
-                  setStatus('Disconnecting...');
-                  onClose();
-                }}
-                className="px-3 py-1 bg-red-500 text-white text-xs font-bold uppercase tracking-wider border-2 border-neo-border shadow-neo-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none transition-all flex items-center gap-1"
-              >
-                <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
-                End Call
-              </button>
+            <div className="flex items-center gap-2 mt-0 sm:mt-1">
+              <div className={`w-2 h-2 rounded-full ${status.includes('Connected') ? 'bg-primary animate-pulse' : 'bg-gray-400'}`} />
+              <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-neo-text/70 truncate max-w-[150px] sm:max-w-none">
+                {status}
+              </p>
             </div>
           </div>
-          <button
-            onClick={onClose}
-            className="p-2 border-2 border-transparent hover:border-neo-border hover:bg-white transition-all duration-200 group"
-            aria-label="Close chat"
-          >
-            <XIcon className="w-6 h-6 text-neo-text group-hover:scale-110 transition-transform" />
-          </button>
+
+          <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
+            {/* End Call Button */}
+            <button
+              onClick={() => {
+                setStatus('Disconnecting...');
+                onClose();
+              }}
+              className="flex-1 sm:flex-none justify-center px-4 py-2 sm:px-3 sm:py-1 bg-red-600 text-white text-xs sm:text-sm font-bold uppercase tracking-wider border-2 border-neo-border shadow-neo-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none transition-all flex items-center gap-2"
+            >
+              <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
+              End Call
+            </button>
+            <button
+              onClick={onClose}
+              className="p-2 border-2 border-transparent hover:border-neo-border hover:bg-white transition-all duration-200 group"
+              aria-label="Close chat"
+            >
+              <XIcon className="w-6 h-6 text-neo-text group-hover:scale-110 transition-transform" />
+            </button>
+          </div>
         </div>
 
-        {/* Main Visualizer Area */}
-        <div className="flex-grow flex flex-col items-center justify-center py-12 min-h-[300px] bg-neo-bg relative overflow-hidden">
+        {/* Main Visualizer Area - Dark Mode */}
+        <div className="flex-grow flex flex-col items-center justify-center py-8 sm:py-12 min-h-[250px] sm:min-h-[300px] bg-black relative overflow-hidden">
 
-          {/* Grid Background */}
-          <div className="absolute inset-0 opacity-10"
+          {/* Grid Background - White dots for contrast */}
+          <div className="absolute inset-0 opacity-20"
             style={{
-              backgroundImage: 'radial-gradient(#000 1px, transparent 1px)',
+              backgroundImage: 'radial-gradient(#333 1px, transparent 1px)',
               backgroundSize: '20px 20px'
             }}
           />
@@ -628,19 +628,19 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
           </div>
         </div>
 
-        {/* Dynamic Transcription Area */}
-        <div className="p-6 bg-white border-t-3 border-neo-border min-h-[140px] flex flex-col justify-center text-center relative">
+        {/* Dynamic Transcription Area - Dark Mode Compatible */}
+        <div className="p-4 sm:p-6 bg-white border-t-3 border-neo-border min-h-[120px] sm:min-h-[140px] flex flex-col justify-center text-center relative">
           {transcriptions.length > 0 ? (
             <div className="space-y-2">
-              <p className="font-mono text-xs font-bold text-neo-text/50 uppercase tracking-widest mb-2">
+              <p className="font-mono text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-widest mb-1 sm:mb-2">
                 {transcriptions[transcriptions.length - 1].speaker === 'user' ? 'You said' : 'Assistant says'}
               </p>
-              <p className="text-lg font-bold text-neo-text leading-tight md:text-xl transition-all duration-300">
+              <p className="text-base sm:text-lg md:text-xl font-bold text-black leading-tight transition-all duration-300">
                 "{transcriptions[transcriptions.length - 1].displayedText !== undefined ? transcriptions[transcriptions.length - 1].displayedText : transcriptions[transcriptions.length - 1].text}"
               </p>
             </div>
           ) : (
-            <p className="text-neo-text/40 font-mono text-sm">Waiting for conversation to start...</p>
+            <p className="text-gray-400 font-mono text-xs sm:text-sm">Waiting for conversation to start...</p>
           )}
         </div>
       </div>
