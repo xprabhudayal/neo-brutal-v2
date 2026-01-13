@@ -76,7 +76,7 @@ export default function ISTClock() {
     return (
         <div className="flex flex-col items-center justify-center h-full">
             {/* Large Matrix Time Display with proper spacing */}
-            <div className="flex items-center gap-1 relative">
+            <div className="flex items-center gap-1 relative scale-75 sm:scale-100 origin-center transition-transform">
                 {/* Subtle glow effect behind */}
                 <div className="absolute inset-0 bg-primary/5 blur-2xl rounded-full scale-125" />
 
