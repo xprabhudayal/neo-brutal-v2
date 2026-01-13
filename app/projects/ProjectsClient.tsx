@@ -34,7 +34,7 @@ export default function ProjectsClient() {
                         </div>
                         <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
                             Selected<br />
-                            <span className="bg-primary text-black px-2 mx-[-8px] decoration-clone box-decoration-clone">
+                            <span className="text-primary relative inline-block terminal-invert">
                                 Projects
                             </span>
                         </h1>
@@ -65,7 +65,7 @@ export default function ProjectsClient() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 auto-rows-[minmax(350px,auto)]">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 auto-rows-[450px]">
                     {filteredProjects.map((project, index) => {
                         // Asymmetric Grid Pattern
                         // Pattern repeats every 6 items:
@@ -105,6 +105,9 @@ export default function ProjectsClient() {
                             colSpan = 'lg:col-span-6';
                         }
 
+                        // Featured/Vertical cards span 2 rows (900px + gap)
+                        const isTall = rowSpan === 'lg:row-span-2';
+
                         return (
                             <article key={project.title} className={`${colSpan} ${rowSpan} neo-brutal-box flex flex-col group relative overflow-hidden border-4 border-black bg-white shadow-[8px_8px_0px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-300`}>
                                 {index === 0 && (
@@ -113,7 +116,8 @@ export default function ProjectsClient() {
                                     </div>
                                 )}
 
-                                <div className={`relative flex-1 min-h-[${(rowSpan || index === 0) ? '300px' : '220px'}] border-b-4 border-black overflow-hidden bg-gray-100`}>
+                                {/* Image Section - 2/3 Height */}
+                                <div className={`relative w-full ${isTall ? 'h-[75%]' : 'h-[65%]'} border-b-4 border-black overflow-hidden bg-gray-100`}>
                                     {/* Placeholder pattern if no image */}
                                     <div className="absolute inset-0 pattern-diagonal opacity-10"></div>
 
@@ -133,7 +137,8 @@ export default function ProjectsClient() {
                                     )}
                                 </div>
 
-                                <div className="p-6 md:p-8 flex flex-col gap-4 relative z-10 flex-grow bg-white">
+                                {/* Text Section - 1/3 Height */}
+                                <div className={`p-6 flex flex-col gap-3 relative z-10 bg-white w-full ${isTall ? 'h-[25%]' : 'h-[35%]'} justify-between`}>
                                     <div className="flex flex-wrap gap-2">
                                         {project.tech.slice(0, 3).map(t => (
                                             <span key={t} className="px-2 py-1 bg-secondary border-2 border-black font-mono text-[10px] font-black uppercase shadow-[2px_2px_0px_0px_#000]">{t}</span>
@@ -141,7 +146,7 @@ export default function ProjectsClient() {
                                     </div>
 
                                     <div className="flex justify-between items-start gap-4">
-                                        <h3 className={`font-black uppercase tracking-tight group-hover:text-black transition-colors ${index === 0 ? 'text-3xl md:text-5xl' : 'text-2xl'}`}>
+                                        <h3 className={`font-black uppercase tracking-tight group-hover:text-black transition-colors ${index === 0 ? 'text-2xl md:text-3xl' : 'text-xl'} line-clamp-2 leading-tight`}>
                                             {project.title}
                                         </h3>
                                         {project.url && (
@@ -149,14 +154,14 @@ export default function ProjectsClient() {
                                                 href={project.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="flex-shrink-0 flex items-center justify-center w-12 h-12 border-3 border-black bg-white hover:bg-black hover:text-primary transition-all rounded-none shadow-[4px_4px_0px_0px_#000] hover:shadow-none"
+                                                className="flex-shrink-0 flex items-center justify-center w-10 h-10 border-3 border-black bg-white hover:bg-black hover:text-primary transition-all rounded-none shadow-[4px_4px_0px_0px_#000] hover:shadow-none"
                                             >
-                                                <ArrowUpRight className="font-bold w-6 h-6" />
+                                                <ArrowUpRight className="font-bold w-5 h-5" />
                                             </a>
                                         )}
                                     </div>
 
-                                    <p className="font-mono text-sm leading-relaxed text-gray-700 max-w-2xl">
+                                    <p className="font-mono text-xs leading-relaxed text-gray-700 line-clamp-2 hidden md:block">
                                         {project.description}
                                     </p>
                                 </div>
