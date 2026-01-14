@@ -454,6 +454,27 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
           onmessage: (message: any) => {
             if (!mounted) return;
 
+            // Handle interruption immediately
+            if (message.serverContent?.interrupted) {
+              console.log('🛑 Interruption signal received');
+              
+              // Stop all currently playing audio
+              audioSourcesRef.current.forEach(source => {
+                try { source.stop(); } catch (e) {}
+              });
+              audioSourcesRef.current.clear();
+
+              // Clear any queued messages from the old turn
+              messageQueueRef.current.clear();
+              
+              // Reset sync time
+              if (outputAudioContextRef.current) {
+                nextStartTimeRef.current = outputAudioContextRef.current.currentTime;
+              }
+              
+              return; 
+            }
+
             // Add message to queue
             messageQueueRef.current.put(message);
 
