@@ -24,7 +24,7 @@ function createBlob(data: Float32Array): any {
   }
   return {
     data: encode(new Uint8Array(int16.buffer)),
-    mimeType: 'audio/pcm;rate=16000',
+    mimeType: 'audio/pcm',
   };
 }
 
