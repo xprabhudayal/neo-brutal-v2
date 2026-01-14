@@ -40,8 +40,6 @@ export const startLiveConversation = async (
             triggerTokens: '25600',
             slidingWindow: { targetTokens: '12800' },
         },
-        // Enable transcription to keep UI working
-        outputAudioTranscription: {}, 
         systemInstruction: {
             parts: [{
                 text: `You are Mira, the personal AI career assistant for Prabhudayal Vaishnav. Your primary role is to showcase his technical expertise and professional portfolio to global recruiters and collaborators.
