@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { SYSTEM_INSTRUCTION } from './constants';
+// SYSTEM_INSTRUCTION import removed as it is now hardcoded in geminiService
 import { X as XIcon, Mic as MicIcon, Volume2 as Volume2Icon } from 'lucide-react';
 import { AsyncQueue } from '../utils/AsyncQueue';
 import { LiveWaveform } from './ui/live-waveform';
@@ -470,7 +470,7 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
               cleanup();
             }
           },
-        }, SYSTEM_INSTRUCTION);
+        });
 
         if (!mounted) {
           console.log('⚠️ Component unmounted, closing session immediately');
