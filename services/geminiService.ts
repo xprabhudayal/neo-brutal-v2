@@ -23,9 +23,9 @@ export const startLiveConversation = async (
     const model = 'models/gemini-2.5-flash-native-audio-preview-12-2025';
 
     const config = {
-        responseModalities: ["AUDIO"],
+        responseModalities: [Modality.AUDIO],
         // Use enum if available, otherwise fallback to string or ignore type error
-        mediaResolution: "MEDIA_RESOLUTION_MEDIUM",
+        mediaResolution: MediaResolution ? MediaResolution.MEDIA_RESOLUTION_MEDIUM : "MEDIA_RESOLUTION_MEDIUM",
         speechConfig: {
             voiceConfig: {
                 prebuiltVoiceConfig: {
@@ -34,7 +34,11 @@ export const startLiveConversation = async (
             }
         },
         realtimeInputConfig: {
-            turnCoverage: "TURN_INCLUDES_ALL_INPUT",
+            turnCoverage: TurnCoverage ? TurnCoverage.TURN_INCLUDES_ALL_INPUT : "TURN_INCLUDES_ALL_INPUT",
+        },
+        // Enable barge-in (interruptions)
+        activity_handling: {
+            mode: "START_OF_ACTIVITY_INTERRUPTS" 
         },
         contextWindowCompression: {
             triggerTokens: '25600',
