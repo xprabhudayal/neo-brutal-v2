@@ -91,7 +91,7 @@ Ensure every interaction remains professional, helpful, and focused on securing 
 
     const sessionPromise = ai.live.connect({
         model,
-        callbacks: callbacks,
+        callbacks: callbacks as any,
         config: config as any
     });
 
