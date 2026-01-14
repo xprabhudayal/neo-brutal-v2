@@ -610,18 +610,7 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
           </div>
 
           <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
-            {/* End Call Button */}
-            <button
-              onClick={() => {
-                setStatus('Disconnecting...');
-                onClose();
-              }}
-              className="flex-1 sm:flex-none justify-center px-4 py-2 sm:px-3 sm:py-1 bg-red-600 text-white text-xs sm:text-sm font-bold uppercase tracking-wider border-2 border-neo-border shadow-neo-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none transition-all flex items-center gap-2"
-            >
-              <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
-              End Call
-            </button>
-            <button
+             <button
               onClick={onClose}
               className="p-2 border-2 border-transparent hover:border-neo-border hover:bg-white transition-all duration-200 group"
               aria-label="Close chat"
@@ -666,19 +655,47 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
         </div>
 
         {/* Dynamic Transcription Area - Dark Mode Compatible */}
-        <div className="p-4 sm:p-6 bg-white border-t-3 border-neo-border min-h-[120px] sm:min-h-[140px] flex flex-col justify-center text-center relative">
-          {transcriptions.length > 0 ? (
-            <div className="space-y-2">
-              <p className="font-mono text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-widest mb-1 sm:mb-2">
-                {transcriptions[transcriptions.length - 1].speaker === 'user' ? 'You said' : 'Assistant says'}
-              </p>
-              <p className="text-base sm:text-lg md:text-xl font-bold text-black leading-tight transition-all duration-300">
-                "{transcriptions[transcriptions.length - 1].displayedText !== undefined ? transcriptions[transcriptions.length - 1].displayedText : transcriptions[transcriptions.length - 1].text}"
-              </p>
-            </div>
-          ) : (
-            <p className="text-gray-400 font-mono text-xs sm:text-sm">Waiting for conversation to start...</p>
-          )}
+        <div className="flex-col min-h-0 bg-white border-t-3 border-neo-border relative">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-6 flex flex-col justify-center items-center text-center">
+            {transcriptions.length > 0 ? (
+              <div className="space-y-4 max-w-full">
+                <p className="font-mono text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-widest">
+                  {transcriptions[transcriptions.length - 1].speaker === 'user' ? 'You' : 'Mira'}
+                </p>
+                <p className="text-2xl sm:text-3xl md:text-4xl font-black text-black leading-tight break-words">
+                  {(() => {
+                    const currentScript = transcriptions[transcriptions.length - 1];
+                    const text = currentScript.displayedText !== undefined ? currentScript.displayedText : currentScript.text;
+                    // Show only last 4 words if it's too long, or whole thing if short
+                    const words = text.split(' ');
+                    const visibleWords = words.slice(-4).join(' ');
+                    return `"${visibleWords}${words.length > 4 ? '' : '"'}`; 
+                  })()}
+                  {/* Close quote logic needs refinement: if showing partial, maybe no quote? Or "..." */}
+                  {/* Let's simplify: Just show the last 4 words comfortably */}
+                </p>
+              </div>
+            ) : (
+             <div className="flex flex-col items-center justify-center h-full space-y-4 opacity-50">
+                <div className="w-12 h-1 bg-gray-300 rounded-full animate-pulse" />
+                <p className="text-gray-400 font-mono text-xs sm:text-sm">Listening...</p>
+             </div>
+            )}
+          </div>
+
+          {/* Bottom Action Area */}
+          <div className="p-4 bg-white border-t-3 border-neo-border">
+             <button
+              onClick={() => {
+                setStatus('Disconnecting...');
+                onClose();
+              }}
+              className="w-full py-4 bg-red-600 text-white font-black uppercase tracking-widest text-lg border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none active:bg-red-700 transition-all flex items-center justify-center gap-3"
+            >
+              <span className="w-3 h-3 bg-white rounded-full animate-pulse" />
+              End Call
+            </button>
+          </div>
         </div>
       </div>
     </div>
