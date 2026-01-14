@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@google/genai": "^1.28.0",
+    "@google/genai": "^1.35.0",
     "@radix-ui/react-progress": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
     "@react-three/drei": "^10.7.7",
@@ -22,6 +22,7 @@
     "clsx": "^2.1.1",
     "gsap": "^3.14.2",
     "lucide-react": "^0.562.0",
+    "mime": "^4.1.0",
     "motion": "^12.23.26",
     "next": "15.3.6",
     "postcss": "^8.5.3",
@@ -34,7 +35,7 @@
   },
   "devDependencies": {
     "@elevenlabs/elevenlabs-js": "^2.29.0",
-    "@types/node": "^24.10.0",
+    "@types/node": "^25.0.8",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.3",
     "typescript": "^5.9.3"
