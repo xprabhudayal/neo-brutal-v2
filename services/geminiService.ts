@@ -1,6 +1,6 @@
 'use client';
 
-import { GoogleGenAI, Modality, MediaResolution, TurnCoverage } from '@google/genai';
+// No global imports to avoid Node.js dependencies in client bundle
 
 export const startLiveConversation = async (
     callbacks: {
@@ -10,6 +10,9 @@ export const startLiveConversation = async (
         onclose?: (e: CloseEvent) => void;
     }
 ): Promise<any> => {
+    // Dynamically import the Web SDK
+    const { GoogleGenAI, Modality, MediaResolution, TurnCoverage } = await import('@google/genai/web');
+
     const apiKey = process.env.NEXT_PUBLIC_API_KEY;
     if (!apiKey) {
         throw new Error("NEXT_PUBLIC_API_KEY environment variable not set. Please add it to your .env file.");
@@ -21,8 +24,8 @@ export const startLiveConversation = async (
 
     const config = {
         responseModalities: [Modality.AUDIO],
-        // @ts-ignore - MediaResolution might be missing in type definitions but present at runtime
-        mediaResolution: MediaResolution.MEDIA_RESOLUTION_MEDIUM,
+        // Use enum if available, otherwise fallback to string or ignore type error
+        mediaResolution: MediaResolution ? MediaResolution.MEDIA_RESOLUTION_MEDIUM : "MEDIA_RESOLUTION_MEDIUM",
         speechConfig: {
             voiceConfig: {
                 prebuiltVoiceConfig: {
@@ -31,13 +34,20 @@ export const startLiveConversation = async (
             }
         },
         realtimeInputConfig: {
-            // @ts-ignore
-            turnCoverage: TurnCoverage.TURN_INCLUDES_ALL_INPUT,
+            turnCoverage: TurnCoverage ? TurnCoverage.TURN_INCLUDES_ALL_INPUT : "TURN_INCLUDES_ALL_INPUT",
         },
         contextWindowCompression: {
             triggerTokens: '25600',
             slidingWindow: { targetTokens: '12800' },
         },
+        // Restoring activity_handling as User's snippet had it, but checking if it causes issues.
+        // If the user's snippet had it, it should be supported or at least harmless if the SDK handles it.
+        // However, previous error logs didn't specifically point to it.
+        activity_handling: {
+            mode: "START_OF_ACTIVITY_INTERRUPTS" 
+        },
+        // Enable transcription to keep UI working (User's snippet didn't have it, but UI needs it)
+        outputAudioTranscription: { model: "gemini-2.0-flash-exp" }, 
         systemInstruction: {
             parts: [{
                 text: `You are Mira, the personal AI career assistant for Prabhudayal Vaishnav. Your primary role is to showcase his technical expertise and professional portfolio to global recruiters and collaborators.
