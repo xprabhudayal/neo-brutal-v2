@@ -38,9 +38,7 @@ export const startLiveConversation = async (
         },
         activity_handling: {
             mode: "START_OF_ACTIVITY_INTERRUPTS" 
-        },
-        // Enable transcription to keep UI working
-        outputAudioTranscription: { model: "gemini-2.0-flash-exp" }, 
+        }, 
         systemInstruction: {
             parts: [{
                 text: `You are Mira, the personal AI career assistant for Prabhudayal Vaishnav. Your primary role is to showcase his technical expertise and professional portfolio to global recruiters and collaborators.
