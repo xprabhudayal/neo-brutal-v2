@@ -440,7 +440,11 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
               const inputData = audioProcessingEvent.inputBuffer.getChannelData(0);
               const pcmBlob = createBlob(inputData);
               if (sessionRef.current && mounted) {
-                sessionRef.current.sendRealtimeInput({ media: pcmBlob });
+                try {
+                  sessionRef.current.sendRealtimeInput({ media: pcmBlob });
+                } catch (e) {
+                  // Ignore errors (e.g. socket closed) to prevent crash
+                }
               }
             };
 
