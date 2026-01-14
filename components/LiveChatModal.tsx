@@ -463,8 +463,11 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
             setStatus('Connection error.');
             cleanup();
           },
-          onclose: () => {
-            console.log('🔌 Connection closed');
+          onclose: (e: any) => {
+            console.log('🔌 Connection closed', e);
+            if (e && e.reason) {
+                console.log('Reason:', e.reason);
+            }
             setStatus('Connection closed.');
             if (mounted) {
               cleanup();
