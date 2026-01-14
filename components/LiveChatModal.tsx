@@ -84,8 +84,10 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
   const mediaStreamRef = useRef<MediaStream | null>(null);
   const [mediaStream, setMediaStream] = useState<MediaStream | null>(null);
   const scriptProcessorRef = useRef<ScriptProcessorNode | null>(null);
+  const activeSessionRef = useRef<any>(null); // For cleanup check
   const nextStartTimeRef = useRef<number>(0);
   const audioSourcesRef = useRef<Set<AudioBufferSourceNode>>(new Set());
+  const audioGainNodesRef = useRef<Set<GainNode>>(new Set());
   const isInitializingRef = useRef<boolean>(false);
   const processingTurnRef = useRef<boolean>(false);
   const transcriptionTimersRef = useRef<Set<NodeJS.Timeout>>(new Set());
@@ -215,20 +217,29 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
 
             const source = audioCtx.createBufferSource();
             source.buffer = audioBuffer;
-            source.connect(audioCtx.destination);
+            
+            // Create GainNode for smooth fading
+            const gainNode = audioCtx.createGain();
+            gainNode.gain.value = 1;
+            
+            source.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
 
             // Also connect to the visualization stream if available
             if (aiAudioDestinationRef.current) {
-              source.connect(aiAudioDestinationRef.current);
+               // Connect gainNode to visualization to reflect fade
+               gainNode.connect(aiAudioDestinationRef.current);
             }
 
             source.start(nextStartTimeRef.current);
 
             nextStartTimeRef.current += audioBuffer.duration;
             audioSourcesRef.current.add(source);
+            audioGainNodesRef.current.add(gainNode);
 
             source.onended = () => {
               audioSourcesRef.current.delete(source);
+              audioGainNodesRef.current.delete(gainNode);
             };
 
             console.log(`🔊 Scheduled audio: ${audioBuffer.duration.toFixed(2)}s at ${currentAudioStartTime.toFixed(2)}s`);
