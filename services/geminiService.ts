@@ -40,8 +40,7 @@ export const startLiveConversation = async (
             triggerTokens: '25600',
             slidingWindow: { targetTokens: '12800' },
         },
-        // Enable transcription to keep UI working (User's snippet didn't have it, but UI needs it)
-        outputAudioTranscription: { model: "gemini-2.0-flash-exp" }, 
+        // outputAudioTranscription: { model: "gemini-2.0-flash-exp" }, 
         systemInstruction: {
             parts: [{
                 text: `You are Mira, the personal AI career assistant for Prabhudayal Vaishnav. Your primary role is to showcase his technical expertise and professional portfolio to global recruiters and collaborators.
