@@ -487,7 +487,7 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
         isInitializingRef.current = false;
       }
     };
-
+    
     initialize();
 
     return () => {
@@ -495,10 +495,8 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
       mounted = false;
       isInitializingRef.current = false;
 
-      // Small delay to allow session to fully initialize before cleanup
-      setTimeout(() => {
-        cleanup();
-      }, 100);
+      // Immediate cleanup to prevent race conditions
+      cleanup();
     };
   }, [cleanup, processTurn]);
 
