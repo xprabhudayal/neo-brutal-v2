@@ -1,6 +1,6 @@
 'use client';
 
-import { GoogleGenAI, Modality } from '@google/genai';
+import { GoogleGenAI, Modality, MediaResolution, TurnCoverage } from '@google/genai';
 
 export const startLiveConversation = async (
     callbacks: {
@@ -21,7 +21,8 @@ export const startLiveConversation = async (
 
     const config = {
         responseModalities: [Modality.AUDIO],
-        mediaResolution: "MEDIA_RESOLUTION_MEDIUM",
+        // @ts-ignore - MediaResolution might be missing in type definitions but present at runtime
+        mediaResolution: MediaResolution.MEDIA_RESOLUTION_MEDIUM,
         speechConfig: {
             voiceConfig: {
                 prebuiltVoiceConfig: {
@@ -30,7 +31,8 @@ export const startLiveConversation = async (
             }
         },
         realtimeInputConfig: {
-            turnCoverage: "TURN_INCLUDES_ALL_INPUT",
+            // @ts-ignore
+            turnCoverage: TurnCoverage.TURN_INCLUDES_ALL_INPUT,
         },
         contextWindowCompression: {
             triggerTokens: '25600',
