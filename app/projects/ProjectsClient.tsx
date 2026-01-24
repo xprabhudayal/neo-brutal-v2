@@ -60,29 +60,26 @@ export default function ProjectsClient() {
                                 </button>
                             ))}
                         </div>
-                        <div className="flex items-center gap-2 font-mono text-xs font-bold bg-[var(--neo-text)] text-white px-3 py-1.5 border-2 border-[var(--neo-border)]">
-                            <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-                            {filteredProjects.length} DEPLOYED
-                        </div>
+                        
                     </div>
                 </div>
 
-                {/* Projects Grid - 3 columns, smaller cards */}
+                {/* Projects Grid - 2 columns, larger cards */}
                 <div className="max-w-7xl mx-auto px-4 md:px-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                         {filteredProjects.map((project, index) => (
                             <article 
                                 key={project.title} 
-                                className="neo-brutal-box flex flex-col group relative overflow-hidden border-3 border-[var(--neo-border)] bg-white shadow-neo hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-300"
+                                className="neo-brutal-box flex flex-col group relative overflow-hidden border-3 border-[var(--neo-border)] bg-white shadow-neo hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-300 h-full"
                             >
                                 {index === 0 && (
-                                    <div className="absolute top-0 right-0 bg-primary border-l-3 border-b-3 border-[var(--neo-border)] px-3 py-1 font-mono font-black text-[10px] uppercase z-20">
+                                    <div className="absolute top-0 right-0 bg-primary border-l-3 border-b-3 border-[var(--neo-border)] px-4 py-2 font-mono font-black text-xs uppercase z-20">
                                         Featured
                                     </div>
                                 )}
 
-                                {/* Image Section - Smaller height */}
-                                <div className="relative w-full h-40 md:h-48 border-b-3 border-[var(--neo-border)] overflow-hidden bg-gray-100">
+                                {/* Image Section - Larger height */}
+                                <div className="relative w-full h-64 md:h-80 border-b-3 border-[var(--neo-border)] overflow-hidden bg-gray-100">
                                     <div className="absolute inset-0 pattern-diagonal opacity-10"></div>
 
                                     {project.image ? (
@@ -96,21 +93,21 @@ export default function ProjectsClient() {
                                         </div>
                                     ) : (
                                         <div className="absolute inset-0 flex items-center justify-center">
-                                            <Terminal className="w-12 h-12 text-gray-400 group-hover:text-primary transition-colors" />
+                                            <Terminal className="w-16 h-16 text-gray-400 group-hover:text-primary transition-colors" />
                                         </div>
                                     )}
                                 </div>
 
-                                {/* Text Section - Compact */}
-                                <div className="p-4 flex flex-col gap-2 relative z-10 bg-white flex-1">
-                                    <div className="flex flex-wrap gap-1">
-                                        {project.tech.slice(0, 2).map(t => (
-                                            <span key={t} className="px-1.5 py-0.5 bg-secondary border border-[var(--neo-border)] font-mono text-[9px] font-black uppercase">{t}</span>
+                                {/* Text Section */}
+                                <div className="p-6 md:p-8 flex flex-col gap-4 relative z-10 bg-white flex-1">
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.tech.slice(0, 3).map(t => (
+                                            <span key={t} className="px-2 py-1 bg-secondary border border-[var(--neo-border)] font-mono text-[10px] font-black uppercase shadow-neo-sm">{t}</span>
                                         ))}
                                     </div>
 
-                                    <div className="flex justify-between items-start gap-2">
-                                        <h3 className="font-black uppercase tracking-tight text-sm leading-tight line-clamp-2">
+                                    <div className="flex justify-between items-start gap-4">
+                                        <h3 className="font-black uppercase tracking-tight text-xl md:text-2xl leading-none">
                                             {project.title}
                                         </h3>
                                         {project.url && (
@@ -118,14 +115,14 @@ export default function ProjectsClient() {
                                                 href={project.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="flex-shrink-0 flex items-center justify-center w-7 h-7 border-2 border-[var(--neo-border)] bg-white hover:bg-[var(--neo-text)] hover:text-primary transition-all"
+                                                className="flex-shrink-0 flex items-center justify-center w-10 h-10 border-2 border-[var(--neo-border)] bg-white hover:bg-[var(--neo-text)] hover:text-primary transition-all shadow-neo-sm hover:shadow-none"
                                             >
-                                                <ArrowUpRight className="w-4 h-4" />
+                                                <ArrowUpRight className="w-5 h-5" />
                                             </a>
                                         )}
                                     </div>
 
-                                    <p className="font-mono text-[10px] leading-relaxed text-gray-600 line-clamp-2">
+                                    <p className="font-mono text-xs leading-relaxed text-gray-600">
                                         {project.description}
                                     </p>
                                 </div>
