@@ -11,17 +11,22 @@ module.exports = {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
-        "neo-bg": "#F4F4F4",
-        "neo-card": "#FFFFFF",
-        "neo-text": "#121212",
-        "neo-border": "#000000",
+        // Wise Palette - mapped to CSS variables
+        "neo-bg": "var(--neo-bg)",
+        "neo-card": "var(--neo-card)",
+        "neo-text": "var(--neo-text)",
+        "neo-border": "var(--neo-border)",
         primary: {
-          DEFAULT: "#39FF14", // Neon Lime
-          foreground: "#000000",
+          DEFAULT: "#9FE870", // Wise Bright Green
+          foreground: "#163300",
         },
         secondary: {
-          DEFAULT: "#E0EFE0", // Pale Support Green
-          foreground: "#000000",
+          DEFAULT: "#FFEB69", // Wise Yellow
+          foreground: "#163300",
+        },
+        accent: {
+          DEFAULT: "#A0E1E1", // Wise Blue
+          foreground: "#163300",
         },
         support: "#D4E5D4", // Darker Support Green
       },
@@ -30,9 +35,11 @@ module.exports = {
         mono: ["var(--font-space-mono)", "monospace"],
       },
       boxShadow: {
-        neo: "5px 5px 0px 0px #000000",
-        "neo-sm": "3px 3px 0px 0px #000000",
-        "neo-hover": "2px 2px 0px 0px #000000",
+        neo: "5px 5px 0px 0px var(--neo-shadow)",
+        "neo-sm": "3px 3px 0px 0px var(--neo-shadow)",
+        "neo-hover": "2px 2px 0px 0px var(--neo-shadow)",
+        // Keep primary shadow for specific use cases
+        "neo-primary": "5px 5px 0px 0px #9FE870",
       },
       borderWidth: {
         3: "3px",
