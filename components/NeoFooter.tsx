@@ -41,7 +41,7 @@ export default function NeoFooter() {
     ];
 
     return (
-        <footer className="mt-auto border-t-4 border-black bg-black text-white">
+        <footer className="mt-auto border-t-4 border-[var(--neo-border)] bg-[var(--neo-text)] text-white">
             {/* Main Footer Content */}
             <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12 lg:py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8">
@@ -49,7 +49,7 @@ export default function NeoFooter() {
                     {/* Brand Column - Always visible */}
                     <div className="lg:col-span-2">
                         <div className="flex items-center gap-3 mb-4 md:mb-6">
-                            <span className="bg-primary text-black px-3 py-1 font-black text-xl md:text-2xl tracking-tighter">PDV</span>
+                            <span className="bg-primary text-[var(--neo-text)] px-3 py-1 font-black text-xl md:text-2xl tracking-tighter">PDV</span>
                             <span className="font-black text-xl md:text-2xl tracking-tight">PRABHUDAYAL<span className="text-primary">_</span></span>
                         </div>
                         <p className="font-mono text-xs md:text-sm text-gray-400 leading-relaxed max-w-md mb-4 md:mb-6 hidden md:block">
@@ -63,7 +63,7 @@ export default function NeoFooter() {
                                     href={href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-9 h-9 md:w-10 md:h-10 border-2 border-gray-700 flex items-center justify-center hover:border-primary hover:bg-primary hover:text-black transition-all duration-200"
+                                    className="w-9 h-9 md:w-10 md:h-10 border-2 border-gray-700 flex items-center justify-center hover:border-primary hover:bg-primary hover:text-[var(--neo-text)] transition-all duration-200"
                                     aria-label={label}
                                 >
                                     <Icon className="w-4 h-4 md:w-5 md:h-5" />

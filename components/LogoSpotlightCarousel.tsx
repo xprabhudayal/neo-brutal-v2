@@ -84,7 +84,7 @@ export default function LogoSpotlightCarousel() {
                     <button
                         key={idx}
                         onClick={() => setCurrentIndex(idx)}
-                        className={`w-2 h-2 border-2 border-black rounded-full transition-all duration-200 ${idx === currentIndex ? 'bg-[#39FF14]' : 'bg-white hover:bg-gray-200'
+                        className={`w-2 h-2 border-2 border-[var(--neo-border)] rounded-full transition-all duration-200 ${idx === currentIndex ? 'bg-primary' : 'bg-white hover:bg-gray-200'
                             }`}
                         aria-label={`Go to ${ORGANIZATIONS[idx].name}`}
                     />

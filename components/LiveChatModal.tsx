@@ -645,7 +645,7 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
                   ? aiAudioDestinationRef.current?.stream || null
                   : mediaStream
               }
-              barColor="#39FF14"
+              barColor="#9FE870"
               barWidth={4}
               barGap={2}
               height={120}

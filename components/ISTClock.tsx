@@ -88,7 +88,7 @@ export default function ISTClock() {
                         pattern={digits[h1]}
                         size={12}
                         gap={2}
-                        palette={{ on: '#39FF14', off: 'rgba(57, 255, 20, 0.06)' }}
+                        palette={{ on: '#9FE870', off: 'rgba(159, 232, 112, 0.06)' }}
                         ariaLabel={`Hour tens: ${h1}`}
                     />
                     <div className="w-1" /> {/* Spacer */}
