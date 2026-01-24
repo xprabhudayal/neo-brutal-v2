@@ -21,7 +21,7 @@ export default function ProjectsClient() {
     });
 
     return (
-        <div className="flex-1 w-full bg-neo-bg">
+        <div className="flex-1 w-full bg-grid">
             <section className="w-full py-8 lg:py-12">
                 {/* Header - Full width with padding */}
                 <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">

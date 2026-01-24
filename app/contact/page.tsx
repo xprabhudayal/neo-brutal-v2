@@ -7,7 +7,8 @@ export default function ContactPage() {
 
 
     return (
-        <div className="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 py-8 md:py-16 pb-32 bg-grid">
+        <div className="flex-1 w-full bg-grid">
+            <div className="max-w-7xl mx-auto w-full px-4 md:px-6 py-8 md:py-16 pb-32">
             <div className="mb-12">
                 <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
                     Get In <span className="text-primary terminal-invert inline-block relative">Touch</span>
