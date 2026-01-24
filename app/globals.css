@@ -4,13 +4,32 @@
 
 @layer base {
   :root {
-    --background: #F4F4F4;
-    --foreground: #121212;
+    /* 1. Base Colors (Wise Pruned Palette) */
+    --background: #FFFFFF;       /* White Mode as requested */
+    --foreground: #163300;       /* Wise Forest Green (Replacing #000 text) */
+    
+    /* 2. Neo-Brutal Variables (Map these in your tailwind.config.js if needed) */
+    --neo-bg: #FFFFFF;
+    --neo-text: #163300;
+    --neo-border: #163300;       /* The "Ink" color for borders */
+    --neo-card: #FFFFFF;
+    --neo-shadow: #163300;
+    
+    /* 3. Accents */
+    --neo-primary: #9FE870;      /* Wise Bright Green */
+    --neo-secondary: #FFEB69;    /* Wise Yellow */
+    --neo-accent: #A0E1E1;       /* Wise Blue */
   }
 
+  /* Optional Dark Mode - Inverting the Wise Palette */
   .dark {
-    --background: #121212;
-    --foreground: #F4F4F4;
+    --background: #163300;       /* Dark Forest Green bg */
+    --foreground: #9FE870;       /* Bright Green text */
+    --neo-bg: #163300;
+    --neo-text: #9FE870;
+    --neo-border: #9FE870;
+    --neo-shadow: #000000;
+    --neo-card: #0d1f00;         /* Slightly darker green for cards */
   }
 
   html {
@@ -18,31 +37,38 @@
   }
 
   body {
-    @apply bg-neo-bg text-neo-text font-display;
+    /* Using standard text color variable instead of hardcoded class */
+    @apply bg-[var(--neo-bg)] text-[var(--neo-text)] font-display;
   }
 
+  /* 4. Scrollbar - Customized to Wise Palette */
   ::-webkit-scrollbar {
     width: 12px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #ffffff;
-    border-left: 3px solid #000;
+    background: var(--neo-bg);
+    border-left: 3px solid var(--neo-border);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #39FF14;
-    border: 3px solid #000;
+    background: var(--neo-primary); /* Wise Bright Green */
+    border: 3px solid var(--neo-border);
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #000;
+    background: var(--neo-text); /* Hover turns it dark */
   }
 }
 
 @layer components {
+  /* Box Component */
   .neo-brutal-box {
-    @apply border-3 border-neo-border bg-neo-card shadow-neo transition-all duration-200;
+    @apply border-3 border-[length:3px] transition-all duration-200;
+    border-color: var(--neo-border);
+    background-color: var(--neo-card);
+    /* Hard shadow using the ink color */
+    box-shadow: 4px 4px 0px 0px var(--neo-shadow);
   }
 
   .neo-brutal-box:hover {
@@ -50,15 +76,17 @@
     box-shadow: none;
   }
 
+  /* Grid Background - Swapped black opacity for Ink opacity */
   .bg-grid {
     background-size: 40px 40px;
     background-image:
-      linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(22, 51, 0, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(22, 51, 0, 0.1) 1px, transparent 1px);
   }
 
   .pattern-diagonal {
-    background-image: repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 0, transparent 50%);
+    /* Updated to use Ink color variable */
+    background-image: repeating-linear-gradient(45deg, var(--neo-text) 0, var(--neo-text) 1px, transparent 0, transparent 50%);
     background-size: 10px 10px;
   }
 
@@ -78,8 +106,11 @@
 
   /* Standard Neo-Brutalist Button */
   .btn-neo {
-    @apply border-3 border-neo-border transition-all duration-200;
-    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+    @apply border-3 border-[length:3px] transition-all duration-200;
+    border-color: var(--neo-border);
+    background-color: var(--neo-primary); /* Default to Wise Green */
+    color: var(--neo-text);
+    box-shadow: 4px 4px 0px 0px var(--neo-shadow);
   }
 
   .btn-neo:hover {
@@ -92,28 +123,29 @@
     box-shadow: none;
   }
 
-  /* Terminal Inversion - Neon green on black block */
+  /* Terminal Inversion - Updated to Wise Green on Ink */
   .terminal-invert {
-    @apply bg-black px-2 py-1;
-    color: #39FF14;
+    @apply px-2 py-1;
+    background-color: var(--neo-text); /* #163300 */
+    color: var(--neo-primary);         /* #9FE870 */
     border-radius: 0;
-    /* Sharp edges for Neo-Brutalism */
   }
 
   .terminal-invert-sm {
-    @apply bg-black px-1.5 py-0.5;
-    color: #39FF14;
+    @apply px-1.5 py-0.5;
+    background-color: var(--neo-text);
+    color: var(--neo-primary);
     border-radius: 0;
     font-size: 0.75rem;
   }
 
   .terminal-invert-lg {
-    @apply bg-black px-3 py-2;
-    color: #39FF14;
+    @apply px-3 py-2;
+    background-color: var(--neo-text);
+    color: var(--neo-primary);
     border-radius: 0;
   }
 
-  /* Grayscale to Color image effect - for content images (not logos) */
   .img-bw-to-color {
     @apply grayscale transition-all duration-500;
   }
