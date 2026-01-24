@@ -1,6 +1,5 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowDown, FolderOpen, Mail, Code2, Terminal, GitBranch, Zap, Calendar } from 'lucide-react';
 import LogoSpotlightCarousel from '@/components/LogoSpotlightCarousel';
 import ISTClock from '@/components/ISTClock';
@@ -24,16 +23,18 @@ export default function HomePage() {
 
               {/* Mobile: "Available for Hire" Badge & Absolute Profile Image */}
               <div className="relative mb-12 sm:mb-8">
-                <div className="inline-block px-2 py-1 sm:px-3 sm:py-1 bg-black text-primary border-2 border-black font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(39,255,20,1)]">
+                <div className="inline-block px-2 py-1 sm:px-3 sm:py-1 bg-[var(--neo-text)] text-primary border-2 border-[var(--neo-border)] font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-neo-sm">
                   Available for Hire
                 </div>
 
                 {/* Profile Image - Absolute positioned top-right on mobile, responsive width */}
                 <div className="lg:hidden absolute top-0 right-0 w-[28%] max-w-[120px] aspect-[3/4] border-l-3 border-b-3 border-neo-border overflow-hidden bg-secondary">
-                  <img
+                  <Image
                     src="/profile-photo.webp"
                     alt="Prabhudayal Vaishnav"
-                    className="w-full h-full object-cover filter grayscale"
+                    fill
+                    sizes="(max-width: 768px) 33vw, 20vw"
+                    className="object-cover filter grayscale"
                   />
                 </div>
               </div>
@@ -66,7 +67,7 @@ export default function HomePage() {
                   href="https://cal.com/ai.pdv"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-3 sm:px-8 sm:py-4 bg-white text-black font-bold text-sm sm:text-lg uppercase tracking-wider hover:bg-black hover:text-primary btn-neo transition-all flex items-center justify-center gap-2 w-full"
+                  className="px-5 py-3 sm:px-8 sm:py-4 bg-white text-[var(--neo-text)] font-bold text-sm sm:text-lg uppercase tracking-wider hover:bg-[var(--neo-text)] hover:text-primary btn-neo transition-all flex items-center justify-center gap-2 w-full"
                 >
                   Book Strategy Call
                   <span className="text-lg sm:text-xl">↗</span>
@@ -79,10 +80,12 @@ export default function HomePage() {
           <div className="hidden lg:flex lg:col-span-4 flex-col gap-6">
             {/* Profile Image Card - Desktop only */}
             <div className="border-3 border-neo-border bg-secondary p-0 shadow-neo flex-1 min-h-[300px] flex flex-col items-center justify-center relative group overflow-hidden">
-              <img
+              <Image
                 src="/profile-photo.webp"
                 alt="Prabhudayal Vaishnav"
-                className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                fill
+                sizes="(min-width: 1024px) 33vw, 50vw"
+                className="object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
               />
               <div className="absolute inset-0 border-3 border-transparent group-hover:border-primary transition-all duration-300 pointer-events-none"></div>
             </div>
@@ -99,7 +102,7 @@ export default function HomePage() {
                   <p className="font-mono text-[10px] font-bold uppercase leading-tight mt-1">Years of<br />Experience</p>
                 </div>
               </div>
-              <div className="border-3 border-neo-border bg-black text-primary p-5 shadow-neo flex flex-col justify-between hover:bg-gray-900 transition-colors">
+              <div className="border-3 border-neo-border bg-[var(--neo-text)] text-primary p-5 shadow-neo flex flex-col justify-between hover:opacity-90 transition-colors">
                 <GitBranch className="w-8 h-8" />
                 <div>
                   <h3 className="font-black text-4xl">50+</h3>
@@ -112,9 +115,9 @@ export default function HomePage() {
       </section>
 
       {/* Marquee Section - Hazard Tape Style */}
-      <section className="py-0 bg-primary border-y-[3px] border-black relative overflow-hidden">
+      <section className="py-0 bg-primary border-y-[3px] border-[var(--neo-border)] relative overflow-hidden">
         {/* Technologies Header */}
-        <div className="text-center py-2 border-b-[3px] border-black">
+        <div className="text-center py-2 border-b-[3px] border-[var(--neo-border)]">
           <h3 className="text-sm font-bold tracking-widest uppercase inline-block">The Arsenal</h3>
         </div>
         <div className="w-full overflow-hidden py-6">
@@ -122,22 +125,22 @@ export default function HomePage() {
             {/* Repeat content to ensure seamless loop */}
             {[...Array(2)].map((_, i) => (
               <div key={i} className="flex items-center gap-20 px-10">
-                <div className="md:text-4xl text-2xl font-black text-black tracking-tight">
+                <div className="md:text-4xl text-2xl font-black text-[var(--neo-text)] tracking-tight">
                   Next.js
                 </div>
-                <div className="md:text-4xl text-2xl font-black text-black tracking-tight">
+                <div className="md:text-4xl text-2xl font-black text-[var(--neo-text)] tracking-tight">
                   ReactJS
                 </div>
-                <div className="md:text-4xl text-2xl font-black text-black tracking-tight">
+                <div className="md:text-4xl text-2xl font-black text-[var(--neo-text)] tracking-tight">
                   TypeScript
                 </div>
-                <div className="md:text-4xl text-2xl font-black text-black tracking-tight">
+                <div className="md:text-4xl text-2xl font-black text-[var(--neo-text)] tracking-tight">
                   Python
                 </div>
-                <div className="md:text-4xl text-2xl font-black text-black tracking-tight">
+                <div className="md:text-4xl text-2xl font-black text-[var(--neo-text)] tracking-tight">
                   LangGraph
                 </div>
-                <div className="md:text-4xl text-2xl font-black text-black tracking-tight">
+                <div className="md:text-4xl text-2xl font-black text-[var(--neo-text)] tracking-tight">
                   Supabase
                 </div>
               </div>
@@ -164,26 +167,28 @@ export default function HomePage() {
       {/* Battle Tested - Achievements Carousel */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-12">
         <div className="flex items-center gap-4 mb-8">
-          <div className="h-8 w-8 bg-black flex items-center justify-center text-primary">
+          <div className="h-8 w-8 bg-[var(--neo-text)] flex items-center justify-center text-primary">
             <Zap className="w-5 h-5" />
           </div>
           <h2 className="text-3xl font-black uppercase tracking-tight">Battle Tested</h2>
-          <div className="h-1 flex-1 bg-black"></div>
+          <div className="h-1 flex-1 bg-[var(--neo-border)]"></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* IIM Nagpur Hackathon */}
           <div className="border-3 border-neo-border neo-brutal-box bg-white shadow-neo overflow-hidden group">
-            <div className="aspect-video overflow-hidden border-b-3 border-black">
-              <img
+            <div className="aspect-video overflow-hidden border-b-3 border-[var(--neo-border)] relative">
+              <Image
                 src="/images/achievements/iim-hackathon.webp"
                 alt="IIM Nagpur Hackathon Certificate"
-                className="w-full h-full object-cover img-bw-to-color"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover img-bw-to-color"
               />
             </div>
             <div className="p-6">
               <div className="flex items-center gap-2 mb-2">
-                <span className="bg-primary text-black text-xs font-bold px-2 py-1 border-2 border-black uppercase">Winner</span>
+                <span className="bg-primary text-[var(--neo-text)] text-xs font-bold px-2 py-1 border-2 border-[var(--neo-border)] uppercase">Winner</span>
                 <span className="terminal-invert text-xs font-bold uppercase">1ST Place</span>
               </div>
               <h3 className="text-xl font-black uppercase tracking-tight mb-2">IIM Nagpur Hackathon</h3>
@@ -193,11 +198,13 @@ export default function HomePage() {
 
           {/* IIIT Delhi HackLLM */}
           <div className="border-3 border-neo-border neo-brutal-box bg-white shadow-neo overflow-hidden group">
-            <div className="aspect-video overflow-hidden border-b-3 border-black">
-              <img
+            <div className="aspect-video overflow-hidden border-b-3 border-black relative">
+              <Image
                 src="/images/achievements/hackllm-certificate.webp"
                 alt="IIIT Delhi HackLLM Certificate"
-                className="w-full h-full object-cover img-bw-to-color"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover img-bw-to-color"
               />
             </div>
             <div className="p-6">
@@ -215,11 +222,11 @@ export default function HomePage() {
       {/* Explore More - Premium Navigation Bento Grid */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-12 lg:py-20">
         <div className="flex items-center gap-4 mb-10">
-          <div className="h-10 w-10 bg-black flex items-center justify-center text-primary shadow-neo-sm">
+          <div className="h-10 w-10 bg-[var(--neo-text)] flex items-center justify-center text-primary shadow-neo-sm">
             <ArrowDown className="w-6 h-6" />
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight">Explore More</h2>
-          <div className="h-1 flex-1 bg-black"></div>
+          <div className="h-1 flex-1 bg-[var(--neo-border)]"></div>
           <span className="font-mono text-xs text-gray-500 hidden md:block">// QUICK NAV</span>
         </div>
 
@@ -231,9 +238,9 @@ export default function HomePage() {
             href="/about"
             className="sm:col-span-1 md:col-span-2 md:row-span-2 relative group overflow-hidden"
           >
-            <div className="border-4 border-black bg-black text-white p-5 sm:p-8 shadow-[5px_5px_0px_0px_#39FF14] h-full min-h-[180px] sm:min-h-[300px] md:min-h-[420px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden">
+            <div className="border-4 border-[var(--neo-border)] bg-[var(--neo-text)] text-white p-5 sm:p-8 shadow-neo-primary h-full min-h-[180px] sm:min-h-[300px] md:min-h-[420px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden">
               {/* Scanline effect */}
-              <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(57, 255, 20, 0.03) 2px, rgba(57, 255, 20, 0.03) 4px)' }}></div>
+              <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(159, 232, 112, 0.03) 2px, rgba(159, 232, 112, 0.03) 4px)' }}></div>
 
               {/* Animated Corner Decorations */}
               <div className="absolute top-4 left-4 w-5 h-5 border-l-2 border-t-2 border-primary"></div>
@@ -268,14 +275,14 @@ export default function HomePage() {
             href="/projects"
             className="sm:col-span-1 md:col-span-2 relative group"
           >
-            <div className="border-4 border-black bg-primary p-4 sm:p-6 shadow-neo min-h-[180px] sm:min-h-[200px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden">
+            <div className="border-4 border-[var(--neo-border)] bg-primary p-4 sm:p-6 shadow-neo min-h-[180px] sm:min-h-[200px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden">
               {/* Diagonal stripes overlay */}
               <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.1) 10px, rgba(0,0,0,0.1) 20px)' }}></div>
 
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-4">
-                  <span className="bg-black text-primary px-2 py-1 font-mono text-xs font-bold">02</span>
-                  <FolderOpen className="w-10 h-10 text-black/40 group-hover:text-black group-hover:scale-110 transition-all duration-300" />
+                  <span className="bg-[var(--neo-text)] text-primary px-2 py-1 font-mono text-xs font-bold">02</span>
+                  <FolderOpen className="w-10 h-10 text-[var(--neo-text)]/40 group-hover:text-[var(--neo-text)] group-hover:scale-110 transition-all duration-300" />
                 </div>
                 <h3 className="text-xl sm:text-3xl font-black uppercase tracking-tighter leading-[0.9]">
                   Selected<br />Works
@@ -295,7 +302,7 @@ export default function HomePage() {
             rel="noopener noreferrer"
             className="sm:col-span-1 md:col-span-2 relative group"
           >
-            <div className="border-4 border-black bg-secondary p-4 sm:p-5 shadow-neo min-h-[180px] sm:min-h-[200px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden">
+            <div className="border-4 border-[var(--neo-border)] bg-secondary p-4 sm:p-5 shadow-neo min-h-[180px] sm:min-h-[200px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden">
               {/* Animated pulse effect on hover */}
               <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-500"></div>
               <div className="absolute inset-0 pattern-diagonal opacity-5"></div>
@@ -303,7 +310,7 @@ export default function HomePage() {
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-3">
                   <span className="terminal-invert-sm font-mono">OPEN</span>
-                  <Calendar className="w-8 h-8 text-gray-400 group-hover:text-black group-hover:rotate-6 transition-all duration-300" />
+                  <Calendar className="w-8 h-8 text-gray-400 group-hover:text-[var(--neo-text)] group-hover:rotate-6 transition-all duration-300" />
                 </div>
                 <h3 className="text-xl sm:text-3xl font-black uppercase tracking-tighter leading-[0.95]">
                   Book a<br />Strategy Call
@@ -321,14 +328,14 @@ export default function HomePage() {
             href="/resume"
             className="sm:col-span-1 md:col-span-2 relative group"
           >
-            <div className="border-4 border-black bg-white p-4 sm:p-6 shadow-neo min-h-[180px] sm:min-h-[200px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden">
+            <div className="border-4 border-[var(--neo-border)] bg-white p-4 sm:p-6 shadow-neo min-h-[180px] sm:min-h-[200px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden">
               {/* Subtle grid pattern */}
               <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(0,0,0,0.1) 20px, rgba(0,0,0,0.1) 21px), repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(0,0,0,0.1) 20px, rgba(0,0,0,0.1) 21px)' }}></div>
 
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-4">
                   <span className="terminal-invert font-mono text-xs">03</span>
-                  <Terminal className="w-10 h-10 text-gray-300 group-hover:text-black group-hover:scale-110 transition-all duration-300" />
+                  <Terminal className="w-10 h-10 text-gray-300 group-hover:text-[var(--neo-text)] group-hover:scale-110 transition-all duration-300" />
                 </div>
                 <h3 className="text-xl sm:text-3xl font-black uppercase tracking-tighter leading-[0.9]">
                   Resume<span className="text-primary">.</span>
@@ -342,9 +349,9 @@ export default function HomePage() {
 
           {/* IST Clock Card - Bottom Right (Larger - spanning more) - Visible on mobile now */}
           <div className="col-span-1 md:col-span-2 relative">
-            <div className="border-4 border-black bg-black p-4 sm:p-5 shadow-[5px_5px_0px_0px_#39FF14] min-h-[180px] sm:min-h-[200px] flex flex-col justify-between relative overflow-hidden">
+            <div className="border-4 border-[var(--neo-border)] bg-[var(--neo-text)] p-4 sm:p-5 shadow-neo-primary min-h-[180px] sm:min-h-[200px] flex flex-col justify-between relative overflow-hidden">
               {/* CRT scanline effect */}
-              <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(57, 255, 20, 0.05) 2px, rgba(57, 255, 20, 0.05) 4px)' }}></div>
+              <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(159, 232, 112, 0.05) 2px, rgba(159, 232, 112, 0.05) 4px)' }}></div>
               {/* Vignette */}
               <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 100%)' }}></div>
 
@@ -365,17 +372,17 @@ export default function HomePage() {
             href="/contact"
             className="sm:col-span-2 md:col-span-6 relative group"
           >
-            <div className="border-4 border-black bg-white px-4 sm:px-8 py-4 sm:py-6 shadow-neo flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none group-hover:bg-primary">
+            <div className="border-4 border-[var(--neo-border)] bg-white px-4 sm:px-8 py-4 sm:py-6 shadow-neo flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none group-hover:bg-primary">
               <div className="flex items-center gap-3 sm:gap-6">
                 <span className="text-4xl sm:text-6xl font-black">→</span>
                 <div>
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tighter">Let's Build Together</h3>
-                  <p className="font-mono text-sm text-gray-500 group-hover:text-black/70 transition-colors">Have a vision? Let's make it happen.</p>
+                  <p className="font-mono text-sm text-gray-500 group-hover:text-[var(--neo-text)]/70 transition-colors">Have a vision? Let's make it happen.</p>
                 </div>
               </div>
               <div className="hidden md:flex items-center gap-4">
-                <Mail className="w-8 h-8 text-gray-400 group-hover:text-black transition-colors" />
-                <div className="w-14 h-14 border-3 border-black flex items-center justify-center bg-black text-primary group-hover:bg-primary group-hover:text-black transition-colors">
+                <Mail className="w-8 h-8 text-gray-400 group-hover:text-[var(--neo-text)] transition-colors" />
+                <div className="w-14 h-14 border-3 border-[var(--neo-border)] flex items-center justify-center bg-[var(--neo-text)] text-primary group-hover:bg-primary group-hover:text-[var(--neo-text)] transition-colors">
                   <span className="text-2xl font-bold">↗</span>
                 </div>
               </div>
