@@ -260,6 +260,8 @@ export default function ResumePage() {
 
         </main>
       </div>
+      </div>
+    </div>
     </div>
   );
 }
