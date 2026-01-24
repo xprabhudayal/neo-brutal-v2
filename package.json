@@ -20,6 +20,7 @@
     "caniuse-lite": "^1.0.30001753",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dotenv": "^17.2.3",
     "gsap": "^3.14.2",
     "lucide-react": "^0.562.0",
     "mime": "^4.1.0",

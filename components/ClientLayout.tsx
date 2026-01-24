@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
 import NeoNavbar from './NeoNavbar';
 import NeoFooter from './NeoFooter';
-import LiveChatModal from './LiveChatModal';
-import BetaWarningModal from './BetaWarningModal'; // Import new component
+
+const LiveChatModal = dynamic(() => import('./LiveChatModal'), { ssr: false });
+const BetaWarningModal = dynamic(() => import('./BetaWarningModal'), { ssr: false });
 // import { ProgressiveBlur } from './ui/progressive-blur'; // Might clash with design, commenting out for now or removing.
 
 export default function ClientLayout({

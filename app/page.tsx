@@ -318,7 +318,7 @@ export default function HomePage() {
               </div>
               <div className="relative z-10 font-mono text-xs text-gray-600 flex items-center gap-2">
                 <span>15 min</span>
-                <span className="text-primary font-bold">FREE ↗</span>
+                <span className="text-primary font-bold">↗</span>
               </div>
             </div>
           </a>

@@ -60,6 +60,13 @@ declare module '@google/genai' {
     outputAudioTranscription?: object;
     systemInstruction?: string;
     tools?: Array<{ googleSearch?: object }>;
+    activity_handling?: {
+      mode: string;
+    };
+    contextWindowCompression?: {
+      triggerTokens: string;
+      slidingWindow: { targetTokens: string };
+    };
   }
 
   export class GoogleGenAI {

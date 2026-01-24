@@ -21,7 +21,7 @@ module.exports = {
           foreground: "#163300",
         },
         secondary: {
-          DEFAULT: "#FFEB69", // Wise Yellow
+          DEFAULT: "#D4F0C4", // Light Green (subtle)
           foreground: "#163300",
         },
         accent: {
