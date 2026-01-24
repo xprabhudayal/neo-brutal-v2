@@ -62,9 +62,8 @@
 }
 
 @layer components {
-  /* Box Component */
   .neo-brutal-box {
-    @apply border-3 border-[length:3px] transition-all duration-200;
+    @apply border-3 transition-all duration-200;
     border-color: var(--neo-border);
     background-color: var(--neo-card);
     /* Hard shadow using the ink color */
@@ -106,7 +105,7 @@
 
   /* Standard Neo-Brutalist Button */
   .btn-neo {
-    @apply border-3 border-[length:3px] transition-all duration-200;
+    @apply border-3 transition-all duration-200;
     border-color: var(--neo-border);
     background-color: var(--neo-primary); /* Default to Wise Green */
     color: var(--neo-text);
