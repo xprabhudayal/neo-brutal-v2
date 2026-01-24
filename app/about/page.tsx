@@ -180,5 +180,6 @@ export default function AboutPage() {
                 </main>
             </div>
         </div>
+    </div>
     );
 }
