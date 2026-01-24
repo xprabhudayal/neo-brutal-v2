@@ -3,19 +3,15 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { RESUME_DATA } from '@/components/constants';
-import { ArrowUpRight, Terminal, Smartphone, ArrowRight, Play } from 'lucide-react';
+import { ArrowUpRight, Terminal } from 'lucide-react';
 
 export default function ProjectsClient() {
     const [filter, setFilter] = useState<'All' | 'Full Stack' | 'AI' | 'Experimental'>('All');
 
-    // Simple keyword mapping for demo purposes. 
-    // In a real app, you'd probably add a 'category' field to RESUME_DATA.projects.
-    // For now, I'll filter based on tech stack or title keywords.
     const filteredProjects = RESUME_DATA.projects.filter(project => {
         if (filter === 'All') return true;
 
         const tags = project.tech.map(t => t.toLowerCase());
-        const title = project.title.toLowerCase();
 
         if (filter === 'Full Stack') return tags.some(t => t.includes('react') || t.includes('next') || t.includes('web'));
         if (filter === 'AI') return tags.some(t => t.includes('ai') || t.includes('python') || t.includes('langgraph') || t.includes('gpt'));
@@ -25,100 +21,68 @@ export default function ProjectsClient() {
     });
 
     return (
-        <div className="flex-1 w-full bg-neo-bg bg-grid">
-            <section className="max-w-7xl mx-auto px-4 md:px-6 py-12 lg:py-20">
-                <div className="mb-16 flex flex-col lg:flex-row gap-8 lg:items-end justify-between relative">
-                    <div>
-                        <div className="inline-block px-3 py-1 bg-[var(--neo-text)] text-white border-2 border-[var(--neo-border)] font-mono text-xs font-bold uppercase tracking-widest mb-4 shadow-neo-primary">
-                            Portfolio 2026
+        <div className="flex-1 w-full bg-neo-bg">
+            <section className="w-full py-8 lg:py-12">
+                {/* Header - Full width with padding */}
+                <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
+                    <div className="flex flex-col lg:flex-row gap-6 lg:items-end justify-between">
+                        <div>
+                            <div className="inline-block px-3 py-1 bg-[var(--neo-text)] text-white border-2 border-[var(--neo-border)] font-mono text-xs font-bold uppercase tracking-widest mb-4 shadow-neo-primary">
+                                Portfolio 2026
+                            </div>
+                            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter leading-[0.85]">
+                                Selected<br />
+                                <span className="text-primary relative inline-block terminal-invert">
+                                    Projects
+                                </span>
+                            </h1>
                         </div>
-                        <h1 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
-                            Selected<br />
-                            <span className="text-primary relative inline-block terminal-invert">
-                                Projects
-                            </span>
-                        </h1>
+                        <div className="font-mono text-base font-bold border-l-8 border-primary pl-6 max-w-xl py-2">
+                            <p>A curated collection of high-performance applications, engineering challenges, and digital experiments.</p>
+                        </div>
                     </div>
-                    <div className="font-mono text-lg font-bold border-l-8 border-primary pl-6 max-w-xl py-2 bg-white/50 backdrop-blur-sm">
-                        <p>A curated collection of high-performance applications, engineering challenges, and digital experiments. Built with raw code and precision.</p>
-                    </div>̉
                 </div>
 
-                <div className="mb-12 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between border-y-4 border-[var(--neo-border)] py-6 bg-white">
-                    <div className="flex flex-wrap gap-3">
-                        {['All', 'Full Stack', 'AI'].map((cat) => (
-                            <button
-                                key={cat}
-                                onClick={() => setFilter(cat as any)}
-                                className={`px-6 py-2 font-mono text-sm font-black uppercase border-3 border-[var(--neo-border)] transition-all duration-200 ${filter === cat
-                                    ? 'bg-[var(--neo-text)] text-primary shadow-none translate-x-[2px] translate-y-[2px]'
-                                    : 'bg-white text-[var(--neo-text)] shadow-neo hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-secondary'
-                                    }`}
+                {/* Filters - Full width border */}
+                <div className="border-y-4 border-[var(--neo-border)] py-4 bg-white mb-8">
+                    <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+                        <div className="flex flex-wrap gap-2">
+                            {['All', 'Full Stack', 'AI'].map((cat) => (
+                                <button
+                                    key={cat}
+                                    onClick={() => setFilter(cat as any)}
+                                    className={`px-4 py-1.5 font-mono text-xs font-black uppercase border-2 border-[var(--neo-border)] transition-all duration-200 ${filter === cat
+                                        ? 'bg-[var(--neo-text)] text-primary'
+                                        : 'bg-white text-[var(--neo-text)] hover:bg-secondary'
+                                        }`}
+                                >
+                                    {cat}
+                                </button>
+                            ))}
+                        </div>
+                        <div className="flex items-center gap-2 font-mono text-xs font-bold bg-[var(--neo-text)] text-white px-3 py-1.5 border-2 border-[var(--neo-border)]">
+                            <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                            {filteredProjects.length} DEPLOYED
+                        </div>
+                    </div>
+                </div>
+
+                {/* Projects Grid - 3 columns, smaller cards */}
+                <div className="max-w-7xl mx-auto px-4 md:px-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+                        {filteredProjects.map((project, index) => (
+                            <article 
+                                key={project.title} 
+                                className="neo-brutal-box flex flex-col group relative overflow-hidden border-3 border-[var(--neo-border)] bg-white shadow-neo hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-300"
                             >
-                                {cat}
-                            </button>
-                        ))}
-                    </div>
-                    <div className="flex items-center gap-3 font-mono text-sm font-bold bg-[var(--neo-text)] text-white px-4 py-2 border-2 border-[var(--neo-border)] shadow-neo-primary">
-                        <span className="w-3 h-3 bg-primary rounded-full animate-pulse"></span>
-                        {filteredProjects.length} PROJECTS DEPLOYED
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 auto-rows-[380px] md:auto-rows-[450px]">
-                    {filteredProjects.map((project, index) => {
-                        // Asymmetric Grid Pattern
-                        // Pattern repeats every 6 items:
-                        // 0: Big Feature (4x2)
-                        // 1: Vertical (2x2)
-                        // 2: Wide (4x1)
-                        // 3: Standard (2x1)
-                        // 4: Standard (2x1)
-                        // 5: Wide (4x1)
-
-                        const patternIndex = index % 6;
-                        let colSpan = 'lg:col-span-3'; // Fallback
-                        let rowSpan = '';
-
-                        // Apply pattern logic
-                        if (index === 0) {
-                            // First item always big feature
-                            colSpan = 'lg:col-span-4';
-                            rowSpan = 'lg:row-span-2';
-                        } else if (index === 1) {
-                            // Second item always vertical companion
-                            colSpan = 'lg:col-span-2';
-                            rowSpan = 'lg:row-span-2';
-                        } else {
-                            // Rotating pattern for rest
-                            switch (patternIndex) {
-                                case 2: colSpan = 'lg:col-span-4'; break;
-                                case 3: colSpan = 'lg:col-span-2'; break;
-                                case 4: colSpan = 'lg:col-span-2'; break;
-                                case 5: colSpan = 'lg:col-span-4'; break;
-                                default: colSpan = 'lg:col-span-3'; break; // Should not happen with mod 6
-                            }
-                        }
-
-                        // Special case: if we have odd number of items at the end, make last one full width or balanced
-                        if (index === filteredProjects.length - 1 && filteredProjects.length % 2 !== 0) {
-                            colSpan = 'lg:col-span-6';
-                        }
-
-                        // Featured/Vertical cards span 2 rows (900px + gap)
-                        const isTall = rowSpan === 'lg:row-span-2';
-
-                        return (
-                            <article key={project.title} className={`${colSpan} ${rowSpan} neo-brutal-box flex flex-col group relative overflow-hidden border-4 border-[var(--neo-border)] bg-white shadow-neo hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-300`}>
                                 {index === 0 && (
-                                    <div className="absolute top-0 right-0 bg-primary border-l-4 border-b-4 border-[var(--neo-border)] px-6 py-2 font-mono font-black text-sm uppercase z-20">
+                                    <div className="absolute top-0 right-0 bg-primary border-l-3 border-b-3 border-[var(--neo-border)] px-3 py-1 font-mono font-black text-[10px] uppercase z-20">
                                         Featured
                                     </div>
                                 )}
 
-                                {/* Image Section - 2/3 Height */}
-                                <div className={`relative w-full h-[65%] ${isTall ? 'lg:h-[75%]' : ''} border-b-4 border-[var(--neo-border)] overflow-hidden bg-gray-100`}>
-                                    {/* Placeholder pattern if no image */}
+                                {/* Image Section - Smaller height */}
+                                <div className="relative w-full h-40 md:h-48 border-b-3 border-[var(--neo-border)] overflow-hidden bg-gray-100">
                                     <div className="absolute inset-0 pattern-diagonal opacity-10"></div>
 
                                     {project.image ? (
@@ -132,21 +96,21 @@ export default function ProjectsClient() {
                                         </div>
                                     ) : (
                                         <div className="absolute inset-0 flex items-center justify-center">
-                                            <Terminal className="w-20 h-20 text-gray-400 group-hover:text-primary transition-colors" />
+                                            <Terminal className="w-12 h-12 text-gray-400 group-hover:text-primary transition-colors" />
                                         </div>
                                     )}
                                 </div>
 
-                                {/* Text Section - 1/3 Height */}
-                                <div className={`p-4 sm:p-6 flex flex-col gap-3 relative z-10 bg-white w-full h-[35%] ${isTall ? 'lg:h-[25%]' : ''} justify-between`}>
-                                    <div className="flex flex-wrap gap-2">
-                                        {project.tech.slice(0, 3).map(t => (
-                                            <span key={t} className="px-2 py-1 bg-secondary border-2 border-[var(--neo-border)] font-mono text-[10px] font-black uppercase shadow-neo-sm">{t}</span>
+                                {/* Text Section - Compact */}
+                                <div className="p-4 flex flex-col gap-2 relative z-10 bg-white flex-1">
+                                    <div className="flex flex-wrap gap-1">
+                                        {project.tech.slice(0, 2).map(t => (
+                                            <span key={t} className="px-1.5 py-0.5 bg-secondary border border-[var(--neo-border)] font-mono text-[9px] font-black uppercase">{t}</span>
                                         ))}
                                     </div>
 
-                                    <div className="flex justify-between items-start gap-4">
-                                        <h3 className={`font-black uppercase tracking-tight group-hover:text-black transition-colors ${index === 0 ? 'text-2xl md:text-3xl' : 'text-xl'} line-clamp-2 leading-tight`}>
+                                    <div className="flex justify-between items-start gap-2">
+                                        <h3 className="font-black uppercase tracking-tight text-sm leading-tight line-clamp-2">
                                             {project.title}
                                         </h3>
                                         {project.url && (
@@ -154,22 +118,22 @@ export default function ProjectsClient() {
                                                 href={project.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="flex-shrink-0 flex items-center justify-center w-10 h-10 border-3 border-[var(--neo-border)] bg-white hover:bg-[var(--neo-text)] hover:text-primary transition-all rounded-none shadow-neo hover:shadow-none"
+                                                className="flex-shrink-0 flex items-center justify-center w-7 h-7 border-2 border-[var(--neo-border)] bg-white hover:bg-[var(--neo-text)] hover:text-primary transition-all"
                                             >
-                                                <ArrowUpRight className="font-bold w-5 h-5" />
+                                                <ArrowUpRight className="w-4 h-4" />
                                             </a>
                                         )}
                                     </div>
 
-                                    <p className="font-mono text-xs leading-relaxed text-gray-700 line-clamp-2 hidden md:block">
+                                    <p className="font-mono text-[10px] leading-relaxed text-gray-600 line-clamp-2">
                                         {project.description}
                                     </p>
                                 </div>
                             </article>
-                        );
-                    })}
+                        ))}
+                    </div>
                 </div>
-            </section >
-        </div >
+            </section>
+        </div>
     );
 }

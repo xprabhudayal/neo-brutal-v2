@@ -61,6 +61,20 @@
   }
 }
 
+/* Ticker scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-scroll {
+  animation: scroll 30s linear infinite;
+}
+
 @layer components {
   .neo-brutal-box {
     @apply border-3 transition-all duration-200;
