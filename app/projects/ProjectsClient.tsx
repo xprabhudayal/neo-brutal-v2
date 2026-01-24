@@ -29,7 +29,7 @@ export default function ProjectsClient() {
             <section className="max-w-7xl mx-auto px-4 md:px-6 py-12 lg:py-20">
                 <div className="mb-16 flex flex-col lg:flex-row gap-8 lg:items-end justify-between relative">
                     <div>
-                        <div className="inline-block px-3 py-1 bg-black text-white border-2 border-black font-mono text-xs font-bold uppercase tracking-widest mb-4 shadow-[4px_4px_0px_0px_rgba(57,255,20,1)]">
+                        <div className="inline-block px-3 py-1 bg-[var(--neo-text)] text-white border-2 border-[var(--neo-border)] font-mono text-xs font-bold uppercase tracking-widest mb-4 shadow-neo-primary">
                             Portfolio 2026
                         </div>
                         <h1 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85]">
@@ -44,22 +44,22 @@ export default function ProjectsClient() {
                     </div>̉
                 </div>
 
-                <div className="mb-12 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between border-y-4 border-black py-6 bg-white">
+                <div className="mb-12 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between border-y-4 border-[var(--neo-border)] py-6 bg-white">
                     <div className="flex flex-wrap gap-3">
                         {['All', 'Full Stack', 'AI'].map((cat) => (
                             <button
                                 key={cat}
                                 onClick={() => setFilter(cat as any)}
-                                className={`px-6 py-2 font-mono text-sm font-black uppercase border-3 border-black transition-all duration-200 ${filter === cat
-                                    ? 'bg-black text-primary shadow-none translate-x-[2px] translate-y-[2px]'
-                                    : 'bg-white text-black shadow-[4px_4px_0px_0px_#000] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-secondary'
+                                className={`px-6 py-2 font-mono text-sm font-black uppercase border-3 border-[var(--neo-border)] transition-all duration-200 ${filter === cat
+                                    ? 'bg-[var(--neo-text)] text-primary shadow-none translate-x-[2px] translate-y-[2px]'
+                                    : 'bg-white text-[var(--neo-text)] shadow-neo hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-secondary'
                                     }`}
                             >
                                 {cat}
                             </button>
                         ))}
                     </div>
-                    <div className="flex items-center gap-3 font-mono text-sm font-bold bg-black text-white px-4 py-2 border-2 border-black shadow-[4px_4px_0px_0px_#39FF14]">
+                    <div className="flex items-center gap-3 font-mono text-sm font-bold bg-[var(--neo-text)] text-white px-4 py-2 border-2 border-[var(--neo-border)] shadow-neo-primary">
                         <span className="w-3 h-3 bg-primary rounded-full animate-pulse"></span>
                         {filteredProjects.length} PROJECTS DEPLOYED
                     </div>
@@ -109,15 +109,15 @@ export default function ProjectsClient() {
                         const isTall = rowSpan === 'lg:row-span-2';
 
                         return (
-                            <article key={project.title} className={`${colSpan} ${rowSpan} neo-brutal-box flex flex-col group relative overflow-hidden border-4 border-black bg-white shadow-[8px_8px_0px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-300`}>
+                            <article key={project.title} className={`${colSpan} ${rowSpan} neo-brutal-box flex flex-col group relative overflow-hidden border-4 border-[var(--neo-border)] bg-white shadow-neo hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-300`}>
                                 {index === 0 && (
-                                    <div className="absolute top-0 right-0 bg-primary border-l-4 border-b-4 border-black px-6 py-2 font-mono font-black text-sm uppercase z-20">
+                                    <div className="absolute top-0 right-0 bg-primary border-l-4 border-b-4 border-[var(--neo-border)] px-6 py-2 font-mono font-black text-sm uppercase z-20">
                                         Featured
                                     </div>
                                 )}
 
                                 {/* Image Section - 2/3 Height */}
-                                <div className={`relative w-full h-[65%] ${isTall ? 'lg:h-[75%]' : ''} border-b-4 border-black overflow-hidden bg-gray-100`}>
+                                <div className={`relative w-full h-[65%] ${isTall ? 'lg:h-[75%]' : ''} border-b-4 border-[var(--neo-border)] overflow-hidden bg-gray-100`}>
                                     {/* Placeholder pattern if no image */}
                                     <div className="absolute inset-0 pattern-diagonal opacity-10"></div>
 
@@ -141,7 +141,7 @@ export default function ProjectsClient() {
                                 <div className={`p-4 sm:p-6 flex flex-col gap-3 relative z-10 bg-white w-full h-[35%] ${isTall ? 'lg:h-[25%]' : ''} justify-between`}>
                                     <div className="flex flex-wrap gap-2">
                                         {project.tech.slice(0, 3).map(t => (
-                                            <span key={t} className="px-2 py-1 bg-secondary border-2 border-black font-mono text-[10px] font-black uppercase shadow-[2px_2px_0px_0px_#000]">{t}</span>
+                                            <span key={t} className="px-2 py-1 bg-secondary border-2 border-[var(--neo-border)] font-mono text-[10px] font-black uppercase shadow-neo-sm">{t}</span>
                                         ))}
                                     </div>
 
@@ -154,7 +154,7 @@ export default function ProjectsClient() {
                                                 href={project.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="flex-shrink-0 flex items-center justify-center w-10 h-10 border-3 border-black bg-white hover:bg-black hover:text-primary transition-all rounded-none shadow-[4px_4px_0px_0px_#000] hover:shadow-none"
+                                                className="flex-shrink-0 flex items-center justify-center w-10 h-10 border-3 border-[var(--neo-border)] bg-white hover:bg-[var(--neo-text)] hover:text-primary transition-all rounded-none shadow-neo hover:shadow-none"
                                             >
                                                 <ArrowUpRight className="font-bold w-5 h-5" />
                                             </a>

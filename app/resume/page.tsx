@@ -58,7 +58,7 @@ export default function ResumePage() {
             </div>
 
             <nav className="border-3 border-neo-border bg-white p-0 shadow-neo flex flex-col">
-              <div className="bg-black text-white p-3 border-b-3 border-neo-border">
+              <div className="bg-[var(--neo-text)] text-white p-3 border-b-3 border-neo-border">
                 <h3 className="font-mono text-xs uppercase tracking-widest">Resume.exe</h3>
               </div>
               <a className="px-4 py-3 border-b-2 border-gray-100 hover:bg-primary font-mono text-sm font-bold flex items-center gap-2 transition-colors" href="#skills">
@@ -89,7 +89,7 @@ export default function ResumePage() {
             <div className="absolute top-0 right-0 p-4 opacity-10 font-black text-9xl select-none pointer-events-none -mt-8 -mr-8">DEV</div>
             <div className="relative z-10 flex flex-col gap-6">
               <div>
-                <div className="inline-block px-3 py-1 bg-black text-white font-mono text-xs mb-4 uppercase tracking-widest">Full Stack Engineer</div>
+                <div className="inline-block px-3 py-1 bg-[var(--neo-text)] text-white font-mono text-xs mb-4 uppercase tracking-widest">Full Stack Engineer</div>
                 <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9] mb-4">
                   {RESUME_DATA.name.split(' ')[0]}<br />{RESUME_DATA.name.split(' ')[1]}
                 </h1>
@@ -115,38 +115,38 @@ export default function ResumePage() {
           {/* Skills Section */}
           <section className="flex flex-col gap-6" id="skills">
             <div className="flex items-center gap-4">
-              <div className="h-8 w-8 bg-black flex items-center justify-center text-white">
+              <div className="h-8 w-8 bg-[var(--neo-text)] flex items-center justify-center text-white">
                 <Code2 className="w-4 h-4" />
               </div>
               <h2 className="text-3xl font-black uppercase tracking-tight">Technical Stack</h2>
-              <div className="h-1 flex-1 bg-black"></div>
+              <div className="h-1 flex-1 bg-[var(--neo-border)]"></div>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border-3 border-neo-border bg-white shadow-neo group hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
                 <div className="bg-secondary border-b-3 border-neo-border p-3">
                   <h3 className="font-mono font-bold uppercase text-sm flex justify-between items-center text-black">
                     <span>// Core Technologies</span>
-                    <span className="bg-black text-white px-1 text-xs">[01]</span>
+                    <span className="bg-[var(--neo-text)] text-white px-1 text-xs">[01]</span>
                   </h3>
                 </div>
                 <div className="p-6 flex flex-wrap gap-2">
                   {coreSkills.map((skill) => (
-                    <span key={skill} className="px-3 py-1 border-2 border-black bg-white hover:bg-black hover:text-white font-bold text-sm transition-colors cursor-default">
+                    <span key={skill} className="px-3 py-1 border-2 border-[var(--neo-border)] bg-white hover:bg-[var(--neo-text)] hover:text-white font-bold text-sm transition-colors cursor-default">
                       {skill}
                     </span>
                   ))}
                 </div>
               </div>
               <div className="border-3 border-neo-border bg-white shadow-neo group hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
-                <div className="bg-black text-white border-b-3 border-neo-border p-3">
+                <div className="bg-[var(--neo-text)] text-white border-b-3 border-neo-border p-3">
                   <h3 className="font-mono font-bold uppercase text-sm flex justify-between items-center">
                     <span>// Tools & Others</span>
-                    <span className="bg-primary text-black px-1 text-xs">[02]</span>
+                    <span className="bg-primary text-[var(--neo-text)] px-1 text-xs">[02]</span>
                   </h3>
                 </div>
                 <div className="p-6 flex flex-wrap gap-2">
                   {otherSkills.map((skill) => (
-                    <span key={skill} className="px-3 py-1 border-2 border-black bg-white hover:bg-primary font-bold text-sm transition-colors cursor-default">
+                    <span key={skill} className="px-3 py-1 border-2 border-[var(--neo-border)] bg-white hover:bg-primary font-bold text-sm transition-colors cursor-default">
                       {skill}
                     </span>
                   ))}
@@ -162,14 +162,14 @@ export default function ResumePage() {
                 <Briefcase className="w-4 h-4" />
               </div>
               <h2 className="text-3xl font-black uppercase tracking-tight">Professional Experience</h2>
-              <div className="h-1 flex-1 bg-black"></div>
+              <div className="h-1 flex-1 bg-[var(--neo-border)]"></div>
             </div>
 
-            <div className="relative border-l-4 border-black ml-4 md:ml-6 pl-8 md:pl-12 flex flex-col gap-12">
+            <div className="relative border-l-4 border-[var(--neo-border)] ml-4 md:ml-6 pl-8 md:pl-12 flex flex-col gap-12">
               {workExperience.map((job, index) => (
                 <div key={job.company} className="relative">
                   {/* Timeline Dot */}
-                  <div className="absolute -left-[46px] md:-left-[62px] top-6 w-6 h-6 bg-primary border-4 border-black box-content"></div>
+                  <div className="absolute -left-[46px] md:-left-[62px] top-6 w-6 h-6 bg-primary border-4 border-[var(--neo-border)] box-content"></div>
 
                   <div className="neo-brutal-box p-6 md:p-8 bg-white relative hover:translate-x-[2px] hover:translate-y-[2px] transition-all">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b-2 border-gray-100 pb-4">
@@ -177,7 +177,7 @@ export default function ResumePage() {
                         <h3 className="text-2xl font-black uppercase leading-tight mb-1">{job.title}</h3>
                         <p className="text-lg font-mono font-bold text-gray-600">{job.company}</p>
                       </div>
-                      <div className="self-start md:self-center bg-black text-white px-4 py-2 font-mono text-sm font-bold shadow-[4px_4px_0px_0px_#39FF14]">
+                      <div className="self-start md:self-center bg-[var(--neo-text)] text-white px-4 py-2 font-mono text-sm font-bold shadow-neo-primary">
                         {job.date}
                       </div>
                     </div>
@@ -185,7 +185,7 @@ export default function ResumePage() {
                     <ul className="space-y-4 list-none">
                       {job.points.map((point, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <span className="min-w-[6px] h-[6px] mt-[10px] bg-black"></span>
+                          <span className="min-w-[6px] h-[6px] mt-[10px] bg-[var(--neo-border)]"></span>
                           <span className="text-base leading-relaxed text-gray-800">{point}</span>
                         </li>
                       ))}
@@ -203,14 +203,14 @@ export default function ResumePage() {
                 <School className="w-4 h-4" />
               </div>
               <h2 className="text-3xl font-black uppercase tracking-tight">Education</h2>
-              <div className="h-1 flex-1 bg-black"></div>
+              <div className="h-1 flex-1 bg-[var(--neo-border)]"></div>
             </div>
             <div className="grid grid-cols-1 gap-6">
               {education.map((edu) => (
                 <div key={edu.institution} className="neo-brutal-box flex flex-col md:flex-row bg-white relative group overflow-hidden">
                   <div className="md:w-64 bg-secondary border-b-3 md:border-b-0 md:border-r-3 border-neo-border p-6 flex flex-col justify-center items-center text-center group-hover:bg-primary transition-colors">
                     <span className="font-mono font-black text-xl">{edu.date}</span>
-                    <span className="mt-2 text-xs font-bold uppercase tracking-widest border-2 border-black px-2 py-0.5 bg-white">Degree</span>
+                    <span className="mt-2 text-xs font-bold uppercase tracking-widest border-2 border-[var(--neo-border)] px-2 py-0.5 bg-white">Degree</span>
                   </div>
                   <div className="p-8 flex-1 flex flex-col justify-center relative">
                     <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
@@ -232,12 +232,12 @@ export default function ResumePage() {
                 <Trophy className="w-4 h-4" />
               </div>
               <h2 className="text-3xl font-black uppercase tracking-tight">Recognition</h2>
-              <div className="h-1 flex-1 bg-black"></div>
+              <div className="h-1 flex-1 bg-[var(--neo-border)]"></div>
             </div>
             <div className="flex flex-col gap-6">
               {achievements.map((award, index) => (
                 <div key={award.title} className="neo-brutal-box p-0 flex flex-col sm:flex-row items-stretch group">
-                  <div className={`bg-primary border-b-3 sm:border-b-0 sm:border-r-3 border-neo-border p-6 flex items-center justify-center min-w-[120px] group-hover:bg-black group-hover:text-white transition-colors`}>
+                  <div className={`bg-primary border-b-3 sm:border-b-0 sm:border-r-3 border-neo-border p-6 flex items-center justify-center min-w-[120px] group-hover:bg-[var(--neo-text)] group-hover:text-white transition-colors`}>
                     <span className="font-mono font-black text-xl text-center">{award.date}</span>
                   </div>
                   <div className="p-6 flex-1 flex flex-col justify-center bg-white relative overflow-hidden">
@@ -248,7 +248,7 @@ export default function ResumePage() {
                       <h3 className="text-2xl font-black uppercase">{award.title}</h3>
                     </div>
                     <p className="font-mono text-sm uppercase tracking-wide text-gray-600 mb-2 relative z-10">{award.organization}</p>
-                    <ul className="text-sm border-l-4 border-black pl-3 mt-1 relative z-10 list-none space-y-1">
+                    <ul className="text-sm border-l-4 border-[var(--neo-border)] pl-3 mt-1 relative z-10 list-none space-y-1">
                       {award.points.map((p, i) => <li key={i}>{p}</li>)}
                     </ul>
                   </div>
