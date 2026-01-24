@@ -6,8 +6,9 @@ export default function AboutPage() {
     const { name, summary, contact } = RESUME_DATA;
 
     return (
-        <div className="flex-1 max-w-7xl mx-auto w-full px-4 md:px-6 py-8 md:py-12 bg-grid">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <div className="flex-1 w-full bg-grid">
+            <div className="max-w-7xl mx-auto w-full px-4 md:px-6 py-8 md:py-12">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
                 {/* Sidebar */}
                 <aside className="hidden lg:block lg:col-span-3 sticky top-28">
                     <div className="flex flex-col gap-6">
