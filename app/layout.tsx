@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Space_Grotesk, Space_Mono } from 'next/font/google';
 import ClientLayout from '../components/ClientLayout';
+import { RESUME_DATA } from '@/components/constants';
 
 // Font for headings
 const spaceGrotesk = Space_Grotesk({
@@ -21,19 +22,15 @@ const spaceMono = Space_Mono({
 const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Prabhudayal Vaishnav',
+    name: RESUME_DATA.name,
     url: 'https://xpdv.vercel.app',
-    sameAs: [
-        'https://github.com/prabhudayal', 
-        'https://twitter.com/prabhudayal_ai',
-        'https://linkedin.com/in/prabhudayal-vaishnav'
-    ],
+    sameAs: RESUME_DATA.contact.links.map(link => link.url),
     jobTitle: 'AI Engineer',
     worksFor: {
         '@type': 'Organization',
-        name: 'Self-Employed'
+        name: RESUME_DATA.workExperience[0]?.company || 'Self-Employed'
     },
-    description: 'AI Engineer & Full-Stack Developer building intelligent systems.'
+    description: RESUME_DATA.summary
 };
 
 export const metadata: Metadata = {
@@ -45,31 +42,38 @@ export const metadata: Metadata = {
         default: 'PRABHUDAYAL VAISHNAV // DEV',
         template: '%s // PRABHUDAYAL VAISHNAV',
     },
-    description: 'AI Engineer & Full-Stack Developer building intelligent systems.',
-    keywords: ['AI Engineer', 'Full Stack Developer', 'React', 'Next.js', 'Typescript', 'Prabhudayal Vaishnav', 'Voice Agents', 'Computer Vision'],
-    authors: [{ name: 'Prabhudayal Vaishnav' }],
-    creator: 'Prabhudayal Vaishnav',
+    description: RESUME_DATA.summary,
+    keywords: [
+        ...RESUME_DATA.skills.ai_ml,
+        ...RESUME_DATA.skills.programming,
+        ...RESUME_DATA.skills.soft,
+        'AI Engineer', 
+        'Full Stack Developer', 
+        RESUME_DATA.name
+    ],
+    authors: [{ name: RESUME_DATA.name }],
+    creator: RESUME_DATA.name,
     openGraph: {
         type: 'website',
         locale: 'en_US',
         url: 'https://xpdv.vercel.app',
-        title: 'PRABHUDAYAL VAISHNAV // DEV',
-        description: 'AI Engineer & Full-Stack Developer building intelligent systems.',
-        siteName: 'Prabhudayal Vaishnav Portfolio',
+        title: `${RESUME_DATA.name} // DEV`,
+        description: RESUME_DATA.summary,
+        siteName: `${RESUME_DATA.name} Portfolio`,
         images: [
             {
                 url: '/og-image.jpg', // Assuming you'll have an OG image
                 width: 1200,
                 height: 630,
-                alt: 'Prabhudayal Vaishnav - AI Engineer',
+                alt: `${RESUME_DATA.name} - AI Engineer`,
             },
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'PRABHUDAYAL VAISHNAV // DEV',
-        description: 'AI Engineer & Full-Stack Developer building intelligent systems.',
-        creator: '@prabhudayal_ai',
+        title: `${RESUME_DATA.name}`,
+        description: RESUME_DATA.summary,
+        creator: RESUME_DATA.contact.links.find(l => l.name === 'Twitter')?.url.split('/').pop() ? `@${RESUME_DATA.contact.links.find(l => l.name === 'Twitter')?.url.split('/').pop()}` : '@globalxprada',
         images: ['/og-image.jpg'],
     },
     robots: {

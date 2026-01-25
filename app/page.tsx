@@ -80,7 +80,7 @@ export default function HomePage() {
                   </motion.span>
                 </Link>
                 <a
-                  href="https://cal.com/ai.pdv"
+                  href={RESUME_DATA.contact.links.find(l => l.name === 'Cal.com')?.url || '#'}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-5 py-3 sm:px-8 sm:py-4 bg-white text-black font-bold text-sm sm:text-lg uppercase tracking-wider hover:bg-black hover:text-primary btn-neo transition-all flex items-center justify-center gap-2 w-full"
@@ -359,7 +359,7 @@ export default function HomePage() {
 
           {/* Book a Call CTA - Top Right (Smaller) */}
           <a
-            href="https://cal.com/ai.pdv"
+            href={RESUME_DATA.contact.links.find(l => l.name === 'Cal.com')?.url || '#'}
             target="_blank"
             rel="noopener noreferrer"
             className="sm:col-span-1 md:col-span-2 relative group block h-full"

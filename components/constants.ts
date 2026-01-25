@@ -1,5 +1,5 @@
 import { ResumeData } from '../types';
-import { Github, Linkedin, Code2, Instagram, Mail, Twitter } from 'lucide-react';
+import { Github, Linkedin, Code2, Instagram, Mail, Twitter, Calendar } from 'lucide-react';
 
 export const RESUME_DATA: ResumeData = {
   name: "Prabhudayal Vaishnav",
@@ -13,6 +13,7 @@ export const RESUME_DATA: ResumeData = {
       { name: "LeetCode", url: "https://leetcode.com/u/global-prada", icon: Code2 },
       { name: "Instagram", url: "https://www.instagram.com/ai.pdv/", icon: Instagram },
       { name: "Email", url: "mailto:p09m21@gmail.com", icon: Mail },
+      { name: "Cal.com", url: "https://cal.com/ai.pdv", icon: Calendar },
     ],
   },
   summary: "A proactive and innovative AI Engineer and full-stack developer with a strong foundation in Computer Science and a specialization in Data Science. Passionate about building intelligent systems, contributing to open-source projects, and solving complex problems with cutting-edge technologies like LangGraph, PyTorch, and Next.js.",
