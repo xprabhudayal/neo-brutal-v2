@@ -42,6 +42,7 @@ export default function HomePage() {
                     alt="Prabhudayal Vaishnav"
                     fill
                     sizes="(max-width: 768px) 33vw, 20vw"
+                    priority
                     className="object-cover filter grayscale"
                   />
                 </div>
@@ -105,6 +106,7 @@ export default function HomePage() {
                 alt="Prabhudayal Vaishnav"
                 fill
                 sizes="(min-width: 1024px) 33vw, 50vw"
+                priority
                 className="object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
               />
               <div className="absolute inset-0 border-3 border-transparent group-hover:border-primary transition-all duration-300 pointer-events-none"></div>

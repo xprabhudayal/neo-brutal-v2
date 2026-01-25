@@ -24,7 +24,7 @@ export default function ClientLayout({
   return (
     <>
       <NeoNavbar onOpenAI={handleOpenAI} />
-      <main className="w-full min-h-screen bg-neo-bg">
+      <main id="main-content" className="w-full min-h-screen bg-neo-bg">
         {children}
       </main>
       <NeoFooter />

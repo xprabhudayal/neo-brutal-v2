@@ -5,31 +5,31 @@
 @layer base {
   :root {
     /* 1. Base Colors (Wise Pruned Palette) */
-    --background: #FFFFFF;       /* White Mode as requested */
-    --foreground: #163300;       /* Wise Forest Green (Replacing #000 text) */
-    
+    --background: #ffffff; /* White Mode as requested */
+    --foreground: #163300; /* Wise Forest Green (Replacing #000 text) */
+
     /* 2. Neo-Brutal Variables (Map these in your tailwind.config.js if needed) */
-    --neo-bg: #FFFFFF;
+    --neo-bg: #ffffff;
     --neo-text: #163300;
-    --neo-border: #163300;       /* The "Ink" color for borders */
-    --neo-card: #FFFFFF;
+    --neo-border: #163300; /* The "Ink" color for borders */
+    --neo-card: #ffffff;
     --neo-shadow: #163300;
-    
+
     /* 3. Accents */
-    --neo-primary: #9FE870;      /* Wise Bright Green */
-    --neo-secondary: #D4F0C4;    /* Light Green (subtle) */
-    --neo-accent: #A0E1E1;       /* Wise Blue */
+    --neo-primary: #9fe870; /* Wise Bright Green */
+    --neo-secondary: #d4f0c4; /* Light Green (subtle) */
+    --neo-accent: #a0e1e1; /* Wise Blue */
   }
 
   /* Optional Dark Mode - Inverting the Wise Palette */
   .dark {
-    --background: #163300;       /* Dark Forest Green bg */
-    --foreground: #9FE870;       /* Bright Green text */
+    --background: #163300; /* Dark Forest Green bg */
+    --foreground: #9fe870; /* Bright Green text */
     --neo-bg: #163300;
-    --neo-text: #9FE870;
-    --neo-border: #9FE870;
+    --neo-text: #9fe870;
+    --neo-border: #9fe870;
     --neo-shadow: #000000;
-    --neo-card: #0d1f00;         /* Slightly darker green for cards */
+    --neo-card: #0d1f00; /* Slightly darker green for cards */
   }
 
   html {
@@ -39,6 +39,13 @@
   body {
     /* Using standard text color variable instead of hardcoded class */
     @apply bg-[var(--neo-bg)] text-[var(--neo-text)] font-display;
+  }
+
+  /* Accessibility: High contrast focus indicators */
+  :focus-visible {
+    outline: 3px solid var(--neo-border);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px var(--neo-primary);
   }
 
   /* 4. Scrollbar - Customized to Wise Palette */
@@ -92,20 +99,41 @@
   /* Grid Background - Swapped black opacity for Ink opacity */
   .bg-grid {
     background-size: 40px 40px;
-    background-image:
-      linear-gradient(to right, rgba(22, 51, 0, 0.1) 1px, transparent 1px),
+    background-image: linear-gradient(
+        to right,
+        rgba(22, 51, 0, 0.1) 1px,
+        transparent 1px
+      ),
       linear-gradient(to bottom, rgba(22, 51, 0, 0.1) 1px, transparent 1px);
   }
 
   .pattern-diagonal {
     /* Updated to use Ink color variable */
-    background-image: repeating-linear-gradient(45deg, var(--neo-text) 0, var(--neo-text) 1px, transparent 0, transparent 50%);
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--neo-text) 0,
+      var(--neo-text) 1px,
+      transparent 0,
+      transparent 50%
+    );
     background-size: 10px 10px;
   }
 
   .marquee-mask {
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 15%,
+      black 85%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 15%,
+      black 85%,
+      transparent
+    );
   }
 
   .logo-grayscale {
@@ -140,7 +168,7 @@
   .terminal-invert {
     @apply px-2 py-1;
     background-color: var(--neo-text); /* #163300 */
-    color: var(--neo-primary);         /* #9FE870 */
+    color: var(--neo-primary); /* #9FE870 */
     border-radius: 0;
   }
 

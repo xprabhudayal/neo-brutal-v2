@@ -118,6 +118,7 @@ export default function ProjectsClient() {
                                                 src={project.image}
                                                 alt={project.title}
                                                 fill
+                                                sizes="(max-width: 1024px) 100vw, 50vw"
                                                 className="object-cover img-bw-to-color transition-all duration-500"
                                             />
                                         </div>

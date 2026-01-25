@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface Organization {
@@ -68,11 +69,13 @@ export default function LogoSpotlightCarousel() {
                     }}
                 >
                     {/* Logo */}
-                    <div className="h-48 w-auto flex items-center justify-center">
-                        <img
+                    <div className="h-48 w-full relative flex items-center justify-center">
+                        <Image
                             src={current.logoSrc}
                             alt={current.name}
-                            className="h-full w-auto object-contain"
+                            fill
+                            sizes="(max-width: 768px) 80vw, 40vw"
+                            className="object-contain"
                         />
                     </div>
                 </motion.a>

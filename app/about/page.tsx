@@ -3,6 +3,7 @@
 import { RESUME_DATA } from "@/components/constants";
 import { User, Mail, Layers, Gamepad2, Globe, ArrowUpRight, Github, Linkedin, Twitter, Rocket } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from 'framer-motion';
 
 export default function AboutPage() {
@@ -44,10 +45,13 @@ export default function AboutPage() {
                         <motion.div variants={itemVariants} className="border-3 border-neo-border bg-white p-6 shadow-neo">
                             <div className="w-full aspect-square border-3 border-neo-border mb-4 overflow-hidden relative bg-secondary">
                                 {/* Fallback to simple icon since we might not have a square avatar ready, or use the one from home */}
-                                <img
+                                <Image
                                     src="/profile-photo.webp"
                                     alt={name}
-                                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                                    fill
+                                    sizes="(max-width: 1024px) 100vw, 25vw"
+                                    className="object-cover grayscale hover:grayscale-0 transition-all duration-300"
+                                    priority
                                 />
                             </div>
                             <h1 className="font-bold text-xl uppercase leading-none mb-1">{name}</h1>
@@ -90,7 +94,13 @@ export default function AboutPage() {
                             {/* Mobile User Info (since sidebar is hidden) */}
                             <motion.div variants={itemVariants} className="lg:hidden flex items-center gap-4 mb-8 pb-6 border-b-2 border-dashed border-gray-200">
                                 <div className="w-16 h-16 border-3 border-neo-border overflow-hidden bg-secondary relative shrink-0">
-                                    <img src="/profile-photo.webp" alt={name} className="w-full h-full object-cover grayscale" />
+                                    <Image 
+                                        src="/profile-photo.webp" 
+                                        alt={name} 
+                                        fill
+                                        sizes="64px"
+                                        className="object-cover grayscale" 
+                                    />
                                 </div>
                                 <div>
                                     <h1 className="font-bold text-lg uppercase leading-none mb-1">{name}</h1>
@@ -230,7 +240,7 @@ export default function AboutPage() {
                                     className="flex flex-col gap-2 p-4 border-2 border-dashed border-gray-300 bg-secondary/30 hover:bg-secondary hover:border-black transition-all"
                                 >
                                     <span className="font-mono text-xs font-bold uppercase text-gray-500">Location</span>
-                                    <div className="font-bold text-lg leading-tight">Bangalore</div>
+                                    <div className="font-bold text-lg leading-tight">India</div>
                                     <span className="text-xs bg-gray-200 border border-gray-400 text-black px-2 py-1 w-max">IST (UTC+5:30)</span>
                                 </motion.div>
                             </div>

@@ -48,7 +48,7 @@ export default function ContactPage() {
                                     <p className="font-bold text-lg sm:text-xl inline-block bg-primary px-3 py-1 border-2 border-[var(--neo-border)] shadow-neo-sm">OPEN / FREELANCE</p>
                                 </div>
                                 <div className="text-left sm:text-right">
-                                    <p className="font-mono text-[10px] md:text-xs text-gray-500 uppercase">LOCATION: BANGALORE, INDIA</p>
+                                    <p className="font-mono text-[10px] md:text-xs text-gray-500 uppercase">LOCATION: INDIA / REMOTE</p>
                                 </div>
                             </div>
                         </div>
