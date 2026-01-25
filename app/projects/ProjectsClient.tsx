@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { RESUME_DATA } from '@/components/constants';
 import { ArrowUpRight, Terminal } from 'lucide-react';
+import { motion } from '@/components/motion-client';
 
 export default function ProjectsClient() {
     const [filter, setFilter] = useState<'All' | 'Full Stack' | 'AI' | 'Experimental'>('All');
@@ -27,24 +28,47 @@ export default function ProjectsClient() {
                 <div className="max-w-7xl mx-auto px-4 md:px-6 mb-8">
                     <div className="flex flex-col lg:flex-row gap-6 lg:items-end justify-between">
                         <div>
-                            <div className="inline-block px-3 py-1 bg-[var(--neo-text)] text-white border-2 border-[var(--neo-border)] font-mono text-xs font-bold uppercase tracking-widest mb-4 shadow-neo-primary">
+                            <motion.div 
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true, amount: 0.5 }}
+                                className="inline-block px-3 py-1 bg-[var(--neo-text)] text-white border-2 border-[var(--neo-border)] font-mono text-xs font-bold uppercase tracking-widest mb-4 shadow-neo-primary"
+                            >
                                 Portfolio 2026
-                            </div>
-                            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter leading-[0.85]">
+                            </motion.div>
+                            <motion.h1 
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true, amount: 0.5 }}
+                                transition={{ delay: 0.1 }}
+                                className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter leading-[0.85]"
+                            >
                                 Selected<br />
                                 <span className="text-primary relative inline-block terminal-invert">
                                     Projects
                                 </span>
-                            </h1>
+                            </motion.h1>
                         </div>
-                        <div className="font-mono text-base font-bold border-l-8 border-primary pl-6 max-w-xl py-2">
+                        <motion.div 
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true, amount: 0.5 }}
+                            transition={{ delay: 0.2 }}
+                            className="font-mono text-base font-bold border-l-8 border-primary pl-6 max-w-xl py-2"
+                        >
                             <p>A curated collection of high-performance applications, engineering challenges, and digital experiments.</p>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
 
                 {/* Filters - Full width border */}
-                <div className="border-y-4 border-[var(--neo-border)] py-4 bg-white mb-8">
+                <motion.div 
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ delay: 0.3 }}
+                    className="border-y-4 border-[var(--neo-border)] py-4 bg-white mb-8"
+                >
                     <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
                         <div className="flex flex-wrap gap-2">
                             {['All', 'Full Stack', 'AI'].map((cat) => (
@@ -62,15 +86,21 @@ export default function ProjectsClient() {
                         </div>
                         
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Projects Grid - 2 columns, larger cards */}
                 <div className="max-w-7xl mx-auto px-4 md:px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                         {filteredProjects.map((project, index) => (
-                            <article 
-                                key={project.title} 
-                                className="neo-brutal-box flex flex-col group relative overflow-hidden border-3 border-[var(--neo-border)] bg-white shadow-neo hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-300 h-full"
+                            <motion.article 
+                                key={project.title}
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true, amount: 0.5 }}
+                                transition={{ duration: 0.5, delay: (index % 4) * 0.1 }}
+                                className={`neo-brutal-box flex flex-col group relative overflow-hidden border-3 border-[var(--neo-border)] bg-white shadow-neo hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px] transition-all duration-300 h-full ${
+                                    index % 3 === 0 ? 'lg:col-span-2' : 'lg:col-span-1'
+                                }`}
                             >
                                 {index === 0 && (
                                     <div className="absolute top-0 right-0 bg-primary border-l-3 border-b-3 border-[var(--neo-border)] px-4 py-2 font-mono font-black text-xs uppercase z-20">
@@ -126,7 +156,7 @@ export default function ProjectsClient() {
                                         {project.description}
                                     </p>
                                 </div>
-                            </article>
+                            </motion.article>
                         ))}
                     </div>
                 </div>

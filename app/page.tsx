@@ -1,8 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowDown, FolderOpen, Mail, Code2, Terminal, GitBranch, Zap, Calendar } from 'lucide-react';
 import LogoSpotlightCarousel from '@/components/LogoSpotlightCarousel';
 import ISTClock from '@/components/ISTClock';
+import { motion } from 'framer-motion';
 import { RESUME_DATA } from "@/components/constants";
 
 export default function HomePage() {
@@ -17,7 +20,12 @@ export default function HomePage() {
 
           {/* Main Hero Card - Contains everything on mobile, left side on desktop */}
           <div className="lg:col-span-8 flex flex-col gap-6">
-            <div className="border-3 border-neo-border bg-white p-4 sm:p-8 md:p-16 shadow-neo relative overflow-hidden h-full flex flex-col justify-center min-h-[320px] sm:min-h-[500px]">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="border-3 border-neo-border bg-white p-4 sm:p-8 md:p-16 shadow-neo relative overflow-hidden h-full flex flex-col justify-center min-h-[320px] sm:min-h-[500px]"
+            >
               {/* Background Decoration */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-secondary rounded-full blur-3xl -mr-20 -mt-20 opacity-50"></div>
 
@@ -39,13 +47,18 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <h1 className="text-2xl sm:text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[0.85] mb-4 sm:mb-6 relative z-10">
+              <motion.h1 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="text-2xl sm:text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[0.85] mb-4 sm:mb-6 relative z-10"
+              >
                 Engineer<br />
                 <span className="terminal-invert sm:terminal-invert-lg font-black inline-block">
                   Intelligence
                 </span><br />
                 Ship Fast
-              </h1>
+              </motion.h1>
 
               <p className="text-sm sm:text-lg md:text-xl max-w-2xl text-gray-500 font-mono leading-relaxed border-l-4 border-primary pl-3 sm:pl-6 mb-3 sm:mb-4">
                 I am a Research-backed AI Engineer bridging research and production. I build latency-optimized Voice Agents and Computer Vision systems. No fluff, just shipping code.
@@ -60,8 +73,10 @@ export default function HomePage() {
                   href="/projects"
                   className="px-5 py-3 sm:px-8 sm:py-4 bg-primary text-black font-bold text-sm sm:text-lg uppercase tracking-wider btn-neo flex items-center justify-center gap-2 group w-full"
                 >
-                  View Selected Works
-                  <ArrowDown className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-y-1 transition-transform" />
+                  <motion.span whileHover={{ scale: 1.05 }} className="flex items-center gap-2">
+                    View Selected Works
+                    <ArrowDown className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-y-1 transition-transform" />
+                  </motion.span>
                 </Link>
                 <a
                   href="https://cal.com/ai.pdv"
@@ -73,13 +88,18 @@ export default function HomePage() {
                   <span className="text-lg sm:text-xl">↗</span>
                 </a>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Column Grid - Hidden on mobile, visible on desktop */}
           <div className="hidden lg:flex lg:col-span-4 flex-col gap-6">
             {/* Profile Image Card - Desktop only */}
-            <div className="border-3 border-neo-border bg-secondary p-0 shadow-neo flex-1 min-h-[300px] flex flex-col items-center justify-center relative group overflow-hidden">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="border-3 border-neo-border bg-secondary p-0 shadow-neo flex-1 min-h-[300px] flex flex-col items-center justify-center relative group overflow-hidden"
+            >
               <Image
                 src="/profile-photo.webp"
                 alt="Prabhudayal Vaishnav"
@@ -88,11 +108,16 @@ export default function HomePage() {
                 className="object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
               />
               <div className="absolute inset-0 border-3 border-transparent group-hover:border-primary transition-all duration-300 pointer-events-none"></div>
-            </div>
+            </motion.div>
 
             {/* Stats Grid - Desktop only */}
             <div className="grid grid-cols-2 gap-6 h-auto">
-              <div className="border-3 border-neo-border bg-white p-5 shadow-neo flex flex-col justify-between hover:bg-secondary transition-colors">
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="border-3 border-neo-border bg-white p-5 shadow-neo flex flex-col justify-between hover:bg-secondary transition-colors"
+              >
                 <div className="flex justify-between items-start">
                   <Terminal className="w-8 h-8" />
                   <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
@@ -101,14 +126,19 @@ export default function HomePage() {
                   <h3 className="font-black text-4xl">03+</h3>
                   <p className="font-mono text-[10px] font-bold uppercase leading-tight mt-1">Years of<br />Experience</p>
                 </div>
-              </div>
-              <div className="border-3 border-neo-border bg-black text-primary p-5 shadow-neo flex flex-col justify-between hover:bg-gray-900 transition-colors">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                className="border-3 border-neo-border bg-black text-primary p-5 shadow-neo flex flex-col justify-between hover:bg-gray-900 transition-colors"
+              >
                 <GitBranch className="w-8 h-8" />
                 <div>
                   <h3 className="font-black text-4xl">50+</h3>
                   <p className="font-mono text-[10px] font-bold uppercase leading-tight mt-1 text-white">Projects<br />Built</p>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -151,7 +181,13 @@ export default function HomePage() {
 
       {/* Validated At Section */}
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-16">
-        <div className="border-3 border-neo-border bg-white p-8 md:p-12 shadow-neo">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          className="border-3 border-neo-border bg-white p-8 md:p-12 shadow-neo"
+        >
           <div className="text-center mb-4">
             <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4">Validated At</h2>
             <p className="font-mono text-gray-600 max-w-2xl mx-auto">
@@ -161,7 +197,7 @@ export default function HomePage() {
 
           {/* Single-Logo Spotlight Carousel */}
           <LogoSpotlightCarousel />
-        </div>
+        </motion.div>
       </section>
 
       {/* Battle Tested - Achievements Carousel */}
@@ -176,7 +212,13 @@ export default function HomePage() {
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* IIM Nagpur Hackathon */}
-          <div className="border-3 border-neo-border neo-brutal-box bg-white shadow-neo overflow-hidden group">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+            className="border-3 border-neo-border neo-brutal-box bg-white shadow-neo overflow-hidden group"
+          >
             <div className="aspect-video overflow-hidden border-b-3 border-black relative">
               <Image
                 src="/images/achievements/iim-hackathon.webp"
@@ -194,10 +236,16 @@ export default function HomePage() {
               <h3 className="text-xl font-black uppercase tracking-tight mb-2">IIM Nagpur Hackathon</h3>
               <p className="font-mono text-sm text-gray-600">AI Product Comparison Agent</p>
             </div>
-          </div>
+          </motion.div>
 
           {/* IIIT Delhi HackLLM */}
-          <div className="border-3 border-neo-border neo-brutal-box bg-white shadow-neo overflow-hidden group">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="border-3 border-neo-border neo-brutal-box bg-white shadow-neo overflow-hidden group"
+          >
             <div className="aspect-video overflow-hidden border-b-3 border-black relative">
               <Image
                 src="/images/achievements/hackllm-certificate.webp"
@@ -215,7 +263,7 @@ export default function HomePage() {
               <h3 className="text-xl font-black uppercase tracking-tight mb-2">IIIT Delhi HackLLM</h3>
               <p className="font-mono text-sm text-gray-600">Medical AI Summarization System</p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -236,9 +284,15 @@ export default function HomePage() {
           {/* About Card - Large Left (spans 2 cols, 2 rows) - NOW BLACK */}
           <Link
             href="/about"
-            className="sm:col-span-1 md:col-span-2 md:row-span-2 relative group overflow-hidden"
+            className="sm:col-span-1 md:col-span-2 md:row-span-2 relative group overflow-hidden block h-full"
           >
-            <div className="border-4 border-black bg-black text-white p-5 sm:p-8 shadow-[5px_5px_0px_0px_#39FF14] h-full min-h-[180px] sm:min-h-[300px] md:min-h-[420px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.4 }}
+              className="border-4 border-black bg-black text-white p-5 sm:p-8 shadow-[5px_5px_0px_0px_#39FF14] h-full min-h-[180px] sm:min-h-[300px] md:min-h-[420px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden"
+            >
               {/* Scanline effect */}
               <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(57, 255, 20, 0.03) 2px, rgba(57, 255, 20, 0.03) 4px)' }}></div>
 
@@ -267,15 +321,21 @@ export default function HomePage() {
                   <span className="text-xl font-bold">→</span>
                 </span>
               </div>
-            </div>
+            </motion.div>
           </Link>
 
           {/* Selected Works - Top Middle (Larger - 2.5 cols equivalent) */}
           <Link
             href="/projects"
-            className="sm:col-span-1 md:col-span-2 relative group"
+            className="sm:col-span-1 md:col-span-2 relative group block h-full"
           >
-            <div className="border-4 border-black bg-primary p-4 sm:p-6 shadow-neo min-h-[180px] sm:min-h-[200px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ delay: 0.1, duration: 0.4 }}
+              className="border-4 border-black bg-primary p-4 sm:p-6 shadow-neo min-h-[180px] sm:min-h-[200px] h-full flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden"
+            >
               {/* Diagonal stripes overlay */}
               <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.1) 10px, rgba(0,0,0,0.1) 20px)' }}></div>
 
@@ -292,7 +352,7 @@ export default function HomePage() {
                 <span className="font-mono text-sm text-black/70">{featuredProjects.length}+ projects</span>
                 <span className="font-black text-xl">↗</span>
               </div>
-            </div>
+            </motion.div>
           </Link>
 
           {/* Book a Call CTA - Top Right (Smaller) */}
@@ -300,9 +360,15 @@ export default function HomePage() {
             href="https://cal.com/ai.pdv"
             target="_blank"
             rel="noopener noreferrer"
-            className="sm:col-span-1 md:col-span-2 relative group"
+            className="sm:col-span-1 md:col-span-2 relative group block h-full"
           >
-            <div className="border-4 border-black bg-secondary p-4 sm:p-5 shadow-neo min-h-[180px] sm:min-h-[200px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ delay: 0.2, duration: 0.4 }}
+              className="border-4 border-black bg-secondary p-4 sm:p-5 shadow-neo min-h-[180px] sm:min-h-[200px] h-full flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden"
+            >
               {/* Animated pulse effect on hover */}
               <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-500"></div>
               <div className="absolute inset-0 pattern-diagonal opacity-5"></div>
@@ -320,15 +386,21 @@ export default function HomePage() {
                 <span>15 min</span>
                 <span className="text-primary font-bold">FREE ↗</span>
               </div>
-            </div>
+            </motion.div>
           </a>
 
           {/* Resume Card - Bottom Middle - NOW WHITE */}
           <Link
             href="/resume"
-            className="sm:col-span-1 md:col-span-2 relative group"
+            className="sm:col-span-1 md:col-span-2 relative group block h-full"
           >
-            <div className="border-4 border-black bg-white p-4 sm:p-6 shadow-neo min-h-[180px] sm:min-h-[200px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ delay: 0.3, duration: 0.4 }}
+              className="border-4 border-black bg-white p-4 sm:p-6 shadow-neo min-h-[180px] sm:min-h-[200px] h-full flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden"
+            >
               {/* Subtle grid pattern */}
               <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(0,0,0,0.1) 20px, rgba(0,0,0,0.1) 21px), repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(0,0,0,0.1) 20px, rgba(0,0,0,0.1) 21px)' }}></div>
 
@@ -344,12 +416,18 @@ export default function HomePage() {
               <p className="relative z-10 font-mono text-sm text-gray-500">
                 Experience • Skills • Education
               </p>
-            </div>
+            </motion.div>
           </Link>
 
           {/* IST Clock Card - Bottom Right (Larger - spanning more) - Visible on mobile now */}
-          <div className="col-span-1 md:col-span-2 relative">
-            <div className="border-4 border-black bg-black p-4 sm:p-5 shadow-[5px_5px_0px_0px_#39FF14] min-h-[180px] sm:min-h-[200px] flex flex-col justify-between relative overflow-hidden">
+          <div className="col-span-1 md:col-span-2 relative h-full">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ delay: 0.4, duration: 0.4 }}
+              className="border-4 border-black bg-black p-4 sm:p-5 shadow-[5px_5px_0px_0px_#39FF14] min-h-[180px] sm:min-h-[200px] h-full flex flex-col justify-between relative overflow-hidden"
+            >
               {/* CRT scanline effect */}
               <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(57, 255, 20, 0.05) 2px, rgba(57, 255, 20, 0.05) 4px)' }}></div>
               {/* Vignette */}
@@ -364,7 +442,7 @@ export default function HomePage() {
               <div className="relative z-10 flex-1 flex items-center justify-center">
                 <ISTClock />
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Let's Build - Full Width Bottom Bar */}
