@@ -24,6 +24,7 @@ export interface SocialLink {
 export interface WorkExperience {
   title: string;
   company: string;
+  place: string;
   date: string;
   description: string;
   points: string[];
