@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowDown, FolderOpen, Mail, Code2, Terminal, GitBranch, Zap, Calendar } from 'lucide-react';
+import { ArrowDown, FolderOpen, Envelope as Mail, Code as Code2, Terminal, GitBranch, Lightning as Zap, Calendar } from '@phosphor-icons/react';
 import LogoSpotlightCarousel from '@/components/LogoSpotlightCarousel';
 import ISTClock from '@/components/ISTClock';
 import { motion } from 'framer-motion';

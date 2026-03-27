@@ -1,6 +1,6 @@
 'use client';
 
-import { AlertTriangle, Link as LinkIcon, Mic } from 'lucide-react';
+import { Warning as AlertTriangle, Link as LinkIcon, Microphone as Mic } from '@phosphor-icons/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 

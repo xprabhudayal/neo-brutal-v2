@@ -2,14 +2,7 @@
 
 import { RESUME_DATA } from "@/components/constants";
 import NeoTooltip from "@/components/NeoTooltip";
-import {
-  Download,
-  Briefcase,
-  School,
-  Trophy,
-  Code2,
-  ArrowUpRight
-} from "lucide-react";
+import { Download, Briefcase, GraduationCap as School, Trophy, Code as Code2, ArrowUpRight } from '@phosphor-icons/react';
 import { motion } from '@/components/motion-client';
 
 export default function ResumePage() {

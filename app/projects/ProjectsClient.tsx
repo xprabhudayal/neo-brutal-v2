@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { RESUME_DATA } from '@/components/constants';
-import { ArrowUpRight, Terminal } from 'lucide-react';
+import { ArrowUpRight, Terminal } from '@phosphor-icons/react';
 import { motion } from '@/components/motion-client';
 
 export default function ProjectsClient() {

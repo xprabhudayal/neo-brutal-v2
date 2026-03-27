@@ -4,7 +4,7 @@ import React from 'react';
 import { RESUME_DATA } from "@/components/constants";
 import Footer from "@/components/Footer";
 import NeoTooltip from "@/components/NeoTooltip";
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from '@phosphor-icons/react';
 
 export default function LinksClient() {
     const { contact: { links, email, portfolio } } = RESUME_DATA;

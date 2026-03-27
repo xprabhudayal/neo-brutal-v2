@@ -1,5 +1,5 @@
 import { ResumeData } from '../types';
-import { Github, Linkedin, Code2, Instagram, Mail, Twitter, Calendar } from 'lucide-react';
+import { GithubLogo as Github, LinkedinLogo as Linkedin, Code as Code2, InstagramLogo as Instagram, Envelope as Mail, TwitterLogo as Twitter, Calendar } from '@phosphor-icons/react';
 
 export const RESUME_DATA: ResumeData = {
   name: "Prabhudayal Vaishnav",

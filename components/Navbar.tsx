@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Menu, X, House, Briefcase, FileText, Link as LinkIcon } from 'lucide-react';
+import { List as Menu, X, House, Briefcase, FileText, Link as LinkIcon } from '@phosphor-icons/react';
 import ThemeToggle from './ThemeToggle';
 
 // Separate component to handle individual blink state

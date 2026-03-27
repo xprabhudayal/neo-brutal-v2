@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from '@phosphor-icons/react';
 import { Marquee } from "@/components/ui/Marquee";
 import { RESUME_DATA } from "@/components/constants";
 

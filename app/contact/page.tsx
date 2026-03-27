@@ -1,7 +1,7 @@
 "use client";
 
 import { RESUME_DATA } from "@/components/constants";
-import { Mail, Clock, MapPin, ArrowUpRight, Github, Linkedin, Twitter, Rocket, Globe } from "lucide-react";
+import { Envelope as Mail, Clock, MapPin, ArrowUpRight, GithubLogo as Github, LinkedinLogo as Linkedin, TwitterLogo as Twitter, RocketLaunch as Rocket, Globe } from '@phosphor-icons/react';
 import { motion } from "@/components/motion-client";
 
 export default function ContactPage() {

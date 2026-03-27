@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Mic } from 'lucide-react';
+import { List as Menu, X, Microphone as Mic } from '@phosphor-icons/react';
 
 interface NeoNavbarProps {
     onOpenAI: () => void;

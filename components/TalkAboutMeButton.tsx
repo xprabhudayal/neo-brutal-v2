@@ -1,6 +1,6 @@
 'use client';
 
-import { Phone } from 'lucide-react';
+import { Phone } from '@phosphor-icons/react';
 import { TalkButtonProps } from '../types';
 
 export default function TalkAboutMeButton({ onClick }: TalkButtonProps) {

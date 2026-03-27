@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 // SYSTEM_INSTRUCTION import removed as it is now hardcoded in geminiService
-import { X as XIcon, Mic as MicIcon, Volume2 as Volume2Icon } from 'lucide-react';
+import { X as XIcon, Microphone as MicIcon, SpeakerHigh as Volume2Icon } from '@phosphor-icons/react';
 import { AsyncQueue } from '../utils/AsyncQueue';
 import { LiveWaveform } from './ui/live-waveform';
 
