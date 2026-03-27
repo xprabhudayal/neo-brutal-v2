@@ -1,5 +1,5 @@
 import { ResumeData } from '../types';
-import { GithubLogo as Github, LinkedinLogo as Linkedin, Code as Code2, InstagramLogo as Instagram, Envelope as Mail, TwitterLogo as Twitter, Calendar } from '@phosphor-icons/react';
+import { GithubLogo as Github, LinkedinLogo as Linkedin, Code as Code2, InstagramLogo as Instagram, Envelope as Mail, TwitterLogo as Twitter, Calendar } from '@phosphor-icons/react/ssr';
 
 export const RESUME_DATA: ResumeData = {
   name: "Prabhudayal Vaishnav",
@@ -20,7 +20,8 @@ export const RESUME_DATA: ResumeData = {
   workExperience: [
     {
       title: "Research Internship",
-      company: "ESIEA Paris, France (Remote)",
+      company: "ESIEA",
+      place: "Paris, France (Remote)",
       date: "January 2025 - June 2025",
       description: "Facial Emotion Recognition Using Advanced YOLO Architectures.",
       points: [
