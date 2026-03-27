@@ -76,14 +76,14 @@ export default function HomePage() {
                 >
                   <motion.span whileHover={{ scale: 1.05 }} className="flex items-center gap-2">
                     View Selected Works
-                    <ArrowDown className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-y-1 transition-transform" />
+                    <ArrowDown weight="bold" className="w-5 h-5 sm:w-6 sm:h-6" />
                   </motion.span>
                 </Link>
                 <a
                   href={RESUME_DATA.contact.links.find(l => l.name === 'Cal.com')?.url || '#'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-3 sm:px-8 sm:py-4 bg-white text-neo-text font-bold text-sm sm:text-lg uppercase tracking-wider hover:bg-neo-text hover:text-primary btn-neo transition-all flex items-center justify-center gap-2 w-full"
+                  className="px-5 py-3 sm:px-8 sm:py-4 bg-white text-neo-text font-bold text-sm sm:text-lg uppercase tracking-wider btn-neo transition-all flex items-center justify-center gap-2 w-full"
                 >
                   Book Strategy Call
                   <ArrowUpRight weight="bold" className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -273,7 +273,7 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-4 md:px-6 py-12 lg:py-20">
         <div className="flex items-center gap-4 mb-10">
           <div className="h-10 w-10 bg-neo-text flex items-center justify-center text-primary shadow-neo-sm">
-            <ArrowDown className="w-6 h-6" />
+            <ArrowDown weight="bold" className="w-6 h-6" />
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight">Explore More</h2>
           <div className="h-1 flex-1 bg-neo-text"></div>
@@ -295,30 +295,21 @@ export default function HomePage() {
               transition={{ duration: 0.4 }}
               className="border-4 border-neo-border bg-neo-text text-white p-5 sm:p-8 shadow-[5px_5px_0px_0px_#39FF14] h-full min-h-[180px] sm:min-h-[300px] md:min-h-[420px] flex flex-col justify-between transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none relative overflow-hidden"
             >
-              {/* Scanline effect */}
-              <div className="absolute inset-0 pointer-events-none opacity-20" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(57, 255, 20, 0.03) 2px, rgba(57, 255, 20, 0.03) 4px)' }}></div>
-
-              {/* Animated Corner Decorations */}
-              <div className="absolute top-4 left-4 w-5 h-5 border-l-2 border-t-2 border-primary"></div>
-              <div className="absolute top-4 right-4 w-5 h-5 border-r-2 border-t-2 border-primary"></div>
-              <div className="absolute bottom-4 left-4 w-5 h-5 border-l-2 border-b-2 border-primary"></div>
-              <div className="absolute bottom-4 right-4 w-5 h-5 border-r-2 border-b-2 border-primary"></div>
-
+              
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-3 sm:mb-6">
                   <span className="bg-primary text-neo-text px-2 py-1 font-mono text-sm font-bold">01</span>
-                  <Code2 className="w-10 h-10 text-gray-600 group-hover:text-primary group-hover:rotate-12 transition-all duration-300" />
                 </div>
                 <h3 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter mb-2 sm:mb-4 leading-[0.9] text-primary">
-                  About<span className="text-white">.</span>
+                  About<span className="text-white"></span>
                 </h3>
                 <p className="font-mono text-xs sm:text-base text-gray-400 leading-relaxed max-w-[200px] hidden sm:block">
-                  The story, the stack, the mission behind the code.
+                  A short description about my taste.
                 </p>
               </div>
 
               <div className="relative z-10 hidden sm:flex items-center justify-between pt-6 border-t border-gray-700">
-                <span className="font-mono text-sm font-bold uppercase tracking-wider text-gray-400 group-hover:text-primary transition-colors">Read More</span>
+                <span className="font-mono text-sm font-bold tracking-wider text-gray-400 group-hover:text-primary transition-colors">Read More</span>
                 <span className="w-10 h-10 border-2 border-primary flex items-center justify-center bg-primary text-neo-text group-hover:bg-transparent group-hover:text-primary transition-colors">
                   <ArrowRight weight="bold" className="w-6 h-6" />
                 </span>
