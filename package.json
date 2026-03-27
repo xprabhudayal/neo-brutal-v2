@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@elevenlabs/elevenlabs-js": "^2.29.0",
+    "@types/jest": "^30.0.0",
     "@types/node": "^25.0.8",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.3",

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowUpRight } from '@phosphor-icons/react';
+import { ArrowUpRight, Heart } from '@phosphor-icons/react';
 import { Marquee } from "@/components/ui/Marquee";
 import { RESUME_DATA } from "@/components/constants";
 
@@ -49,7 +49,7 @@ export default function Footer() {
 
                 <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-muted dark:border-black/20 flex flex-col md:flex-row justify-between items-center text-sm font-mono text-muted-foreground dark:text-black/60">
                     <p>© 2025 PDV. ALL RIGHTS RESERVED.</p>
-                    <p>DESIGNED WITH <span className="text-primary dark:text-black">♥</span> AND NO ROUNDED CORNERS.</p>
+                    <p className="flex items-center justify-center gap-2">DESIGNED WITH <Heart weight="fill" className="text-primary dark:text-black w-5 h-5" /> AND NO ROUNDED CORNERS.</p>
                 </div>
             </div>
 

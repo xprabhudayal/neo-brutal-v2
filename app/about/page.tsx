@@ -1,7 +1,7 @@
 'use client';
 
 import { RESUME_DATA } from "@/components/constants";
-import { User, Envelope as Mail, Stack as Layers, GameController as Gamepad2, Globe, ArrowUpRight, GithubLogo as Github, LinkedinLogo as Linkedin, TwitterLogo as Twitter, RocketLaunch as Rocket } from '@phosphor-icons/react';
+import { User, Envelope as Mail, Stack as Layers, GameController as Gamepad2, Globe, ArrowUpRight, GithubLogo as Github, LinkedinLogo as Linkedin, TwitterLogo as Twitter, RocketLaunch as Rocket, Handshake } from '@phosphor-icons/react';
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from 'framer-motion';
@@ -112,7 +112,7 @@ export default function AboutPage() {
                                 Status: Online
                             </motion.div>
                             <motion.h1 variants={itemVariants} className="text-3xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-6">
-                                Hello 🤝 <span className="bg-black terminal-invert">World</span>
+                                Hello <Handshake weight="fill" className="inline-block w-10 h-10 md:w-14 md:h-14 mx-1 md:mx-2 align-text-bottom" /> <span className="bg-black terminal-invert">World</span>
                             </motion.h1>
                             <div className="prose prose-lg max-w-3xl">
                                 <motion.p variants={itemVariants} className="font-mono text-sm md:text-xl leading-relaxed mb-6 border-l-4 border-black pl-4 md:pl-6 bg-secondary p-3 md:p-4">

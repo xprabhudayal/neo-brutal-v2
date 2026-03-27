@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowDown, FolderOpen, Envelope as Mail, Code as Code2, Terminal, GitBranch, Lightning as Zap, Calendar } from '@phosphor-icons/react';
+import { ArrowDown, FolderOpen, Envelope as Mail, Code as Code2, Terminal, GitBranch, Lightning as Zap, Calendar, ArrowUpRight, ArrowRight } from '@phosphor-icons/react';
 import LogoSpotlightCarousel from '@/components/LogoSpotlightCarousel';
 import ISTClock from '@/components/ISTClock';
 import { motion } from 'framer-motion';
@@ -86,7 +86,7 @@ export default function HomePage() {
                   className="px-5 py-3 sm:px-8 sm:py-4 bg-white text-neo-text font-bold text-sm sm:text-lg uppercase tracking-wider hover:bg-neo-text hover:text-primary btn-neo transition-all flex items-center justify-center gap-2 w-full"
                 >
                   Book Strategy Call
-                  <span className="text-lg sm:text-xl">↗</span>
+                  <ArrowUpRight weight="bold" className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
               </div>
             </motion.div>
@@ -320,7 +320,7 @@ export default function HomePage() {
               <div className="relative z-10 hidden sm:flex items-center justify-between pt-6 border-t border-gray-700">
                 <span className="font-mono text-sm font-bold uppercase tracking-wider text-gray-400 group-hover:text-primary transition-colors">Read More</span>
                 <span className="w-10 h-10 border-2 border-primary flex items-center justify-center bg-primary text-neo-text group-hover:bg-transparent group-hover:text-primary transition-colors">
-                  <span className="text-xl font-bold">→</span>
+                  <ArrowRight weight="bold" className="w-6 h-6" />
                 </span>
               </div>
             </motion.div>
@@ -352,7 +352,7 @@ export default function HomePage() {
               </div>
               <div className="relative z-10 flex items-center justify-between pt-2 sm:pt-4">
                 <span className="font-mono text-sm text-neo-text/70">{featuredProjects.length}+ projects</span>
-                <span className="font-black text-xl">↗</span>
+                <ArrowUpRight weight="bold" className="w-6 h-6" />
               </div>
             </motion.div>
           </Link>
@@ -386,7 +386,7 @@ export default function HomePage() {
               </div>
               <div className="relative z-10 font-mono text-xs text-gray-600 flex items-center gap-2">
                 <span>15 min</span>
-                <span className="text-primary font-bold">FREE ↗</span>
+                <span className="text-primary font-bold flex items-center gap-1">FREE <ArrowUpRight weight="bold" className="w-5 h-5" /></span>
               </div>
             </motion.div>
           </a>
@@ -454,7 +454,7 @@ export default function HomePage() {
           >
             <div className="border-4 border-neo-border bg-white px-4 sm:px-8 py-4 sm:py-6 shadow-neo flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none group-hover:bg-primary">
               <div className="flex items-center gap-3 sm:gap-6">
-                <span className="text-4xl sm:text-6xl font-black">→</span>
+                <ArrowRight weight="bold" className="w-10 h-10 sm:w-16 sm:h-16" />
                 <div>
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tighter">Let's Build Together</h3>
                   <p className="font-mono text-sm text-gray-500 group-hover:text-neo-text/70 transition-colors">Have a vision? Let's make it happen.</p>
@@ -463,7 +463,7 @@ export default function HomePage() {
               <div className="hidden md:flex items-center gap-4">
                 <Mail className="w-8 h-8 text-gray-400 group-hover:text-neo-text transition-colors" />
                 <div className="w-14 h-14 border-3 border-neo-border flex items-center justify-center bg-neo-text text-primary group-hover:bg-primary group-hover:text-neo-text transition-colors">
-                  <span className="text-2xl font-bold">↗</span>
+                  <ArrowUpRight weight="bold" className="w-8 h-8" />
                 </div>
               </div>
             </div>
