@@ -61,18 +61,18 @@ export default function ContactPage() {
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true, amount: 0.5 }}
                         transition={{ delay: 0.2 }}
-                        className="col-span-12 md:col-span-5 lg:col-span-4 neo-brutal-box border-neo-border bg-primary p-6 md:p-10 shadow-neo flex flex-col relative group hover:shadow-neo-hover-lg hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-300"
+                        className="col-span-12 md:col-span-5 lg:col-span-4 neo-brutal-box border-neo-border bg-primary p-6 md:p-10 shadow-neo flex flex-col relative group transition-all duration-300"
                     >
                         <div className="flex items-center justify-between mb-8">
                             <h2 className="text-2xl font-black uppercase tracking-tight">Direct<br />Contact</h2>
-                            <div className="w-10 h-10 md:w-12 md:h-12 bg-[var(--neo-text)] text-white flex items-center justify-center border-3 border-transparent group-hover:bg-white group-hover:text-[var(--neo-text)] group-hover:border-[var(--neo-border)] transition-all">
+                            <div className="w-10 h-10 md:w-12 md:h-12 bg-[var(--neo-text)] text-white flex items-center justify-center border-3 border-transparent transition-all">
                                 <Mail weight="bold" className="w-5 h-5 md:w-6 md:h-6" />
                             </div>
                         </div>
                         <div className="mt-auto space-y-6">
                             <div>
                                 <p className="font-mono text-xs font-bold uppercase mb-2 opacity-80">Primary Email</p>
-                                <span className="text-lg sm:text-xl md:text-2xl font-bold break-all group-hover:bg-[var(--neo-text)] group-hover:text-white px-1 -mx-1 transition-colors decoration-4 underline-offset-4 underline">
+                                <span className="text-lg sm:text-xl md:text-2xl font-bold break-all -mx-1 transition-colors decoration-4 underline-offset-4 underline">
                                     {contact.email}
                                 </span>
                             </div>

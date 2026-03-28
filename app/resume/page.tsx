@@ -61,16 +61,15 @@ export default function ResumePage() {
                   {contact.links.map((link) => {
                     const Icon = link.icon || ArrowUpRight;
                     return (
-                      <NeoTooltip key={link.name} content={link.name}>
                         <a
+                          key={link.name}
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-10 h-10 flex items-center justify-center bg-white hover:bg-primary hover:text-black btn-neo transition-all"
                         >
-                          <Icon className="w-5 h-5" />
+                          <Icon weight="bold" className="w-5 h-5" />
                         </a>
-                      </NeoTooltip>
                     );
                   })}
                 </div>

@@ -4,7 +4,7 @@ import { GithubLogo as Github, LinkedinLogo as Linkedin, Code as Code2, Instagra
 export const RESUME_DATA: ResumeData = {
   name: "Prabhudayal Vaishnav",
   contact: {
-    email: "p09m21@gmail.com",
+    email: "hi@xpdv.tech",
     portfolio: "https://github.com/xprabhudayal/next-portfolio-app/",
     links: [
       { name: "GitHub", url: "https://github.com/xprabhudayal", icon: Github },
@@ -12,7 +12,7 @@ export const RESUME_DATA: ResumeData = {
       { name: "Twitter", url: "https://x.com/globalxprada", icon: Twitter },
       { name: "LeetCode", url: "https://leetcode.com/u/global-prada", icon: Code2 },
       { name: "Instagram", url: "https://www.instagram.com/ai.pdv/", icon: Instagram },
-      { name: "Email", url: "mailto:p09m21@gmail.com", icon: Mail },
+      { name: "Email", url: "mailto:hi@xpdv.tech", icon: Mail },
       { name: "Cal.com", url: "https://cal.com/ai.pdv", icon: Calendar },
     ],
   },

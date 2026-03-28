@@ -63,12 +63,14 @@ A modern, AI-integrated portfolio website built with Next.js 15, TypeScript, and
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/xprabhudayal/next-portfolio-app.git
 cd next-portfolio-app
 ```
 
 2. Install dependencies:
+
 ```bash
 bun install
 # or
@@ -76,12 +78,14 @@ npm install
 ```
 
 3. Set up environment variables:
+
 ```bash
 cp .env.example .env
 # Edit .env and add your Google Gemini API key
 ```
 
 4. Run the development server:
+
 ```bash
 bun dev
 # or
@@ -111,6 +115,7 @@ npm start
 ## Design Philosophy
 
 This portfolio follows Apple's Human Interface Guidelines with:
+
 - **SF Pro Display** typography
 - **Dark mode first** approach
 - **Glassmorphism** and liquid glass effects
@@ -128,6 +133,7 @@ This portfolio follows Apple's Human Interface Guidelines with:
 ## AI Voice Feature
 
 The "Talk about Me" button (fixed bottom-right) opens a real-time voice chat powered by Google Gemini. The AI can:
+
 - Answer questions about my experience, projects, and skills
 - Provide detailed project information
 - Support multilingual conversations
@@ -155,7 +161,7 @@ MIT
 
 - **GitHub**: [xprabhudayal](https://github.com/xprabhudayal)
 - **LinkedIn**: [xprabhudayal](https://www.linkedin.com/in/xprabhudayal)
-- **Email**: p09m21@gmail.com
+- **Email**: hi@xpdv.tech
 
 ---
 
