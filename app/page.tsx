@@ -32,7 +32,7 @@ export default function HomePage() {
               {/* Mobile: "Available for Hire" Badge & Absolute Profile Image */}
               <div className="relative mb-12 sm:mb-8">
                 <div className="inline-block px-2 py-1 sm:px-3 sm:py-1 bg-neo-text text-primary border-2 border-neo-border font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-[2px_2px_0px_0px_rgba(39,255,20,1)]">
-                  Available for Hire
+                  Open For Deployment
                 </div>
 
                 {/* Profile Image - Absolute positioned top-right on mobile, responsive width */}
@@ -54,19 +54,19 @@ export default function HomePage() {
                 transition={{ delay: 0.3, duration: 0.5 }}
                 className="text-2xl sm:text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[0.85] mb-4 sm:mb-6 relative z-10"
               >
-                Engineer<br />
+                System<br />
                 <span className="terminal-invert sm:terminal-invert-lg font-black inline-block">
-                  Intelligence
+                  Architecture
                 </span><br />
-                Ship Fast
+                And Logic
               </motion.h1>
 
               <p className="text-sm sm:text-lg md:text-xl max-w-2xl text-gray-500 font-mono leading-relaxed border-l-4 border-primary pl-3 sm:pl-6 mb-3 sm:mb-4">
-                I am a Research-backed AI Engineer bridging research and production. I build latency-optimized Voice Agents and Computer Vision systems. No fluff, just shipping code.
+                I am an AI Engineer focused on latency-optimized Voice Agents and Computer Vision systems. This involves translating research data directly into production-level codebases.
               </p>
 
               <p className="text-[10px] sm:text-xs font-mono text-gray-500 mb-6 sm:mb-8">
-                🏆 2x Hackathon Winner & ESIEA Paris Researcher
+                2x Hackathon Winner and ESIEA Paris Researcher
               </p>
 
               <div className="flex flex-col gap-3 relative z-10">
@@ -85,7 +85,7 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="px-5 py-3 sm:px-8 sm:py-4 bg-white text-neo-text font-bold text-sm sm:text-lg uppercase tracking-wider btn-neo transition-all flex items-center justify-center gap-2 w-full"
                 >
-                  Book Strategy Call
+                  Schedule Consultation
                   <ArrowUpRight weight="bold" className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
               </div>
@@ -150,7 +150,7 @@ export default function HomePage() {
       <section className="py-0 bg-primary border-y-[3px] border-neo-border relative overflow-hidden">
         {/* Technologies Header */}
         <div className="text-center py-2 border-b-[3px] border-neo-border">
-          <h3 className="text-sm font-bold tracking-widest uppercase inline-block">The Arsenal</h3>
+          <h3 className="text-sm font-bold tracking-widest uppercase inline-block">Core Technologies</h3>
         </div>
         <div className="w-full overflow-hidden py-6">
           <div className="flex w-max animate-marquee">
@@ -193,7 +193,7 @@ export default function HomePage() {
           <div className="text-center mb-4">
             <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-4">Validated At</h2>
             <p className="font-mono text-gray-600 max-w-2xl mx-auto">
-              "I don't just write code in a void. My systems have been stress-tested at top research labs and national hackathons."
+              These systems have been tested (and utilized) within research laboratories and national hackathons.
             </p>
           </div>
 
@@ -208,7 +208,7 @@ export default function HomePage() {
           <div className="h-8 w-8 bg-neo-text flex items-center justify-center text-primary">
             <Zap className="w-5 h-5" />
           </div>
-          <h2 className="text-3xl font-black uppercase tracking-tight">Battle Tested</h2>
+          <h2 className="text-3xl font-black uppercase tracking-tight">System Testing</h2>
           <div className="h-1 flex-1 bg-neo-text"></div>
         </div>
 
@@ -304,7 +304,7 @@ export default function HomePage() {
                   About<span className="text-white"></span>
                 </h3>
                 <p className="font-mono text-xs sm:text-base text-gray-400 leading-relaxed max-w-[200px] hidden sm:block">
-                  A short description about my taste.
+                  Information regarding my work background.
                 </p>
               </div>
 
@@ -372,7 +372,7 @@ export default function HomePage() {
                   <Calendar className="w-8 h-8 text-gray-400 group-hover:text-neo-text group-hover:rotate-6 transition-all duration-300" />
                 </div>
                 <h3 className="text-xl sm:text-3xl font-black uppercase tracking-tighter leading-[0.95]">
-                  Book a<br />Strategy Call
+                  Schedule<br />Consultation
                 </h3>
               </div>
               <div className="relative z-10 font-mono text-xs text-gray-600 flex items-center gap-2">
@@ -447,8 +447,8 @@ export default function HomePage() {
               <div className="flex items-center gap-3 sm:gap-6">
                 <ArrowRight weight="bold" className="w-10 h-10 sm:w-16 sm:h-16" />
                 <div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tighter">Let's Build Together</h3>
-                  <p className="font-mono text-sm text-gray-500 group-hover:text-neo-text/70 transition-colors">Have a vision? Let's make it happen.</p>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tighter">Initiate Contact</h3>
+                  <p className="font-mono text-sm text-gray-500 group-hover:text-neo-text/70 transition-colors">Available for discussion regarding architecture and integration.</p>
                 </div>
               </div>
               <div className="hidden md:flex items-center gap-4">

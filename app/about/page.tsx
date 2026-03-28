@@ -112,18 +112,18 @@ export default function AboutPage() {
                                 Status: Online
                             </motion.div>
                             <motion.h1 variants={itemVariants} className="text-3xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-6">
-                                Hello <Handshake weight="fill" className="inline-block w-10 h-10 md:w-14 md:h-14 mx-1 md:mx-2 align-text-bottom" /> <span className="bg-black terminal-invert">World</span>
+                                Hello <span className="bg-black terminal-invert">World</span>
                             </motion.h1>
                             <div className="prose prose-lg max-w-3xl">
                                 <motion.p variants={itemVariants} className="font-mono text-sm md:text-xl leading-relaxed mb-6 border-l-4 border-black pl-4 md:pl-6 bg-secondary p-3 md:p-4">
-                                    I am {name}, a multidisciplinary engineer obsessed with AI agents, Agentic Systems, and raw performance.
+                                    I am an engineer focused on the orchestration of AI agents and Agentic Systems. This covers the full path from core system logic to raw performance optimization.
                                 </motion.p>
                                 <motion.p variants={itemVariants} className="font-display font-medium text-lg text-gray-800 mb-4 whitespace-pre-wrap">
                                     {summary}
                                 </motion.p>
                                 <motion.hr variants={itemVariants} className="my-6" />
                                 <motion.p variants={itemVariants} className="font-display text-gray-600 mb-0">
-                                    I don't just write software; I build digital environments that respect the user's intelligence and solve complex problems with elegant, robust code.
+                                    My codebase structures are designed to solve complex system problems predictably.
                                 </motion.p>
                             </div>
                         </div>
@@ -154,7 +154,7 @@ export default function AboutPage() {
                                 >
                                     <h4 className="font-mono font-bold text-black bg-primary inline-block px-2 border-2 border-black mb-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">01.</h4>
                                     <h3 className="text-xl font-bold uppercase mb-4 mt-2">AI Agents</h3>
-                                    <p className="text-sm font-medium text-gray-600 mb-4">Building autonomous systems that think and act.</p>
+                                    <p className="text-sm font-medium text-gray-600 mb-4">Building autonomous systems configured for specific outputs.</p>
                                     <ul className="text-sm font-mono list-disc list-inside space-y-1 marker:text-primary">
                                         <li>LangChain / LangGraph</li>
                                         <li>RAG Pipelines</li>
@@ -168,7 +168,7 @@ export default function AboutPage() {
                                 >
                                     <h4 className="font-mono font-bold text-black bg-primary inline-block px-2 border-2 border-black mb-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">02.</h4>
                                     <h3 className="text-xl font-bold uppercase mb-4 mt-2">Full Stack</h3>
-                                    <p className="text-sm font-medium text-gray-600 mb-4">End-to-end application development with modern stacks.</p>
+                                    <p className="text-sm font-medium text-gray-600 mb-4">End-to-end application development workflows.</p>
                                     <ul className="text-sm font-mono list-disc list-inside space-y-1 marker:text-primary">
                                         <li>Next.js / React</li>
                                         <li>Python / FastAPI</li>
@@ -182,7 +182,7 @@ export default function AboutPage() {
                                 >
                                     <h4 className="font-mono font-bold text-black bg-primary inline-block px-2 border-2 border-black mb-2 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">03.</h4>
                                     <h3 className="text-xl font-bold uppercase mb-4 mt-2">Architecture</h3>
-                                    <p className="text-sm font-medium text-gray-600 mb-4">Designing systems that scale and survive.</p>
+                                    <p className="text-sm font-medium text-gray-600 mb-4">Designing systems and organizing infrastructure.</p>
                                     <ul className="text-sm font-mono list-disc list-inside space-y-1 marker:text-primary">
                                         <li>Microservices</li>
                                         <li>Event-Driven Design</li>
@@ -255,8 +255,8 @@ export default function AboutPage() {
                         variants={containerVariants}
                         className="mt-8 bg-secondary border-3 border-neo-border p-10 text-center shadow-neo"
                     >
-                        <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-black uppercase mb-4 tracking-tighter">Ready to build something robust?</motion.h2>
-                        <motion.p variants={itemVariants} className="font-mono font-bold mb-8 max-w-xl mx-auto">I am currently open to new opportunities. Let's discuss architecture, agents, or the singularity.</motion.p>
+                        <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-black uppercase mb-4 tracking-tighter">Availability</motion.h2>
+                        <motion.p variants={itemVariants} className="font-mono font-bold mb-8 max-w-xl mx-auto">I am currently open to maintaining or building new systems, including architecture and agentic deployments.</motion.p>
                         <motion.div variants={itemVariants}>
                             <Link
                                 href="/contact"
