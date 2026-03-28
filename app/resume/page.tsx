@@ -61,16 +61,15 @@ export default function ResumePage() {
                   {contact.links.map((link) => {
                     const Icon = link.icon || ArrowUpRight;
                     return (
-                      <NeoTooltip key={link.name} content={link.name}>
                         <a
+                          key={link.name}
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-10 h-10 flex items-center justify-center bg-white hover:bg-primary hover:text-black btn-neo transition-all"
                         >
-                          <Icon className="w-5 h-5" />
+                          <Icon weight="bold" className="w-5 h-5" />
                         </a>
-                      </NeoTooltip>
                     );
                   })}
                 </div>
@@ -81,19 +80,19 @@ export default function ResumePage() {
                   <h3 className="font-mono text-xs uppercase tracking-widest">Resume.exe</h3>
                 </div>
                 <a className="px-4 py-3 border-b-2 border-gray-100 hover:bg-primary font-mono text-sm font-bold flex items-center gap-2 transition-colors" href="#skills">
-                  <Code2 className="w-5 h-5" />
+                  <Code2 weight="bold" className="w-5 h-5" />
                   <span>_SKILLS</span>
                 </a>
                 <a className="px-4 py-3 border-b-2 border-gray-100 hover:bg-primary font-mono text-sm font-bold flex items-center gap-2 transition-colors" href="#experience">
-                  <Briefcase className="w-5 h-5" />
+                  <Briefcase weight="bold" className="w-5 h-5" />
                   <span>_EXPERIENCE</span>
                 </a>
                 <a className="px-4 py-3 border-b-2 border-gray-100 hover:bg-primary font-mono text-sm font-bold flex items-center gap-2 transition-colors" href="#education">
-                  <School className="w-5 h-5" />
+                  <School weight="bold" className="w-5 h-5" />
                   <span>_EDUCATION</span>
                 </a>
                 <a className="px-4 py-3 hover:bg-primary font-mono text-sm font-bold flex items-center gap-2 transition-colors" href="#awards">
-                  <Trophy className="w-5 h-5" />
+                  <Trophy weight="bold" className="w-5 h-5" />
                   <span>_AWARDS</span>
                 </a>
               </motion.nav>
@@ -130,7 +129,7 @@ export default function ResumePage() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 px-6 py-3 bg-primary font-bold uppercase tracking-wider btn-neo transition-all"
                   >
-                    <Download className="w-5 h-5" />
+                    <Download weight="bold" className="w-5 h-5" />
                     Download PDF Resume
                   </a>
                 </motion.div>
@@ -148,7 +147,7 @@ export default function ResumePage() {
             >
               <motion.div variants={itemVariants} className="flex items-center gap-4">
                 <div className="h-8 w-8 bg-[var(--neo-text)] flex items-center justify-center text-white">
-                  <Code2 className="w-4 h-4" />
+                  <Code2 weight="bold" className="w-4 h-4" />
                 </div>
                 <h2 className="text-3xl font-black uppercase tracking-tight">Technical Stack</h2>
                 <div className="h-1 flex-1 bg-[var(--neo-border)]"></div>
@@ -198,7 +197,7 @@ export default function ResumePage() {
             >
               <motion.div variants={itemVariants} className="flex items-center gap-4">
                 <div className="h-8 w-8 bg-black flex items-center justify-center text-white">
-                  <Briefcase className="w-4 h-4" />
+                  <Briefcase weight="bold" className="w-4 h-4" />
                 </div>
                 <h2 className="text-3xl font-black uppercase tracking-tight">Professional Experience</h2>
                 <div className="h-1 flex-1 bg-[var(--neo-border)]"></div>
@@ -253,7 +252,7 @@ export default function ResumePage() {
             >
               <motion.div variants={itemVariants} className="flex items-center gap-4">
                 <div className="h-8 w-8 bg-black flex items-center justify-center text-white">
-                  <School className="w-4 h-4" />
+                  <School weight="bold" className="w-4 h-4" />
                 </div>
                 <h2 className="text-3xl font-black uppercase tracking-tight">Education</h2>
                 <div className="h-1 flex-1 bg-[var(--neo-border)]"></div>
@@ -267,7 +266,7 @@ export default function ResumePage() {
                     </div>
                     <div className="p-8 flex-1 flex flex-col justify-center relative">
                       <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <School className="w-32 h-32" />
+                        <School weight="bold" className="w-32 h-32" />
                       </div>
                       <h3 className="text-2xl font-black uppercase leading-tight mb-2 relative z-10">{edu.degree}</h3>
                       <p className="font-mono text-gray-600 text-lg relative z-10">{edu.institution}</p>
@@ -289,7 +288,7 @@ export default function ResumePage() {
             >
               <motion.div variants={itemVariants} className="flex items-center gap-4">
                 <div className="h-8 w-8 bg-black flex items-center justify-center text-white">
-                  <Trophy className="w-4 h-4" />
+                  <Trophy weight="bold" className="w-4 h-4" />
                 </div>
                 <h2 className="text-3xl font-black uppercase tracking-tight">Recognition</h2>
                 <div className="h-1 flex-1 bg-[var(--neo-border)]"></div>
@@ -302,7 +301,7 @@ export default function ResumePage() {
                     </div>
                     <div className="p-6 flex-1 flex flex-col justify-center bg-white relative overflow-hidden">
                       <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <Trophy className="w-24 h-24" />
+                        <Trophy weight="bold" className="w-24 h-24" />
                       </div>
                       <div className="flex justify-between items-start mb-2 relative z-10">
                         <h3 className="text-2xl font-black uppercase">{award.title}</h3>

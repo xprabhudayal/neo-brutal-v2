@@ -18,7 +18,7 @@ export interface ResumeData {
 export interface SocialLink {
   name: string;
   url: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<{ className?: string; weight?: "thin" | "light" | "regular" | "bold" | "fill" | "duotone"; size?: number | string }>;
 }
 
 export interface WorkExperience {

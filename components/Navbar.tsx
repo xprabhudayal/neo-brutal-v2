@@ -27,7 +27,7 @@ function NavButton({ item, isActive }: { item: any, isActive: boolean }) {
           ${isBlinking ? 'animate-blink' : ''}
         `}
       >
-        <item.icon size={18} />
+        <item.icon size={18} weight="bold" />
         <span>{item.name}</span>
       </div>
     </Link>
@@ -55,7 +55,7 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close Menu" : "Open Menu"}
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <X weight="bold" size={24} /> : <Menu weight="bold" size={24} />}
         </button>
 
         {/* Desktop Items - Center */}
@@ -86,7 +86,7 @@ export default function Navbar() {
                     }
                     `}
                 >
-                  <item.icon size={28} />
+                  <item.icon size={28} weight="bold" />
                   {item.name}
                 </div>
               </Link>

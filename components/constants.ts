@@ -4,7 +4,7 @@ import { GithubLogo as Github, LinkedinLogo as Linkedin, Code as Code2, Instagra
 export const RESUME_DATA: ResumeData = {
   name: "Prabhudayal Vaishnav",
   contact: {
-    email: "p09m21@gmail.com",
+    email: "hi@xpdv.tech",
     portfolio: "https://github.com/xprabhudayal/next-portfolio-app/",
     links: [
       { name: "GitHub", url: "https://github.com/xprabhudayal", icon: Github },
@@ -12,21 +12,21 @@ export const RESUME_DATA: ResumeData = {
       { name: "Twitter", url: "https://x.com/globalxprada", icon: Twitter },
       { name: "LeetCode", url: "https://leetcode.com/u/global-prada", icon: Code2 },
       { name: "Instagram", url: "https://www.instagram.com/ai.pdv/", icon: Instagram },
-      { name: "Email", url: "mailto:p09m21@gmail.com", icon: Mail },
+      { name: "Email", url: "mailto:hi@xpdv.tech", icon: Mail },
       { name: "Cal.com", url: "https://cal.com/ai.pdv", icon: Calendar },
     ],
   },
-  summary: "A proactive and innovative AI Engineer and full-stack developer with a strong foundation in Computer Science and a specialization in Data Science. Passionate about building intelligent systems, contributing to open-source projects, and solving complex problems with cutting-edge technologies like LangGraph, PyTorch, and Next.js.",
+  summary: "This profile covers the information about my work as an AI Engineer and full-stack developer. My work involves building AI systems, maintaining open-source repository contributions, and implementing software architectures using tools like LangGraph, PyTorch, and Next.js.",
   workExperience: [
     {
       title: "Research Internship",
       company: "ESIEA",
       place: "Paris, France (Remote)",
       date: "January 2025 - June 2025",
-      description: "Facial Emotion Recognition Using Advanced YOLO Architectures.",
+      description: "This project role involved Facial Emotion Recognition Using Advanced YOLO Architectures.",
       points: [
-        "Achieved 93.4% mAP@0.5 using dual YOLO frameworks (YOLOv12 + YOLOv11) for 22-class facial emotion recognition on CFEE dataset.",
-        "Implemented automated annotation pipeline reducing manual effort by 90% and fine-tuned models via transfer learning from MS COCO pre-trained weights."
+        "This project achieved 93.4% mAP@0.5 using dual YOLO frameworks (YOLOv12 and YOLOv11) for 22-class facial emotion recognition on the CFEE dataset.",
+        "This includes an automated annotation pipeline that reduced manual effort by 90% and fine-tuned models through transfer learning from MS COCO pre-trained weights."
       ]
     }
   ],
@@ -42,10 +42,10 @@ export const RESUME_DATA: ResumeData = {
     {
       title: "Grand Plaza: Voice AI Hotel Concierge System",
       tech: ["FastAPI", "LangGraph", "Pipecat", "ChromaDB"],
-      description: "Built a full-stack voice AI concierge achieving 88% accuracy in menu query understanding.",
+      description: "This repository contains the architecture for a Voice AI Concierge System.",
       points: [
-        "Architected a multi-strategy RAG system achieving 88% query accuracy, outperforming naive RAG by 4.8% through semantic search and Chain-of-Thought.",
-        "Implemented LangGraph-based agent workflows with 5+ specialized nodes, reducing errors by 15%.",
+        "This implements a multi-strategy RAG system that achieves 88% query accuracy. This outperformed naive RAG by 4.8% through semantic search and Chain-of-Thought reasoning.",
+        "This uses LangGraph-based agent workflows with specialized nodes to reduce errors by 15%."
       ],
       url: "https://github.com/xprabhudayal/grand-plaza-monorepo",
       image: "/images/projects/grand-plaza.webp"
@@ -53,11 +53,11 @@ export const RESUME_DATA: ResumeData = {
     {
       title: "Career Scout: Voice AI-Powered Job Search Assistant",
       tech: ["Next.js", "React", "Supabase", "MCP Server"],
-      description: "Developed a full-stack Voice AI Career Coach for smart job search.",
+      description: "This is a full-stack Next.js application for a Voice AI Career Coach.",
       points: [
-        "Architected a custom MCP server with 3 tools: Intelligent Job Search, Company Analysis, and Web Search.",
-        "Integrated custom scoring logic to match user skills with confidence percentages.",
-        "Built a responsive, Supabase-authenticated frontend with React hooks, reducing voice interaction latency by 40%."
+        "This includes a custom MCP server containing 3 tools: Intelligent Job Search, Company Analysis, and Web Search.",
+        "This application integrates logical scoring to match user skills with confidence percentages.",
+        "The user interface is built as a responsive Supabase-authenticated frontend with React hooks, which reduces voice interaction latency by 40%."
       ],
       url: "https://github.com/xprabhudayal/career-scout",
       image: "/images/projects/career-scout.webp"
@@ -65,10 +65,10 @@ export const RESUME_DATA: ResumeData = {
     {
       title: "WhatsApp Agent: Voice AI Assistant",
       tech: ["Python", "WhatsApp API", "Voice AI", "LLMs"],
-      description: "WhatsApp-based voice agent for automated conversations and assistance.",
+      description: "This codebase holds a Python script for a WhatsApp-enabled voice assistant.",
       points: [
-        "Built voice-enabled WhatsApp bot for natural conversations.",
-        "Integrated with modern LLMs for intelligent responses."
+        "This system provides a voice-enabled WhatsApp bot that handles natural conversations.",
+        "This integrates modern LLMs to generate appropriate responses."
       ],
       url: "https://github.com/xprabhudayal/whatsapp-agent",
       image: "/images/projects/whatsapp-agent.webp"
@@ -76,10 +76,10 @@ export const RESUME_DATA: ResumeData = {
     {
       title: "Mira: AI-Powered Data Insights",
       tech: ["TypeScript", "AI", "Data Visualization", "Analytics"],
-      description: "Upload any CSV, get instant AI-powered insights with beautiful visualizations.",
+      description: "This application analyzes uploaded CSV files to output automated insights and visualizations.",
       points: [
-        "AI-powered analysis of CSV data with automated insights generation.",
-        "Beautiful, interactive visualizations for data exploration."
+        "The data is processed via an AI pipeline for automated insights generation.",
+        "This provides interactive visualizations based on the structured data."
       ],
       url: "https://github.com/xprabhudayal/mira",
       image: "/images/projects/mira.webp"
@@ -87,10 +87,10 @@ export const RESUME_DATA: ResumeData = {
     {
       title: "Idea Forge: AI Ideation Agent",
       tech: ["Python", "LLMs", "Hackathon", "Agent Framework"],
-      description: "An AI-powered agent for idea generation, suitable for hackathons and iterative ideation.",
+      description: "This repository contains an AI agent designed for idea generation during hackathons.",
       points: [
-        "Built for incremental, iterative approach to idea generation.",
-        "Designed for hackathon and brainstorming use cases."
+        "This tool follows an incremental, iterative approach to generating ideas.",
+        "The system is structured specifically for brainstorming use cases."
       ],
       url: "https://github.com/xprabhudayal/idea-forge",
       image: "/images/projects/idea-forge.webp"
@@ -98,11 +98,11 @@ export const RESUME_DATA: ResumeData = {
     {
       title: "The AI Scientist: Sakana AI Contributor",
       tech: ["Python", "LLMs", "Transformers", "Git"],
-      description: "Contributed to Sakana AI's Open Source project to automate scientific research.",
+      description: "These are my contributions to Sakana AI's Open Source project for automating scientific research.",
       points: [
-        "Added 8 open-source language models, achieving a 75% reduction in generation costs.",
-        "Adapted the project for T4 GPU support, reducing reliance on high-end GPUs.",
-        "Co-authored a paper: 'Exploring Style Transfer with Small Character-Level Transformers' using Qwen2.5(72B)."
+        "This contribution added 8 open-source language models, which resulted in a 75% reduction in generation costs.",
+        "This adapted the main project to run on T4 GPUs, reducing the need for high-end hardware.",
+        "This work also included co-authoring the paper 'Exploring Style Transfer with Small Character-Level Transformers' using the Qwen2.5(72B) model."
       ],
       url: "https://github.com/xprabhudayal/AI-Scientist",
       image: "/images/projects/sakana-ai.webp"
@@ -110,10 +110,10 @@ export const RESUME_DATA: ResumeData = {
     {
       title: "XS Python: Module & API Creation",
       tech: ["Python", "Ngrok", "PyPI"],
-      description: "Published a pip package to expose inference endpoints for open-source LLMs.",
+      description: "This is a published Python package used to expose inference endpoints for open-source LLMs.",
       points: [
-        "Released a Python package to create accessible endpoints for over 99% of Hugging Face-hosted LLMs.",
-        "Leveraged Ngrok to tunnel requests from localhost to the cloud securely."
+        "This pip package creates accessible endpoints for over 99% of Hugging Face-hosted large language models.",
+        "This leverages Ngrok tunnels to pass requests from localhost directly to the cloud securely."
       ],
       url: "https://github.com/xprabhudayal/xs",
       image: "/images/projects/xs-module.webp"
@@ -121,10 +121,10 @@ export const RESUME_DATA: ResumeData = {
     {
       title: "XGen-AI: RAG Telegram Bot",
       tech: ["Python", "Meta LLAMA 3.1", "RAG", "Telegram API"],
-      description: "A RAG-based Telegram Bot allowing users to chat with their documents privately.",
+      description: "This is a Python-based Telegram Bot allowing users to query their documents privately.",
       points: [
-        "Integrated Meta LLAMA 3.1 for document-based Q&A through Telegram.",
-        "Implemented document processing pipeline for PDFs.",
+        "This integrates Meta LLAMA 3.1 to provide document-based Q&A via Telegram.",
+        "This pipeline handles the processing of PDF documents."
       ],
       url: "https://github.com/xprabhudayal/xgen-ai",
       image: "/images/projects/xgen-ai.webp"
@@ -132,10 +132,10 @@ export const RESUME_DATA: ResumeData = {
     {
       title: "XAdmin: Remote Access Bot",
       tech: ["Python", "Telegram Bot API", "Windows CMD"],
-      description: "A Telegram Bot providing remote shell access to host PC.",
+      description: "This Telegram Bot provides remote shell access to a host computer.",
       points: [
-        "Built remote shell access via Telegram without SSH/RDP dependencies.",
-        "Implemented screenshot capture, file sharing, and IP extraction features."
+        "This script enables remote shell access through Telegram without requiring SSH or RDP.",
+        "The implementation includes screenshot capture, file sharing, and IP extraction commands."
       ],
       url: "https://github.com/xprabhudayal/xadmin",
       image: "/images/projects/xadmin.webp"
@@ -143,10 +143,10 @@ export const RESUME_DATA: ResumeData = {
     {
       title: "xFace: Emotion Detection Bot",
       tech: ["Python", "OpenCV", "Telegram API", "Deep Learning"],
-      description: "A Telegram bot detecting face emotions from images.",
+      description: "This is a computer vision Telegram bot for detecting facial emotions in static images.",
       points: [
-        "Implemented real-time face emotion detection using deep learning models.",
-        "Supported document-based and URL-based detection modes."
+        "This Python script implements real-time face emotion detection using deep learning models.",
+        "This bot supports both direct document uploads and URL-based image parsing."
       ],
       url: "https://github.com/xprabhudayal/xface",
       image: "/images/projects/xface.webp"
@@ -154,10 +154,10 @@ export const RESUME_DATA: ResumeData = {
     {
       title: "MetroCart: E-Commerce Website",
       tech: ["HTML", "CSS", "JavaScript"],
-      description: "An e-commerce website providing minimalistic user experience.",
+      description: "This repository holds the HTML, CSS, and JS for a minimalistic e-commerce website.",
       points: [
-        "Built with pure HTML, CSS, and minimal JavaScript for performance.",
-        "Designed acrylic navigation bar inspired by Apple's design language."
+        "This project is built using pure HTML, CSS, and minimal JavaScript to ensure fast loading times.",
+        "The UI includes an acrylic navigation bar styled similarly to Apple's website elements."
       ],
       url: "https://github.com/xprabhudayal/MetroCart",
       image: "/images/projects/metrocart.webp"
@@ -176,8 +176,8 @@ export const RESUME_DATA: ResumeData = {
       organization: "InFED at Nagpur",
       date: "Nov 2024",
       points: [
-        "Won 1st place by presenting a solution to the Startup's Problem: AI Product Comparison.",
-        "Implemented Deep-Research agent generating a 22-page report, reducing manual effort by 90%."
+        "This team won 1st place by presenting a solution addressing AI Product Comparison.",
+        "The solution used a Deep-Research agent to generate a 22-page report, which reduced manual effort by 90%."
       ]
     },
     {
@@ -185,22 +185,20 @@ export const RESUME_DATA: ResumeData = {
       organization: "IIIT Delhi (Esya'25)",
       date: "Aug 2025",
       points: [
-        "Built production-ready medical AI summarization system generating dual-perspective outputs.",
-        "Secured top-3 finish among 80+ teams without external APIs."
+        "This project involved building a medical AI summarization system that outputs dual perspectives.",
+        "This secured a top-3 position out of 80+ teams without relying on external APIs."
       ]
     }
   ],
 };
 
-export const SYSTEM_INSTRUCTION = `You are a friendly, professional, and conversational AI assistant representing Prabhudayal Vaishnav. Your purpose is to answer questions about him based on his resume. Be engaging and informative. Do not go off-topic. If asked about something not on the resume, politely state that you only have information from his professional portfolio.
+export const SYSTEM_INSTRUCTION = `You are a conversational AI assistant representing Prabhudayal Vaishnav. Your objective is to answer questions about his professional experience based on the provided resume data. Ensure you do not drift off-topic. All answers should be factual and direct.
 
 Here is Prabhudayal's resume data in JSON format:
-${JSON.stringify(RESUME_DATA, null, 2)}
+\${JSON.stringify(RESUME_DATA, null, 2)}
 
-Some guidelines:
-- When asked about projects, briefly describe the project and highlight one or two key achievements or technologies used.
-- When asked about skills, mention his key areas of expertise like AI/ML, full-stack development, and specific frameworks.
-- When asked about his experience, talk about his research internship and what he accomplished.
-- Keep your answers concise but comprehensive.
-- Your voice should be friendly and enthusiastic.
-- If the user asks a general knowledge question or something about a very recent event, you can use your search tool to find an answer, but always bring the conversation back to Prabhudayal if possible.`;
+Provide answers using this direct style:
+- When asked about projects, list the project and point out the tech stack and the core function it handles.
+- When asked about skills, simply state the frameworks and tools he possesses.
+- Keep your answers grounded and avoid marketing words like "innovative" or "cutting-edge". Do not use emojis. Provide straightforward summaries of his data.`;
+

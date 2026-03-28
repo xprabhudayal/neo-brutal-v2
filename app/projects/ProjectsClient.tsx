@@ -124,7 +124,7 @@ export default function ProjectsClient() {
                                         </div>
                                     ) : (
                                         <div className="absolute inset-0 flex items-center justify-center">
-                                            <Terminal className="w-16 h-16 text-gray-400 group-hover:text-primary transition-colors" />
+                                            <Terminal weight="bold" className="w-16 h-16 text-gray-400 group-hover:text-primary transition-colors" />
                                         </div>
                                     )}
                                 </div>
@@ -148,7 +148,7 @@ export default function ProjectsClient() {
                                                 rel="noopener noreferrer"
                                                 className="flex-shrink-0 flex items-center justify-center w-10 h-10 border-2 border-[var(--neo-border)] bg-white hover:bg-[var(--neo-text)] hover:text-primary transition-all shadow-neo-sm hover:shadow-none"
                                             >
-                                                <ArrowUpRight className="w-5 h-5" />
+                                                <ArrowUpRight weight="bold" className="w-5 h-5" />
                                             </a>
                                         )}
                                     </div>

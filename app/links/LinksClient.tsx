@@ -43,10 +43,10 @@ export default function LinksClient() {
                                     {/* Main card - pushes DOWN on hover (neo-brutal style) */}
                                     <div className="relative bg-card text-card-foreground border-2 border-border p-6 flex items-center justify-between transition-all duration-150 group-hover:translate-x-[2px] group-hover:translate-y-[2px] group-active:translate-x-[4px] group-active:translate-y-[4px] group-hover:bg-primary group-hover:text-black">
                                         <div className="flex items-center gap-4">
-                                            {link.icon && React.createElement(link.icon as React.ComponentType<{ size: number }>, { size: 32 })}
+                                            {link.icon && React.createElement(link.icon as React.ComponentType<{ size: number, weight: string }>, { size: 32, weight: "bold" })}
                                             <span className="text-2xl md:text-3xl font-bold uppercase">{link.name}</span>
                                         </div>
-                                        <ArrowUpRight size={32} className="group-hover:rotate-45 transition-transform duration-300" />
+                                        <ArrowUpRight weight="bold" size={32} className="group-hover:rotate-45 transition-transform duration-300" />
                                     </div>
                                 </a>
                             </NeoTooltip>

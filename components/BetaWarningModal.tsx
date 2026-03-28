@@ -47,7 +47,7 @@ export default function BetaWarningModal({ onClose, onStart }: BetaWarningModalP
                 {/* Header */}
                 <div className="flex flex-col gap-4">
                     <div className="flex items-center gap-3 text-primary">
-                        <AlertTriangle size={48} strokeWidth={2.5} />
+                        <AlertTriangle weight="bold" size={48} strokeWidth={2.5} />
                         <h2 className="text-4xl font-black uppercase tracking-tighter text-foreground">
                             Attention
                         </h2>
@@ -70,7 +70,7 @@ export default function BetaWarningModal({ onClose, onStart }: BetaWarningModalP
                             ${isBlinkingStart ? 'animate-blink' : ''}
                         `}
                     >
-                        <Mic size={20} />
+                        <Mic weight="bold" size={20} />
                         Start Voice Chat
                     </button>
 
@@ -82,7 +82,7 @@ export default function BetaWarningModal({ onClose, onStart }: BetaWarningModalP
                             ${isBlinkingLinks ? 'animate-blink' : ''}
                         `}
                     >
-                        <LinkIcon size={20} />
+                        <LinkIcon weight="bold" size={20} />
                         Visit Links Page
                     </button>
                 </div>

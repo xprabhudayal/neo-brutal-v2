@@ -615,7 +615,7 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
               className="p-2 border-2 border-transparent hover:border-neo-border hover:bg-white transition-all duration-200 group"
               aria-label="Close chat"
             >
-              <XIcon className="w-6 h-6 text-neo-text group-hover:scale-110 transition-transform" />
+              <XIcon weight="bold" className="w-6 h-6 text-neo-text group-hover:scale-110 transition-transform" />
             </button>
           </div>
         </div>

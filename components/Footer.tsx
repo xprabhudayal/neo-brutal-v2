@@ -41,7 +41,7 @@ export default function Footer() {
                                 className="flex items-center justify-between text-2xl font-bold uppercase border-b border-muted dark:border-black/20 py-2 hover:text-primary dark:hover:text-white hover:border-primary dark:hover:border-white transition-colors group text-background dark:text-black"
                             >
                                 {link.name}
-                                <ArrowUpRight className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+                                <ArrowUpRight weight="bold" className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         ))}
                     </div>

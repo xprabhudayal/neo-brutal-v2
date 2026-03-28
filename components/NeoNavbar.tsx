@@ -24,7 +24,7 @@ export default function NeoNavbar({ onOpenAI }: NeoNavbarProps) {
                             className="lg:hidden w-12 h-12 border-3 border-neo-border bg-white flex items-center justify-center shadow-neo-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none hover:bg-secondary transition-all"
                             aria-label="Toggle menu"
                         >
-                            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                            {isMenuOpen ? <X weight="bold" className="w-6 h-6" /> : <Menu weight="bold" className="w-6 h-6" />}
                         </button>
 
                         {/* Logo Section - Hidden on smaller screens if needed, or keep visible. Keeping visible on tablet seems fine but user said 'collapse to mobile navbar' which usually implies hamburger. Let's keep logo visible but change main nav breakpoint. */}
@@ -76,7 +76,7 @@ export default function NeoNavbar({ onOpenAI }: NeoNavbarProps) {
                             onClick={onOpenAI}
                             className="hidden lg:flex items-center justify-center h-10 px-6 bg-primary text-black font-bold text-sm uppercase tracking-wide btn-neo gap-2"
                         >
-                            <Mic className="w-5 h-5" />
+                            <Mic weight="bold" className="w-5 h-5" />
                             Talk to my AI Agent
                         </button>
                         {/* Mic Icon - Mobile/Tablet only, rightmost */}
@@ -85,7 +85,7 @@ export default function NeoNavbar({ onOpenAI }: NeoNavbarProps) {
                             className="lg:hidden w-12 h-12 border-3 border-neo-border bg-primary flex items-center justify-center shadow-neo-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
                             aria-label="Talk to AI Agent"
                         >
-                            <Mic className="w-6 h-6" />
+                            <Mic weight="bold" className="w-6 h-6" />
                         </button>
                     </div>
                 </div>
