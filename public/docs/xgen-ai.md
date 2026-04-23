@@ -14,7 +14,7 @@ related_publications: false
 <p>  
 </p>
 <div align='center'>
-<a href="https://colab.research.google.com/github/xprabhudayal/xgen-ai/blob/main/public_llama3_1_rag_bot.ipynb" target="_blank">
+<a href="https://colab.research.google.com/github/aipdv/xgen-ai/blob/main/public_llama3_1_rag_bot.ipynb" target="_blank">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/>
 </a>
 <img alt="Static Badge" src="https://img.shields.io/badge/made%20with%20python-purple">
@@ -54,7 +54,7 @@ The XGen-AI Bot uses Telegram API to leverage the capabilities of Meta LLAMA 3.1
 
 ## Configuration 🚀
 The bot uses some API KEYS which are listed in detail in the COLAB notebook.
-<a href="https://colab.research.google.com/github/xprabhudayal/xgen-ai/blob/main/public_llama3_1_rag_bot.ipynb" target="_blank">
+<a href="https://colab.research.google.com/github/aipdv/xgen-ai/blob/main/public_llama3_1_rag_bot.ipynb" target="_blank">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/>
 </a>
 

@@ -9,7 +9,7 @@ related_publications: false
 ---
 
 # xFace Telegram Bot 🤖 
-<a href="https://colab.research.google.com/github/xprabhudayal/xface/blob/main/XFACE_bot.ipynb" target="_blank">
+<a href="https://colab.research.google.com/github/aipdv/xface/blob/main/XFACE_bot.ipynb" target="_blank">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"/>
 </a>
 
@@ -50,5 +50,5 @@ I can detect face expressions based on the mood 😎. Have a try!
 
 ## Made with 💖 in Python
 
-- By [Prabhudayal Vaishnav](https://www.github.com/xprabhudayal)
-- [Repository Link](https://www.github.com/xprabhudayal/xface)
+- By [Prabhudayal Vaishnav](https://www.github.com/aipdv)
+- [Repository Link](https://www.github.com/aipdv/xface)

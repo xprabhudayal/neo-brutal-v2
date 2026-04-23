@@ -32,7 +32,7 @@ The XS module leverages **Flask**, **Pyngrok**, and **Waitress** to create a sim
 Install the XS module using the following command:  
 
 ```bash
-pip install 'git+https://github.com/xprabhudayal/xs.git'
+pip install 'git+https://github.com/aipdv/xs.git'
 ```
 ## 📋 Tutorials and Usage
 
@@ -41,7 +41,7 @@ pip install 'git+https://github.com/xprabhudayal/xs.git'
 <table>
   <tr>
     <td align="center">
-      <a href="https://www.linkedin.com/posts/xprabhudayal_interactive-tutorial-on-how-to-use-the-xs-activity-7223727702548090881-ik7s?utm_source=share&utm_medium=member_desktop">
+      <a href="https://www.linkedin.com/posts/aipdv_interactive-tutorial-on-how-to-use-the-xs-activity-7223727702548090881-ik7s?utm_source=share&utm_medium=member_desktop">
         <img src="https://i.ibb.co/fn1tzsf/xs-intro.png" alt="LinkedIn Tutorial" width="350"/>
       </a>
       <p>Introduction</p>

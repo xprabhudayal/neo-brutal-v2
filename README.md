@@ -65,7 +65,7 @@ A modern, AI-integrated portfolio website built with Next.js 15, TypeScript, and
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/xprabhudayal/next-portfolio-app.git
+git clone https://github.com/aipdv/next-portfolio-app.git
 cd next-portfolio-app
 ```
 
@@ -159,9 +159,9 @@ MIT
 
 ## Contact
 
-- **GitHub**: [xprabhudayal](https://github.com/xprabhudayal)
-- **LinkedIn**: [xprabhudayal](https://www.linkedin.com/in/xprabhudayal)
-- **Email**: hi@xpdv.tech
+- **GitHub**: [aipdv](https://github.com/aipdv)
+- **LinkedIn**: [aipdv](https://www.linkedin.com/in/aipdv)
+- **Email**: hi@aipdv.com
 
 ---
 

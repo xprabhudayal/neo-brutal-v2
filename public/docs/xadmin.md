@@ -67,7 +67,7 @@ Unlike 🔒 **SSH**, 💻 **Remote Desktop Connection**, or 📞 **Telnet**, thi
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/xprabhudayal/xadmin.git
+   git clone https://github.com/aipdv/xadmin.git
    cd xadmin
    ```
 2. **Install Dependencies:** 
@@ -83,8 +83,8 @@ Open **main.py** and replace **TOKEN** with your Telegram bot token.
 
 
 ### Made with 💖 by Prabhudayal Vaishnav 
-- [Repository Link](https://github.com/xprabhudayal/xadmin) 
-- [LinkedIn](https://www.linkedin.com/in/xprabhudayal/)
+- [Repository Link](https://github.com/aipdv/xadmin) 
+- [LinkedIn](https://www.linkedin.com/in/aipdv/)
 
 ## License
 This project is licensed under the MIT License.

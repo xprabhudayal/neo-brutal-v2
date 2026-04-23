@@ -4,15 +4,15 @@ import { GithubLogo as Github, LinkedinLogo as Linkedin, Code as Code2, Instagra
 export const RESUME_DATA: ResumeData = {
   name: "Prabhudayal Vaishnav",
   contact: {
-    email: "hi@xpdv.tech",
-    portfolio: "https://github.com/xprabhudayal/next-portfolio-app/",
+    email: "hi@aipdv.com",
+    portfolio: "https://github.com/aipdv/next-portfolio-app/",
     links: [
-      { name: "GitHub", url: "https://github.com/xprabhudayal", icon: Github },
-      { name: "LinkedIn", url: "https://www.linkedin.com/in/xprabhudayal", icon: Linkedin },
+      { name: "GitHub", url: "https://github.com/aipdv", icon: Github },
+      { name: "LinkedIn", url: "https://www.linkedin.com/in/aipdv", icon: Linkedin },
       { name: "Twitter", url: "https://x.com/globalxprada", icon: Twitter },
       { name: "LeetCode", url: "https://leetcode.com/u/global-prada", icon: Code2 },
-      { name: "Instagram", url: "https://www.instagram.com/ai.pdv/", icon: Instagram },
-      { name: "Email", url: "mailto:hi@xpdv.tech", icon: Mail },
+      { name: "Instagram", url: "https://www.instagram.com/aipdvcom", icon: Instagram },
+      { name: "Email", url: "mailto:hi@aipdv.com", icon: Mail },
       { name: "Cal.com", url: "https://cal.com/ai.pdv", icon: Calendar },
     ],
   },
@@ -47,7 +47,7 @@ export const RESUME_DATA: ResumeData = {
         "This implements a multi-strategy RAG system that achieves 88% query accuracy. This outperformed naive RAG by 4.8% through semantic search and Chain-of-Thought reasoning.",
         "This uses LangGraph-based agent workflows with specialized nodes to reduce errors by 15%."
       ],
-      url: "https://github.com/xprabhudayal/grand-plaza-monorepo",
+      url: "https://github.com/aipdv/grand-plaza-monorepo",
       image: "/images/projects/grand-plaza.webp"
     },
     {
@@ -59,7 +59,7 @@ export const RESUME_DATA: ResumeData = {
         "This application integrates logical scoring to match user skills with confidence percentages.",
         "The user interface is built as a responsive Supabase-authenticated frontend with React hooks, which reduces voice interaction latency by 40%."
       ],
-      url: "https://github.com/xprabhudayal/career-scout",
+      url: "https://github.com/aipdv/career-scout",
       image: "/images/projects/career-scout.webp"
     },
     {
@@ -70,7 +70,7 @@ export const RESUME_DATA: ResumeData = {
         "This system provides a voice-enabled WhatsApp bot that handles natural conversations.",
         "This integrates modern LLMs to generate appropriate responses."
       ],
-      url: "https://github.com/xprabhudayal/whatsapp-agent",
+      url: "https://github.com/aipdv/whatsapp-agent",
       image: "/images/projects/whatsapp-agent.webp"
     },
     {
@@ -81,7 +81,7 @@ export const RESUME_DATA: ResumeData = {
         "The data is processed via an AI pipeline for automated insights generation.",
         "This provides interactive visualizations based on the structured data."
       ],
-      url: "https://github.com/xprabhudayal/mira",
+      url: "https://github.com/aipdv/mira",
       image: "/images/projects/mira.webp"
     },
     {
@@ -92,7 +92,7 @@ export const RESUME_DATA: ResumeData = {
         "This tool follows an incremental, iterative approach to generating ideas.",
         "The system is structured specifically for brainstorming use cases."
       ],
-      url: "https://github.com/xprabhudayal/idea-forge",
+      url: "https://github.com/aipdv/idea-forge",
       image: "/images/projects/idea-forge.webp"
     },
     {
@@ -104,7 +104,7 @@ export const RESUME_DATA: ResumeData = {
         "This adapted the main project to run on T4 GPUs, reducing the need for high-end hardware.",
         "This work also included co-authoring the paper 'Exploring Style Transfer with Small Character-Level Transformers' using the Qwen2.5(72B) model."
       ],
-      url: "https://github.com/xprabhudayal/AI-Scientist",
+      url: "https://github.com/aipdv/AI-Scientist",
       image: "/images/projects/sakana-ai.webp"
     },
     {
@@ -115,7 +115,7 @@ export const RESUME_DATA: ResumeData = {
         "This pip package creates accessible endpoints for over 99% of Hugging Face-hosted large language models.",
         "This leverages Ngrok tunnels to pass requests from localhost directly to the cloud securely."
       ],
-      url: "https://github.com/xprabhudayal/xs",
+      url: "https://github.com/aipdv/xs",
       image: "/images/projects/xs-module.webp"
     },
     {
@@ -126,7 +126,7 @@ export const RESUME_DATA: ResumeData = {
         "This integrates Meta LLAMA 3.1 to provide document-based Q&A via Telegram.",
         "This pipeline handles the processing of PDF documents."
       ],
-      url: "https://github.com/xprabhudayal/xgen-ai",
+      url: "https://github.com/aipdv/xgen-ai",
       image: "/images/projects/xgen-ai.webp"
     },
     {
@@ -137,7 +137,7 @@ export const RESUME_DATA: ResumeData = {
         "This script enables remote shell access through Telegram without requiring SSH or RDP.",
         "The implementation includes screenshot capture, file sharing, and IP extraction commands."
       ],
-      url: "https://github.com/xprabhudayal/xadmin",
+      url: "https://github.com/aipdv/xadmin",
       image: "/images/projects/xadmin.webp"
     },
     {
@@ -148,7 +148,7 @@ export const RESUME_DATA: ResumeData = {
         "This Python script implements real-time face emotion detection using deep learning models.",
         "This bot supports both direct document uploads and URL-based image parsing."
       ],
-      url: "https://github.com/xprabhudayal/xface",
+      url: "https://github.com/aipdv/xface",
       image: "/images/projects/xface.webp"
     },
     {
@@ -159,7 +159,7 @@ export const RESUME_DATA: ResumeData = {
         "This project is built using pure HTML, CSS, and minimal JavaScript to ensure fast loading times.",
         "The UI includes an acrylic navigation bar styled similarly to Apple's website elements."
       ],
-      url: "https://github.com/xprabhudayal/MetroCart",
+      url: "https://github.com/aipdv/MetroCart",
       image: "/images/projects/metrocart.webp"
     },
   ],

@@ -33,8 +33,8 @@ Made with Pure HTML, CSS and minimal JavaScript.
 ---
 ## Made with 💖 by Prabhudayal Vaishnav 
 
-- [Repository Link](https://github.com/xprabhudayal/MetroCart) 
+- [Repository Link](https://github.com/aipdv/MetroCart) 
 
-- [LinkedIn](https://www.linkedin.com/in/xprabhudayal/)
+- [LinkedIn](https://www.linkedin.com/in/aipdv/)
 
 
