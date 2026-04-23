@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowDown, FolderOpen, Envelope as Mail, Code as Code2, Terminal, GitBranch, Lightning as Zap, Calendar, ArrowUpRight, ArrowRight } from '@phosphor-icons/react';
+import { ArrowDown, FolderOpen, Envelope as Mail, Code as Code2, Terminal, GitBranch, Lightning as Zap, Calendar, ArrowUpRight, ArrowRight, SuitcaseSimpleIcon } from '@phosphor-icons/react';
 import LogoSpotlightCarousel from '@/components/LogoSpotlightCarousel';
 import ISTClock from '@/components/ISTClock';
 import { motion } from 'framer-motion';
@@ -309,8 +309,8 @@ export default function HomePage() {
               </div>
 
               <div className="relative z-10 hidden sm:flex items-center justify-between pt-6 border-t border-gray-700">
-                <span className="font-mono text-sm font-bold tracking-wider text-gray-400 group-hover:text-primary transition-colors">Read More</span>
-                <span className="w-10 h-10 border-2 border-primary flex items-center justify-center bg-primary text-neo-text group-hover:bg-transparent group-hover:text-primary transition-colors">
+                <span className="font-mono text-sm tracking-wider text-gray-400 group-hover:text-primary transition-colors">Read More</span>
+                <span className="w-10 h-10 border-2 border-primary flex items-center justify-center bg-primary text-neo-text">
                   <ArrowRight weight="bold" className="w-6 h-6" />
                 </span>
               </div>
@@ -335,7 +335,7 @@ export default function HomePage() {
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-4">
                   <span className="bg-neo-text text-primary px-2 py-1 font-mono text-xs font-bold">02</span>
-                  <FolderOpen weight="bold" className="w-10 h-10 text-neo-text/40 group-hover:text-neo-text group-hover:scale-110 transition-all duration-300" />
+                  <FolderOpen weight="bold" className="w-10 h-10 text-neo-text/40" />
                 </div>
                 <h3 className="text-xl sm:text-3xl font-black uppercase tracking-tighter leading-[0.9]">
                   Selected<br />Works
@@ -368,16 +368,14 @@ export default function HomePage() {
 
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-3">
-                  <span className="terminal-invert-sm font-mono">OPEN</span>
-                  <Calendar weight="bold" className="w-8 h-8 text-gray-400 group-hover:text-neo-text group-hover:rotate-6 transition-all duration-300" />
+                  <span className="terminal-invert-sm font-mono">FREE</span>
+                  <Calendar weight="bold" className="w-8 h-8 text-gray-400" />
                 </div>
                 <h3 className="text-xl sm:text-3xl font-black uppercase tracking-tighter leading-[0.95]">
                   Schedule<br />Consultation
                 </h3>
               </div>
               <div className="relative z-10 font-mono text-xs text-gray-600 flex items-center gap-2">
-                <span>15 min</span>
-                <span className="text-primary font-bold flex items-center gap-1">FREE <ArrowUpRight weight="bold" className="w-5 h-5" /></span>
               </div>
             </motion.div>
           </a>
@@ -400,10 +398,10 @@ export default function HomePage() {
               <div className="relative z-10">
                 <div className="flex justify-between items-start mb-4">
                   <span className="terminal-invert font-mono text-xs">03</span>
-                  <Terminal weight="bold" className="w-10 h-10 text-gray-300 group-hover:text-neo-text group-hover:scale-110 transition-all duration-300" />
+                  <Terminal weight="bold" className="w-10 h-10 text-gray-300" />
                 </div>
                 <h3 className="text-xl sm:text-3xl font-black uppercase tracking-tighter leading-[0.9]">
-                  Resume<span className="text-primary">.</span>
+                  Resume<span className="text-primary"></span>
                 </h3>
               </div>
               <p className="relative z-10 font-mono text-sm text-gray-500">
@@ -421,14 +419,11 @@ export default function HomePage() {
               transition={{ delay: 0.4, duration: 0.4 }}
               className="border-4 border-neo-border bg-neo-text p-4 sm:p-5 shadow-[5px_5px_0px_0px_#39FF14] min-h-[180px] sm:min-h-[200px] h-full flex flex-col justify-between relative overflow-hidden"
             >
-              {/* CRT scanline effect */}
-              <div className="absolute inset-0 pointer-events-none opacity-30" style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(57, 255, 20, 0.05) 2px, rgba(57, 255, 20, 0.05) 4px)' }}></div>
-              {/* Vignette */}
-              <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 100%)' }}></div>
+              
 
               {/* Header */}
               <div className="relative z-10">
-                <p className="font-mono text-[10px] text-gray-200 uppercase tracking-widest mb-1">IST • GMT+5:30 • 24H</p>
+                <p className="font-mono text-[10px] text-gray-200 uppercase tracking-widest mb-1">INDIAN STANDARD TIME • GMT+5:30 • 24H</p>
               </div>
 
               {/* Clock */}
@@ -445,17 +440,14 @@ export default function HomePage() {
           >
             <div className="border-4 border-neo-border bg-white px-4 sm:px-8 py-4 sm:py-6 shadow-neo flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-none group-hover:bg-primary">
               <div className="flex items-center gap-3 sm:gap-6">
-                <ArrowRight weight="bold" className="w-10 h-10 sm:w-16 sm:h-16" />
+                <SuitcaseSimpleIcon className="w-10 h-10 sm:w-16 sm:h-16" />
                 <div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tighter">Initiate Contact</h3>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tighter">Let's Work Together</h3>
                   <p className="font-mono text-sm text-gray-500 group-hover:text-neo-text/70 transition-colors">Available for discussion regarding architecture and integration.</p>
                 </div>
               </div>
               <div className="hidden md:flex items-center gap-4">
-                <Mail weight="bold" className="w-8 h-8 text-gray-400 group-hover:text-neo-text transition-colors" />
-                <div className="w-14 h-14 border-3 border-neo-border flex items-center justify-center bg-neo-text text-primary group-hover:bg-primary group-hover:text-neo-text transition-colors">
-                  <ArrowUpRight weight="bold" className="w-8 h-8" />
-                </div>
+                  <ArrowRight weight="bold" className="w-8 h-8" />
               </div>
             </div>
           </Link>
