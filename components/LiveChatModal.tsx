@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 // SYSTEM_INSTRUCTION import removed as it is now hardcoded in geminiService
 import { X as XIcon, Microphone as MicIcon, SpeakerHigh as Volume2Icon } from '@phosphor-icons/react';
 import { AsyncQueue } from '../utils/AsyncQueue';
@@ -73,6 +74,7 @@ type Transcription = {
 };
 
 export default function LiveChatModal({ onClose }: { onClose: () => void }) {
+  const router = useRouter();
   const [status, setStatus] = useState('Initializing...');
   const [transcriptions, setTranscriptions] = useState<Transcription[]>([]);
 
@@ -452,7 +454,7 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
               const pcmBlob = createBlob(inputData);
               if (sessionRef.current && mounted) {
                 try {
-                  sessionRef.current.sendRealtimeInput({ media: pcmBlob });
+                  sessionRef.current.sendRealtimeInput({ audio: pcmBlob });
                 } catch (e) {
                   // Ignore
                 }
@@ -484,6 +486,33 @@ export default function LiveChatModal({ onClose }: { onClose: () => void }) {
               }
               
               return; 
+            }
+
+            // Handle tool calls
+            if (message.toolCall) {
+              const { functionCalls } = message.toolCall;
+              if (functionCalls && functionCalls.length > 0) {
+                const functionResponses = [];
+                for (const call of functionCalls) {
+                  if (call.name === "navigate_to") {
+                    const pageRoute = call.args.page === 'home' ? '' : call.args.page;
+                    router.push(`/${pageRoute}`);
+                    functionResponses.push({
+                      id: call.id,
+                      name: call.name,
+                      response: { success: true }
+                    });
+                  }
+                }
+                
+                if (functionResponses.length > 0 && sessionRef.current) {
+                  try {
+                    sessionRef.current.sendToolResponse({ functionResponses });
+                  } catch (e) {
+                    console.error('❌ Failed to send tool response:', e);
+                  }
+                }
+              }
             }
 
             // Add message to queue

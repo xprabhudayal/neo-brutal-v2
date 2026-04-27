@@ -2,10 +2,11 @@
 
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
+import { usePathname } from 'next/navigation';
 import NeoNavbar from './NeoNavbar';
 import NeoFooter from './NeoFooter';
 
-const LiveChatModal = dynamic(() => import('./LiveChatModal'), { ssr: false });
+const VoiceOrb = dynamic(() => import('./VoiceOrb'), { ssr: false });
 const BetaWarningModal = dynamic(() => import('./BetaWarningModal'), { ssr: false });
 // import { ProgressiveBlur } from './ui/progressive-blur'; // Might clash with design, commenting out for now or removing.
 
@@ -16,6 +17,7 @@ export default function ClientLayout({
 }) {
   const [showModal, setShowModal] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
+  const pathname = usePathname();
 
   const handleOpenAI = () => {
     setShowWarning(true);
@@ -24,8 +26,10 @@ export default function ClientLayout({
   return (
     <>
       <NeoNavbar onOpenAI={handleOpenAI} />
-      <main id="main-content" className="w-full min-h-screen bg-neo-bg">
-        {children}
+      <main id="main-content" className="w-full min-h-screen bg-neo-bg overflow-x-hidden">
+        <div key={pathname} className="route-fade">
+          {children}
+        </div>
       </main>
       <NeoFooter />
 
@@ -39,7 +43,10 @@ export default function ClientLayout({
         />
       )}
 
-      {showModal && <LiveChatModal onClose={() => setShowModal(false)} />}
+      <VoiceOrb 
+        isActiveProp={showModal} 
+        onClose={() => setShowModal(false)} 
+      />
     </>
   );
 }

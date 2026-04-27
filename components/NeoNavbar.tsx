@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { List as Menu, X, Microphone as Mic } from '@phosphor-icons/react';
 
 interface NeoNavbarProps {
-    onOpenAI: () => void;
+    onOpenAI?: () => void;
 }
 
 export default function NeoNavbar({ onOpenAI }: NeoNavbarProps) {
