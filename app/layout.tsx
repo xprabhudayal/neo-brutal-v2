@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Space_Grotesk, Space_Mono } from 'next/font/google';
 import ClientLayout from '../components/ClientLayout';
 import { RESUME_DATA } from '@/components/constants';
+import { Analytics } from "@vercel/analytics/next";
 
 // Font for headings
 const spaceGrotesk = Space_Grotesk({
@@ -107,6 +108,7 @@ export default function RootLayout({
                     Skip to main content
                 </a>
                 <ClientLayout>{children}</ClientLayout>
+                <Analytics />
             </body>
         </html>
     );

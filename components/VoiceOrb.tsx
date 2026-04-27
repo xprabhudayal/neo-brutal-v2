@@ -90,7 +90,7 @@ export default function VoiceOrb({ isActiveProp = false, onRequestOpen, onNaviga
   const isInitializingRef = useRef<boolean>(false);
   
   // Interaction Refs
-  const orbRef = useRef<HTMLButtonElement>(null);
+  const orbRef = useRef<HTMLDivElement>(null);
   const startYRef = useRef<number>(0);
   const currentYRef = useRef<number>(0);
   const silenceTimerRef = useRef<NodeJS.Timeout | null>(null);
