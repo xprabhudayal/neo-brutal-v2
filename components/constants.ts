@@ -19,6 +19,17 @@ export const RESUME_DATA: ResumeData = {
   summary: "This profile covers the information about my work as an AI Engineer and full-stack developer. My work involves building AI systems, maintaining open-source repository contributions, and implementing software architectures using tools like LangGraph, PyTorch, and Next.js.",
   workExperience: [
     {
+      title: "AI Engineer",
+      company: "Nutun",
+      place: "South Africa (Remote)",
+      date: "Feb 2026 - Present",
+      description: "Building the Voice AI layer for smart debt collections.",
+      points: [
+        "Building the Voice AI layer for smart debt collections.",
+        "Reduced voicemail detection time by 11%, cost per call down 22%."
+      ]
+    },
+    {
       title: "Research Internship",
       company: "ESIEA",
       place: "Paris, France (Remote)",
@@ -35,7 +46,7 @@ export const RESUME_DATA: ResumeData = {
       degree: "Bachelors of Technology (Hons.) CSE Data Science",
       institution: "Chhattisgarh Swami Vivekanand Technical University, Bhilai",
       date: "2022-Present",
-      details: "7th Semester - CGPA: 8.6/10"
+      details: "8th Semester - CGPA: 8.6/10"
     }
   ],
   projects: [

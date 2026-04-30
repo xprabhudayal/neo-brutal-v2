@@ -34,75 +34,10 @@ export default function ResumePage() {
 
   return (
     <div className="flex-1 w-full bg-grid">
-      <div className="max-w-7xl mx-auto w-full px-4 md:px-6 py-8 md:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+      <div className="max-w-5xl mx-auto w-full px-4 md:px-6 py-8 md:py-12">
+        <main className="w-full flex flex-col gap-12">
 
-          {/* Sidebar */}
-          <aside className="hidden lg:block lg:col-span-3 sticky top-28">
-            <motion.div 
-              initial="hidden"
-              animate="visible"
-              variants={containerVariants}
-              viewport={{ once: true, amount: 0.5 }}
-              className="flex flex-col gap-6"
-            >
-              <motion.div variants={itemVariants} className="border-3 border-neo-border bg-white p-6 shadow-neo">
-                <div className="w-full aspect-square border-3 border-neo-border mb-4 overflow-hidden relative bg-secondary">
-                  <img
-                    src="/profile-photo.webp"
-                    alt={RESUME_DATA.name}
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
-                  />
-                </div>
-                <h1 className="font-bold text-xl uppercase leading-none mb-1">{RESUME_DATA.name}</h1>
-                <p className="font-mono text-xs text-gray-600 mb-4">AI Engineer & Full Stack Dev</p>
-
-                <div className="flex gap-2 justify-center flex-wrap">
-                  {contact.links.map((link) => {
-                    const Icon = link.icon || ArrowUpRight;
-                    return (
-                        <a
-                          key={link.name}
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-10 h-10 flex items-center justify-center bg-white hover:bg-primary hover:text-black btn-neo transition-all"
-                        >
-                          <Icon weight="bold" className="w-5 h-5" />
-                        </a>
-                    );
-                  })}
-                </div>
-              </motion.div>
-
-              <motion.nav variants={itemVariants} className="border-3 border-neo-border bg-white p-0 shadow-neo flex flex-col">
-                <div className="bg-[var(--neo-text)] text-white p-3 border-b-3 border-neo-border">
-                  <h3 className="font-mono text-xs uppercase tracking-widest">Resume.exe</h3>
-                </div>
-                <a className="px-4 py-3 border-b-2 border-gray-100 hover:bg-primary font-mono text-sm font-bold flex items-center gap-2 transition-colors" href="#skills">
-                  <Code2 weight="bold" className="w-5 h-5" />
-                  <span>_SKILLS</span>
-                </a>
-                <a className="px-4 py-3 border-b-2 border-gray-100 hover:bg-primary font-mono text-sm font-bold flex items-center gap-2 transition-colors" href="#experience">
-                  <Briefcase weight="bold" className="w-5 h-5" />
-                  <span>_EXPERIENCE</span>
-                </a>
-                <a className="px-4 py-3 border-b-2 border-gray-100 hover:bg-primary font-mono text-sm font-bold flex items-center gap-2 transition-colors" href="#education">
-                  <School weight="bold" className="w-5 h-5" />
-                  <span>_EDUCATION</span>
-                </a>
-                <a className="px-4 py-3 hover:bg-primary font-mono text-sm font-bold flex items-center gap-2 transition-colors" href="#awards">
-                  <Trophy weight="bold" className="w-5 h-5" />
-                  <span>_AWARDS</span>
-                </a>
-              </motion.nav>
-            </motion.div>
-          </aside>
-
-          {/* Main Content */}
-          <main className="lg:col-span-9 flex flex-col gap-12">
-
-            {/* Intro Section */}
+          {/* Intro Section */}
             <motion.section 
               initial="hidden"
               whileInView="visible"
@@ -162,7 +97,7 @@ export default function ResumePage() {
                   </div>
                   <div className="p-6 flex flex-wrap gap-2">
                     {coreSkills.map((skill) => (
-                      <span key={skill} className="px-3 py-1 border-2 border-[var(--neo-border)] bg-white hover:bg-[var(--neo-text)] hover:text-white font-bold text-sm transition-colors cursor-default">
+                      <span key={skill} className="px-3 py-1 border-2 border-[var(--neo-border)] bg-white hover:bg-primary font-bold text-sm transition-colors cursor-default">
                         {skill}
                       </span>
                     ))}
@@ -296,7 +231,7 @@ export default function ResumePage() {
               <div className="flex flex-col gap-6">
                 {achievements.map((award, index) => (
                   <motion.div variants={itemVariants} key={award.title} className="neo-brutal-box p-0 flex flex-col sm:flex-row items-stretch group">
-                    <div className={`bg-primary border-b-3 sm:border-b-0 sm:border-r-3 border-neo-border p-6 flex items-center justify-center min-w-[120px] group-hover:bg-[var(--neo-text)] group-hover:text-white transition-colors`}>
+                    <div className="bg-secondary border-b-3 sm:border-b-0 sm:border-r-3 border-neo-border p-6 flex items-center justify-center min-w-[120px] group-hover:bg-primary transition-colors">
                       <span className="font-mono font-black text-xl text-center">{award.date}</span>
                     </div>
                     <div className="p-6 flex-1 flex flex-col justify-center bg-white relative overflow-hidden">
@@ -317,7 +252,6 @@ export default function ResumePage() {
             </motion.section>
 
           </main>
-        </div>
       </div>
     </div>
   );
