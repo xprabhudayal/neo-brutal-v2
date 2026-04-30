@@ -162,7 +162,7 @@ export default function ResumePage() {
                   </div>
                   <div className="p-6 flex flex-wrap gap-2">
                     {coreSkills.map((skill) => (
-                      <span key={skill} className="px-3 py-1 border-2 border-[var(--neo-border)] bg-white hover:bg-[var(--neo-text)] hover:text-white font-bold text-sm transition-colors cursor-default">
+                      <span key={skill} className="px-3 py-1 border-2 border-[var(--neo-border)] bg-white hover:bg-primary font-bold text-sm transition-colors cursor-default">
                         {skill}
                       </span>
                     ))}
